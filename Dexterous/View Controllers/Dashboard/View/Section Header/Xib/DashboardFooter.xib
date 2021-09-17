@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="DashboardFooterHeader" customModule="Dexterous" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="49d-Wn-JKm">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 6" translatesAutoresizingMaskIntoConstraints="NO" id="5Ku-Cl-5hC">
+                            <rect key="frame" x="24" y="16" width="153" height="38"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYK-iJ-zqq">
+                            <rect key="frame" x="322" y="22" width="68" height="26"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="12"/>
+                            <state key="normal" title="See All Work">
+                                <color key="titleColor" name="App Background Theam"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="ZYK-iJ-zqq" firstAttribute="centerY" secondItem="5Ku-Cl-5hC" secondAttribute="centerY" id="0OU-IY-qXI"/>
+                        <constraint firstAttribute="bottom" secondItem="5Ku-Cl-5hC" secondAttribute="bottom" constant="16" id="Jt0-Bb-Oai"/>
+                        <constraint firstAttribute="trailing" secondItem="ZYK-iJ-zqq" secondAttribute="trailing" constant="24" id="k4K-FQ-hEi"/>
+                        <constraint firstItem="5Ku-Cl-5hC" firstAttribute="leading" secondItem="49d-Wn-JKm" secondAttribute="leading" constant="24" id="kj8-ab-Rk5"/>
+                        <constraint firstItem="5Ku-Cl-5hC" firstAttribute="top" secondItem="49d-Wn-JKm" secondAttribute="top" constant="16" id="qvt-Q9-Mht"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="49d-Wn-JKm" secondAttribute="trailing" id="Got-7c-c1t"/>
+                <constraint firstItem="49d-Wn-JKm" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="a86-B4-aUX"/>
+                <constraint firstItem="49d-Wn-JKm" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="fzc-o1-iRL"/>
+                <constraint firstAttribute="bottom" secondItem="49d-Wn-JKm" secondAttribute="bottom" id="scH-0b-W8z"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="SeeAllWorkBtn" destination="ZYK-iJ-zqq" id="MTV-Vz-UAW"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="-187.16517857142856"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="Image 6" width="153" height="48"/>
+        <namedColor name="App Background Theam">
+            <color red="0.40000000596046448" green="0.79600000381469727" blue="0.94099998474121094" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

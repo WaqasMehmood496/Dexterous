@@ -14,12 +14,13 @@ class UITextView_Additions: UITextView {
       super.init(coder: aDecoder)
       textContainerInset = UIEdgeInsets(top: 8, left: 10, bottom: 0, right: 10)
     }
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
+}
 
+extension UITextView {
+    func isValid() -> Bool {
+        if self.text?.isEmpty == true {
+            return false
+        }
+        return true
+    }
 }

@@ -195,6 +195,13 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
             }
         }
     }
+    
+    func setPaddingOnFields(fields:[UITextField]) {
+        for field in fields {
+            field.setLeftPaddingPoints(8)
+            field.setRightPaddingPoints(8)
+        }
+    }
 }
 enum hudText:String{
     case load = "Loading..."

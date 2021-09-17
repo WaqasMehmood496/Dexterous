@@ -24,14 +24,6 @@ class UITexfield_Additions: UITextField {
     override open func editingRect(forBounds bounds: CGRect) -> CGRect {
         return bounds.inset(by: padding)
     }
-    
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
 extension UITextField{
@@ -62,17 +54,8 @@ extension UITextField{
         self.rightView = paddingView
         self.rightViewMode = .always
     }
+}
 
-}
-extension UITextView {
-    func isValid() -> Bool {
-        if self.text?.isEmpty == true {
-            return false
-        }
-        return true
-    }
-    
-}
 
 extension UILabel {
     func setMargins(margin: CGFloat = 1.0) {
