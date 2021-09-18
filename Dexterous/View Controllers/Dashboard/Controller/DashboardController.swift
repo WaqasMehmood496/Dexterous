@@ -15,10 +15,6 @@ class DashboardController: UIViewController {
     
     //CONSTANTS
     
-    var attrs = [
-        NSAttributedString.Key.underlineStyle : 1
-    ]
-    
     let myTasks = [
         MyTaskModel(taskName: "Write Blog", assignBy: "Jon", due: "8/10"),
         MyTaskModel(taskName: "Write Blog", assignBy: "Jon", due: "8/10"),
@@ -39,9 +35,13 @@ class DashboardController: UIViewController {
         MediaTypeModel(typeImage: "Web", titleOne: "Avg. Visit Duration:", titleOneValue: "590", titleTwo: "Bounce Rate:", titleTwoValue: "0.656564", titleThree: "Page Per Visit:", titleThreeValue: "4.32", titleFour: "Total Visit:", titleFourValue: "256030000", titleFive: "Monthly Visit Estimate:", titleFiveValue: "229800000", titleSix: "", titleSixValue: ""),
         MediaTypeModel(typeImage: "Web", titleOne: "Avg. Visit Duration:", titleOneValue: "590", titleTwo: "Bounce Rate:", titleTwoValue: "0.656564", titleThree: "Page Per Visit:", titleThreeValue: "4.32", titleFour: "Total Visit:", titleFourValue: "256030000", titleFive: "Monthly Visit Estimate:", titleFiveValue: "229800000", titleSix: "", titleSixValue: ""),
     ]
-    //VARIABLES
-    var dashBoardData: DashboardModel = DashboardModel()
     
+    //VARIABLES
+    
+    var dashBoardData: DashboardModel = DashboardModel()
+    var attrs = [
+        NSAttributedString.Key.underlineStyle : 1
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +57,11 @@ class DashboardController: UIViewController {
     @IBAction func MenuBtnAction(_ sender: UIButton) {
         let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! SideMenuNavigationController
         present(menu, animated: true, completion: nil)
+    }
+    @IBAction func AddIconBtnAction(_ sender: Any) {
+        let optionPopupVC = getViewController(identifier: "popviewViewController") as! popviewViewController
+        optionPopupVC.array = ["Chat","Task","Upload File","New Project","Add/Remove Prople","Create a Team","Order Marketing","Cancel"]
+        self.parent?.tabBarController?.present(optionPopupVC, animated: true, completion: nil)
     }
 }
 
@@ -83,33 +88,19 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
         if section == 0{
             view.HeaderLabel.text = "My Task"
             view.HeaderButton.tag = section
-            
-            let buttonTitleStr = NSMutableAttributedString(string:"All Tasks", attributes:attrs)
-            let attributedString = NSMutableAttributedString(string:"")
-            attributedString.append(buttonTitleStr)
-            view.HeaderButton.setAttributedTitle(attributedString, for: .normal)
-            
+            addUnderLineOnButtonText(button: view.HeaderButton, text: "All Tasks")
             view.HeaderButton.addTarget(self, action: #selector(HeaderViewAllBtnAction(_:)), for: .touchUpInside)
             
         } else if section == 1 {
             view.HeaderLabel.text = "Projects"
             view.HeaderButton.tag = section
             view.HeaderButton.addTarget(self, action: #selector(HeaderViewAllBtnAction(_:)), for: .touchUpInside)
-            
-            let buttonTitleStr = NSMutableAttributedString(string:"All Files", attributes:attrs)
-            let attributedString = NSMutableAttributedString(string:"")
-            attributedString.append(buttonTitleStr)
-            view.HeaderButton.setAttributedTitle(attributedString, for: .normal)
-            
+            addUnderLineOnButtonText(button: view.HeaderButton, text: "All Files")
         } else if section == 2 {
             view.HeaderLabel.text = "Media"
             view.HeaderButton.tag = section
             view.HeaderButton.addTarget(self, action: #selector(HeaderViewAllBtnAction(_:)), for: .touchUpInside)
-            let buttonTitleStr = NSMutableAttributedString(string:"All Files", attributes:attrs)
-            let attributedString = NSMutableAttributedString(string:"")
-            attributedString.append(buttonTitleStr)
-            view.HeaderButton.setAttributedTitle(attributedString, for: .normal)
-            
+            addUnderLineOnButtonText(button: view.HeaderButton, text: "All Files")
         }  else if section == 3 {
             //Hide Media Detail Header
         } else if section == 4 {
@@ -119,20 +110,13 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
         } else {
             let footerHeader = Bundle.main.loadNibNamed("DashboardFooter", owner: self, options: nil)?.first as! DashboardFooterHeader
             footerHeader.SeeAllWorkBtn.tag = section
-            
-            let buttonTitleStr = NSMutableAttributedString(string:"See All Work", attributes:attrs)
-            let attributedString = NSMutableAttributedString(string:"")
-            attributedString.append(buttonTitleStr)
-            
-            footerHeader.SeeAllWorkBtn.setAttributedTitle(attributedString, for: .normal)
+            addUnderLineOnButtonText(button: footerHeader.SeeAllWorkBtn, text: "See All Work")
             footerHeader.SeeAllWorkBtn.addTarget(self, action: #selector(SeeAllWorkBtnAction(_:)), for: .touchUpInside)
             
             return footerHeader
         }
         return view
     }
-    
-    
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 3 {
@@ -263,6 +247,7 @@ extension DashboardController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NextStepCell", for: indexPath) as! DashboardNextStepCell
         cell.GetStartedBtn.addTarget(self, action: #selector(GetStartedBtnAction(_:)), for: .touchUpInside)
         clearCellSelectionColor(cell: cell)
+        cell.WhyVideoBtn.addTarget(self, action: #selector(WhyVideoBtnAction(_:)), for: .touchUpInside)
         return cell
     }
     
@@ -278,9 +263,25 @@ extension DashboardController {
         cell.selectedBackgroundView = view
     }
     
+    func addUnderLineOnButtonText(button:UIButton, text:String) {
+        let buttonTitleStr = NSMutableAttributedString(string:text, attributes:attrs)
+        let attributedString = NSMutableAttributedString(string:"")
+        attributedString.append(buttonTitleStr)
+        button.setAttributedTitle(attributedString, for: .normal)
+    }
+    
     //OBSERVERS
     @objc func HeaderViewAllBtnAction (_ sender:UIButton) {
-        print("View All Btn Pressed")
+        switch sender.tag {
+        case 0:
+            self.tabBarController?.selectedIndex = 1
+        case 1:
+            break
+        case 2:
+            MoveToNextVC(identifier: "FilesController")
+        default:
+            break
+        }
     }
     
     @objc func GetStartedBtnAction (_ sender:UIButton) {
@@ -291,6 +292,10 @@ extension DashboardController {
     //HEADER OBSERVERS
     @objc func SeeAllWorkBtnAction (_ sender:UIButton) {
         MoveToNextVC(identifier: "AllProjectsController")
+    }
+    
+    @objc func WhyVideoBtnAction(_ sender:UIButton) {
+        MoveToNextVC(identifier: "WhyVideoViewController")
     }
     
 }

@@ -114,7 +114,7 @@ extension PaymentController {
         
     }
     @objc func AddUserBtnAction (_ sender:UIButton) {
-        
+        MoveToNextVC(identifier: "WhichTeamViewController")
     }
     @objc func UpgradedMyPlanBtnAction (_ sender:UIButton) {
         MoveToNextVC(identifier: "PurchaseWithPlanController")
@@ -126,7 +126,7 @@ extension PaymentController {
         
     }
     @objc func AddMarketingBtnAction (_ sender:UIButton) {
-        
+        MoveToNextVC(identifier: "WorkRequestViewController")
     }
     
     @objc func LearnMoreBtnAction (_ sender:UIButton) {

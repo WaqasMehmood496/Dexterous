@@ -9,7 +9,9 @@ import UIKit
 
 class WhyVideo4TableViewCell: UITableViewCell {
 
-    @IBOutlet weak var cellBtn: UIButton!
+    @IBOutlet weak var TalkToSpecialistBtn: UIButton!
+    @IBOutlet weak var OrderNowViewBtn: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -16,10 +16,10 @@ class StartUpController: UIViewController {
         // collectionViewSetup()
     }
     @IBAction func SignInBtnAction(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "SignInSegue", sender: nil)
     }
     @IBAction func SignUpBtnAction(_ sender: Any) {
-        
+        self.performSegue(withIdentifier: "BusinessSignupSegue", sender: nil)
     }
 }
 

@@ -11,9 +11,10 @@ import PhotosUI
 
 import JGProgressHUD
 class UIViewController_Additions: NSObject {
-
+    
 }
-extension UIResponder{
+extension UIResponder {
+    
     func showHUDView(hudIV: hudIndicatorView,text: hudText,completion: ((JGProgressHUD)->())? = nil){
         let hud = JGProgressHUD()
         
@@ -52,11 +53,11 @@ extension UIResponder{
         }
         
         completion?(hud)
-        
-        
     }
 }
 extension UIViewController {
+    
+    
     
     @IBAction func backAction() {
         self.navigationController?.popViewController(animated: true)
@@ -64,7 +65,6 @@ extension UIViewController {
     
     @IBAction func dismissVCAction() {
         self.dismiss(animated: true) {
-            
         }
     }
     
@@ -89,6 +89,30 @@ extension UIViewController {
         }
         checkLibrary(btn: btn)
         checkPermission(btn: btn)
+    }
+    
+    func getViewController(identifier:String) -> UIViewController {
+        var storyboard :UIStoryboard!
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+        } else {
+            storyboard = UIStoryboard(name: "Ipad", bundle: nil)
+        }
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        
+        return controller
+    }
+    
+    func changeRootViewController(identifier:String) {
+        var storyboard :UIStoryboard!
+        if UIDevice.current.userInterfaceIdiom == .phone {
+            storyboard = UIStoryboard(name: "Main", bundle: nil)
+        } else {
+            storyboard = UIStoryboard(name: "Ipad", bundle: nil)
+        }
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        UIApplication.shared.windows.first?.rootViewController = controller
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
 }
 extension UIViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate{
@@ -123,7 +147,7 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
                     })
                 }
                 else {
-                     
+                    
                     picker.sourceType = .camera
                     self.present(picker, animated: true) {() -> Void in }
                 }
@@ -131,14 +155,14 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
             else{
                 
             }
-
+            
         }
         alertController.addAction(cameraAction)
         alertController.view.tintColor = .black
         if UIDevice.current.userInterfaceIdiom == .pad{
             alertController.modalPresentationStyle = .popover
             if let popoverPresentationController = alertController.popoverPresentationController {
-             
+                
                 popoverPresentationController.permittedArrowDirections = .left
                 popoverPresentationController.sourceView = btnSelected
                 alertController.preferredContentSize = CGSize(width: UIScreen.main.bounds.width/5, height: UIScreen.main.bounds.height/9)
@@ -147,25 +171,25 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
         }
         present(alertController, animated: true) {() -> Void in }
     }
-
     
-
-//    func checkLocationPermission() -> Bool{
-//        let authStatus = CLLocationManager.authorizationStatus()
-//        switch authStatus {
-//            
-//        case .authorizedWhenInUse, .authorizedAlways:
-//            return true
-//        case .denied:
-//            print("Error")
-//            let manag = CLLocationManager()
-//            manag.requestLocation()
-//            
-//            return false
-//        default:
-//            return false
-//        }
-//    }
+    
+    
+    //    func checkLocationPermission() -> Bool{
+    //        let authStatus = CLLocationManager.authorizationStatus()
+    //        switch authStatus {
+    //
+    //        case .authorizedWhenInUse, .authorizedAlways:
+    //            return true
+    //        case .denied:
+    //            print("Error")
+    //            let manag = CLLocationManager()
+    //            manag.requestLocation()
+    //
+    //            return false
+    //        default:
+    //            return false
+    //        }
+    //    }
     func checkPermission(btn: UIButton) {
         let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authStatus {
@@ -180,8 +204,8 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
     public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         self.dismiss(animated: true, completion: nil)
     }
-
-
+    
+    
     func checkLibrary(btn:UIButton) {
         let photos = PHPhotoLibrary.authorizationStatus()
         if photos == .authorized {
@@ -216,45 +240,45 @@ enum hudIndicatorView{
     case indeterminate,success,pie,error,image,ring
 }
 extension UIViewController{
-//    func showHUDView(hudIV: hudIndicatorView,text: hudText,completion: ((JGProgressHUD)->())? = nil){
-//        let hud = JGProgressHUD()
-//        
-//        hud.interactionType = .blockAllTouches
-//        hud.animation = JGProgressHUDFadeZoomAnimation.init()
-//        switch hudIV {
-//        case .indeterminate:
-//            hud.indicatorView = JGProgressHUDIndeterminateIndicatorView.init()
-//        case .success:
-//            hud.indicatorView = JGProgressHUDSuccessIndicatorView.init()
-//        case .pie:
-//            hud.indicatorView = JGProgressHUDPieIndicatorView.init()
-//        case .error:
-//            hud.indicatorView = JGProgressHUDErrorIndicatorView.init()
-//        case .image:
-//            hud.indicatorView = JGProgressHUDImageIndicatorView.init()
-//        case .ring:
-//            hud.indicatorView = JGProgressHUDRingIndicatorView.init()
-//        }
-//        
-//        switch text {
-//        case .load:
-//            hud.textLabel.text = text.rawValue
-//        case .process:
-//            hud.textLabel.text = text.rawValue
-//        case .complete:
-//            hud.textLabel.text = text.rawValue
-//        case .success:
-//            hud.textLabel.text = text.rawValue
-//        case .error:
-//            hud.textLabel.text = text.rawValue
-//        case .evaluating:
-//            hud.textLabel.text = text.rawValue
-//        }
-//        
-//        completion?(hud)
-//        
-//        
-//    }
+    //    func showHUDView(hudIV: hudIndicatorView,text: hudText,completion: ((JGProgressHUD)->())? = nil){
+    //        let hud = JGProgressHUD()
+    //
+    //        hud.interactionType = .blockAllTouches
+    //        hud.animation = JGProgressHUDFadeZoomAnimation.init()
+    //        switch hudIV {
+    //        case .indeterminate:
+    //            hud.indicatorView = JGProgressHUDIndeterminateIndicatorView.init()
+    //        case .success:
+    //            hud.indicatorView = JGProgressHUDSuccessIndicatorView.init()
+    //        case .pie:
+    //            hud.indicatorView = JGProgressHUDPieIndicatorView.init()
+    //        case .error:
+    //            hud.indicatorView = JGProgressHUDErrorIndicatorView.init()
+    //        case .image:
+    //            hud.indicatorView = JGProgressHUDImageIndicatorView.init()
+    //        case .ring:
+    //            hud.indicatorView = JGProgressHUDRingIndicatorView.init()
+    //        }
+    //
+    //        switch text {
+    //        case .load:
+    //            hud.textLabel.text = text.rawValue
+    //        case .process:
+    //            hud.textLabel.text = text.rawValue
+    //        case .complete:
+    //            hud.textLabel.text = text.rawValue
+    //        case .success:
+    //            hud.textLabel.text = text.rawValue
+    //        case .error:
+    //            hud.textLabel.text = text.rawValue
+    //        case .evaluating:
+    //            hud.textLabel.text = text.rawValue
+    //        }
+    //
+    //        completion?(hud)
+    //
+    //
+    //    }
     func imagetoString(image:UIImage) -> String{
         let data = image.pngData()
         let str = data!.base64EncodedString()

@@ -46,7 +46,6 @@ class MyTasksViewController: UIViewController {
         controller.array = ["Add Task","New Project","Share","Cancel"]
         controller.isredirectFrom = "TASK"
         self.parent?.tabBarController?.present(controller, animated: true, completion: nil)
-       // self.present(controller, animated: true, completion: nil)
     }
     
 }

@@ -14,9 +14,8 @@ class LoginController: UIViewController {
     @IBOutlet weak var PasswordTF: UITextField!
     
     //CONSTANTS
-    
+    var window: UIWindow?
     //VARIABLES
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +27,10 @@ class LoginController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func LoginBtnAction(_ sender: UIButton) {
+        changeRootViewController(identifier: "TabbarController")
     }
     @IBAction func ForgotBtnAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "forgotPasswordSegue", sender: nil)
     }
     @IBAction func GmailBtnAction(_ sender: UIButton) {
     }
@@ -40,6 +41,7 @@ class LoginController: UIViewController {
     @IBAction func TwitterBtnAction(_ sender: UIButton) {
     }
     @IBAction func SignupBtnAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "LoginToSignUpSegue", sender: nil)
     }
     
 }

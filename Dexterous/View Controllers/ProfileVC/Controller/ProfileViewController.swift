@@ -30,10 +30,7 @@ class ProfileViewController: UIViewController {
         array.append(profie(Name: "Email Address", Title: "Elizabetholsen@hotmail.com", Image: #imageLiteral(resourceName: "Group 2861")))
         array.append(profie(Name: "Phone Number", Title: "+98 123 4567 89", Image: #imageLiteral(resourceName: "Phone")))
         array.append(profie(Name: "Password", Title: "***********", Image: #imageLiteral(resourceName: "Password")))
-        
-        
-        
-        
+
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -76,10 +73,5 @@ extension ProfileViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
-    
-    
-    
-    
-    
+
 }

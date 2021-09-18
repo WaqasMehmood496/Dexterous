@@ -8,31 +8,27 @@
 import UIKit
 
 class popSignupViewController: UIViewController {
-
-    var lblText:String!
+    
+    //IBOUTLET'S
     @IBOutlet weak var lblpopUp: UILabel!
+    
+    //CONSTANT'S
+    var lblText:String!
+    //VARIABLE'S
+    
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         self.lblpopUp.text = lblText
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func yesbtn(_ sender: Any) {
     }
     @IBAction func notbtn(_ sender: Any) {
-    
         self.dismiss(animated: true, completion: nil)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func DismisViewControllerTapGesture(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
     }
-    */
-
+    
 }

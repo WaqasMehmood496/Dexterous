@@ -11,7 +11,6 @@
 		7604EB7026EF8D58003BC03B /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6F26EF8D58003BC03B /* SignupController.swift */; };
 		7604EB7526EF923F003BC03B /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB7426EF923F003BC03B /* ForgotPasswordController.swift */; };
 		760CA18826EF556900257571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CA18726EF556900257571 /* AppDelegate.swift */; };
-		760CA18A26EF556900257571 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CA18926EF556900257571 /* SceneDelegate.swift */; };
 		760CA18F26EF556900257571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760CA18D26EF556900257571 /* Main.storyboard */; };
 		760CA19126EF557500257571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760CA19026EF557500257571 /* Assets.xcassets */; };
 		760CA19426EF557500257571 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760CA19226EF557500257571 /* LaunchScreen.storyboard */; };
@@ -180,7 +179,6 @@
 		7604EB7426EF923F003BC03B /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
 		760CA18426EF556900257571 /* Dexterous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dexterous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		760CA18726EF556900257571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		760CA18926EF556900257571 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		760CA18E26EF556900257571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		760CA19026EF557500257571 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		760CA19326EF557500257571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -439,7 +437,6 @@
 				760CA1C626EF575E00257571 /* HelperClasses */,
 				760CA20926EF584200257571 /* View Controllers */,
 				760CA18726EF556900257571 /* AppDelegate.swift */,
-				760CA18926EF556900257571 /* SceneDelegate.swift */,
 				760CA18D26EF556900257571 /* Main.storyboard */,
 				760CA19026EF557500257571 /* Assets.xcassets */,
 				760CA19226EF557500257571 /* LaunchScreen.storyboard */,
@@ -1709,7 +1706,6 @@
 				76411ADC26F4A19200EB4B76 /* FileCollectionViewCell.swift in Sources */,
 				760CA1E726EF575E00257571 /* DatabaseRepresentation.swift in Sources */,
 				760CA23F26EF6D8700257571 /* StartUpController.swift in Sources */,
-				760CA18A26EF556900257571 /* SceneDelegate.swift in Sources */,
 				765B363D26F36E51008B24F6 /* PaymentController.swift in Sources */,
 				760CA20226EF575E00257571 /* UIPopUp+Additions.swift in Sources */,
 				760CA20526EF575E00257571 /* NavigationBarExtension.swift in Sources */,

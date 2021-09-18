@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "Search.png",
+      "filename" : "Task.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "Search@2x.png",
+      "filename" : "Task@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "Search@3x.png",
+      "filename" : "Task@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
@@ -21,6 +21,6 @@
     "version" : 1
   },
   "properties" : {
-    "template-rendering-intent" : "original"
+    "template-rendering-intent" : "template"
   }
 }

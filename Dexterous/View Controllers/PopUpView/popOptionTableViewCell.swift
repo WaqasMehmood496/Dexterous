@@ -10,6 +10,7 @@ import UIKit
 class popOptionTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lbloption: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
