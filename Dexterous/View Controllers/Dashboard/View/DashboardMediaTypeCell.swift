@@ -11,6 +11,7 @@ class DashboardMediaTypeCell: UITableViewCell {
 
     @IBOutlet weak var MediaTypeIcon: UIImageView!
     @IBOutlet weak var UpperBar: UIView!
+    @IBOutlet weak var RectangleView: UIView!
     @IBOutlet weak var HeadingOneLabel: UILabel!
     @IBOutlet weak var HeadingTwoLabel: UILabel!
     @IBOutlet weak var HeadingThreeLabel: UILabel!

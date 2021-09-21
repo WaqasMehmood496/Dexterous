@@ -22,7 +22,7 @@ class WhyVideoViewController: UIViewController {
     
     
     @IBAction func backbtn(_ sender: Any) {
-        
+        self.navigationController?.popViewController(animated: true)
     }
     
 }

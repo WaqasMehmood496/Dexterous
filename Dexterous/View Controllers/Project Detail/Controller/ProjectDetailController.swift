@@ -24,7 +24,26 @@ class ProjectDetailController: UIViewController {
         
     }
     
+    @IBAction func BackBtnAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func NextBtnAction(_ sender: UIButton) {
+        MoveToNextVC(identifier: "ProjectCompleteDetailController")
+    }
+    
 }
+
+
+//MARK:- HELPING METHODS
+extension ProjectDetailController {
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
 
 extension ProjectDetailController: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {

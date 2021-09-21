@@ -9,9 +9,11 @@ import UIKit
 
 class ProjectCompleteDetailController: UIViewController {
     
+    
+    //IBOUTLET'S
     @IBOutlet weak var ProjectDetailTableView: UITableView!
     
-    
+    //VAIABLES
     let imageColleciton = [
         "maxresdefault-1","maxresdefault-5","maxresdefault","maxresdefault-1","maxresdefault-5","maxresdefault"
     ]
@@ -21,6 +23,10 @@ class ProjectCompleteDetailController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    //IBACTION'S
+    @IBAction func BackBtnAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
 
 extension ProjectCompleteDetailController: UITableViewDelegate, UITableViewDataSource {

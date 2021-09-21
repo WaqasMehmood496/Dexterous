@@ -71,6 +71,7 @@
 		760CA23826EF686900257571 /* Montserrat-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 760CA22526EF686900257571 /* Montserrat-ExtraBoldItalic.ttf */; };
 		760CA23F26EF6D8700257571 /* StartUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CA23E26EF6D8700257571 /* StartUpController.swift */; };
 		760CA24426EF6E4200257571 /* StartUpCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CA24326EF6E4200257571 /* StartUpCollectionViewCell.swift */; };
+		7613F73526F8A51F00834287 /* PopupEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7613F73426F8A51F00834287 /* PopupEnum.swift */; };
 		761C193626F386610012E170 /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C193526F386610012E170 /* ProjectTableViewCell.swift */; };
 		761C193926F386AE0012E170 /* AllProjectsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761C193826F386AE0012E170 /* AllProjectsController.swift */; };
 		761D294326F23B8B006E2E50 /* MediaTypeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 761D294226F23B8B006E2E50 /* MediaTypeDetailViewController.swift */; };
@@ -240,6 +241,7 @@
 		760CA22526EF686900257571 /* Montserrat-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		760CA23E26EF6D8700257571 /* StartUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpController.swift; sourceTree = "<group>"; };
 		760CA24326EF6E4200257571 /* StartUpCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartUpCollectionViewCell.swift; sourceTree = "<group>"; };
+		7613F73426F8A51F00834287 /* PopupEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupEnum.swift; sourceTree = "<group>"; };
 		761C193526F386610012E170 /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		761C193826F386AE0012E170 /* AllProjectsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllProjectsController.swift; sourceTree = "<group>"; };
 		761D294226F23B8B006E2E50 /* MediaTypeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeDetailViewController.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 		760CA18626EF556900257571 /* Dexterous */ = {
 			isa = PBXGroup;
 			children = (
+				7613F73326F8A50200834287 /* Enums */,
 				760CA21126EF685200257571 /* Font */,
 				760CA1BE26EF575D00257571 /* Delegates */,
 				760CA1D526EF575E00257571 /* Extension */,
@@ -626,6 +629,14 @@
 				760CA24326EF6E4200257571 /* StartUpCollectionViewCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		7613F73326F8A50200834287 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				7613F73426F8A51F00834287 /* PopupEnum.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		761C193226F386290012E170 /* See All Work */ = {
@@ -1618,6 +1629,7 @@
 				761D3E3326F0B96F00B20D02 /* SideMenuController.swift in Sources */,
 				760CA20426EF575E00257571 /* Utility.swift in Sources */,
 				7633097F26F4E394009D95EC /* MyTask2TableViewCell.swift in Sources */,
+				7613F73526F8A51F00834287 /* PopupEnum.swift in Sources */,
 				76411ACE26F4974B00EB4B76 /* FilesController.swift in Sources */,
 				7633098326F4E394009D95EC /* WhyVideo4TableViewCell.swift in Sources */,
 				7622180926F1396B000B6ED7 /* DashboardMediaCell.swift in Sources */,

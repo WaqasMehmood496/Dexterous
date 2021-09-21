@@ -14,11 +14,11 @@ class MediavcViewController: UIViewController {
 
     @IBOutlet weak var mediaTableView: UITableView!
     
+    //VARIABLE'S
     var array = [MediaStruct]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         array.append(MediaStruct(name: "POPULAR", isImage: false))
         array.append(MediaStruct(name: "RECENT", isImage: false))
         array.append(MediaStruct(name: "RECENT", isImage: true))
@@ -26,11 +26,6 @@ class MediavcViewController: UIViewController {
         array.append(MediaStruct(name: "RECENT", isImage: false))
         array.append(MediaStruct(name: "RECENT", isImage: false))
         array.append(MediaStruct(name: "RECENT", isImage: false))
-
-
-
-        
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func addbtn(_ sender: Any) {

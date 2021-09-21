@@ -35,17 +35,39 @@ class MessageViewController: UIViewController {
         controller.delegate2 = self
         controller.array = ["Add Team","Add Teammate","Edit Chat(Name this chat,description)","Share","Delete","Cancel"]
         controller.isredirectFrom = "CHAT"
+        controller.messageControllerDelegate = self
+        controller.popUpFrom = .message
         self.parent?.tabBarController?.present(controller, animated: true, completion: nil)
     }
     
-    func gotoNext(){
-        
+//    func gotoNext(){
+//
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let controller = storyboard.instantiateViewController(withIdentifier: "EditTeamViewController") as! EditTeamViewController
+//
+//        self.navigationController?.pushViewController(controller, animated: true)
+//    }
+}
+
+//MARK:- HELPING METHODS
+extension MessageViewController {
+    func MoveToNextVC(identifier:String)  {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "EditTeamViewController") as! EditTeamViewController
-    
+        let controller = storyboard.instantiateViewController(identifier: identifier)
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }
+
+
+//MARK:- DELEGATE METHOD'S
+extension MessageViewController {
+    func moveToEditTeam() {
+        MoveToNextVC(identifier: "EditTeamViewController")
+    }
+}
+
+
+
 extension MessageViewController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3

@@ -7,6 +7,7 @@
 
 import UIKit
 import SideMenu
+import collection_view_layouts
 
 class DashboardController: UIViewController {
     
@@ -17,13 +18,17 @@ class DashboardController: UIViewController {
     
     let myTasks = [
         MyTaskModel(taskName: "Write Blog", assignBy: "Jon", due: "8/10"),
-        MyTaskModel(taskName: "Write Blog", assignBy: "Jon", due: "8/10"),
-        MyTaskModel(taskName: "Write Blog", assignBy: "Jon", due: "8/10")
+        MyTaskModel(taskName: "Design WebPage", assignBy: "Jon", due: "8/10"),
+        MyTaskModel(taskName: "Plan Party", assignBy: "Jon", due: "8/10")
     ]
     
     let projects = [
         ProjectsModel(projectName: "Project 1", progressValue: "0.5", progressPercentage: "80%"),
         ProjectsModel(projectName: "Project 2", progressValue: "0.8", progressPercentage: "80%")
+    ]
+    
+    let imageColleciton = [
+        "maxresdefault-1","maxresdefault-5","maxresdefault","maxresdefault-1","maxresdefault-5","maxresdefault"
     ]
     
     let media = MediaModel(images: ["Group 11730","Group 11730","Group 11730","Group 11730","Group 11730","Group 11730"])
@@ -58,10 +63,13 @@ class DashboardController: UIViewController {
         let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! SideMenuNavigationController
         present(menu, animated: true, completion: nil)
     }
+    
     @IBAction func AddIconBtnAction(_ sender: Any) {
         let optionPopupVC = getViewController(identifier: "popviewViewController") as! popviewViewController
-        optionPopupVC.array = ["Chat","Task","Upload File","New Project","Add/Remove Prople","Create a Team","Order Marketing","Cancel"]
-        self.parent?.tabBarController?.present(optionPopupVC, animated: true, completion: nil)
+        optionPopupVC.array = ["Chat","Add Task","Upload File","New Project","Add/Remove Prople","Create a Team","Order Marketing","Cancel"]
+        optionPopupVC.popUpFrom = .home
+        optionPopupVC.dashBoardDelegate = self
+        self.parent?.tabBarController?.present(optionPopupVC, animated: false, completion: nil)
     }
 }
 
@@ -72,6 +80,16 @@ extension DashboardController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+//MARK:- DASHBOARD DELEGATE METHOD'S
+extension DashboardController {
+    func moveToCreateProject() {
+        self.MoveToNextVC(identifier: "StartAProjectController")
+    }
+    func moveToAddTask() {
+        self.MoveToNextVC(identifier: "AddTaskViewController")
     }
 }
 
@@ -203,6 +221,9 @@ extension DashboardController {
     
     func setupMediaCell(tableView:UITableView,indexPath:IndexPath) ->UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardMediaCell", for: indexPath) as! DashboardMediaCell
+        cell.MediaImagesCollection.tag = indexPath.row
+        cell.firstSectionItems = self.imageColleciton
+        cell.loadData()
         clearCellSelectionColor(cell: cell)
         return cell
     }
@@ -227,18 +248,23 @@ extension DashboardController {
         if indexPath.row == 0 {
             cell.MediaTypeIcon.image = #imageLiteral(resourceName: "Web")
             cell.UpperBar.backgroundColor = UIColor(named:"Orange")
+            cell.RectangleView.borderColor = UIColor(named:"Orange")
         } else if indexPath.row == 1 {
             cell.MediaTypeIcon.image = #imageLiteral(resourceName: "Seo")
             cell.UpperBar.backgroundColor = UIColor(named:"Pink")
+            cell.RectangleView.borderColor = UIColor(named:"Pink")
         } else if indexPath.row == 2 {
             cell.MediaTypeIcon.image = #imageLiteral(resourceName: "Vid")
             cell.UpperBar.backgroundColor = UIColor(named:"Green")
+            cell.RectangleView.borderColor = UIColor(named:"Green")
         } else if indexPath.row == 3 {
             cell.MediaTypeIcon.image = #imageLiteral(resourceName: "Social")
             cell.UpperBar.backgroundColor = UIColor(named:"Color")
+            cell.RectangleView.borderColor = UIColor(named:"Color")
         } else {
             cell.MediaTypeIcon.image = #imageLiteral(resourceName: "Auto")
             cell.UpperBar.backgroundColor = UIColor(named:"Purple")
+            cell.RectangleView.borderColor = UIColor(named:"Purple")
         }
         return cell
     }
@@ -253,6 +279,7 @@ extension DashboardController {
     
     func setupFooterCell(tableView:UITableView,indexPath:IndexPath) ->UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardFooterCell", for: indexPath) as! DashboardFooterCell
+        cell.ItemLabel.text = self.dashBoardData.myTask[indexPath.row].taskName
         clearCellSelectionColor(cell: cell)
         return cell
     }
@@ -299,3 +326,23 @@ extension DashboardController {
     }
     
 }
+
+
+
+//extension DashboardController: UICollectionViewDelegate, UICollectionViewDataSource {
+//
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        if collectionView.tag == 111{
+//            return 3
+//        } else {
+//            return imageColleciton.count
+//        }
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FilesCollectionViewCell", for: indexPath) as! FilesCollectionViewCell
+//        cell.FileImage.image = UIImage(named: imageColleciton[indexPath.row])
+//
+//        return cell
+//    }
+//}

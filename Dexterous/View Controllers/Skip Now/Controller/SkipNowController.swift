@@ -35,6 +35,7 @@ class SkipNowController: UIViewController {
     
     // IBACTION'S
     @IBAction func SignInBtnAction(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "SkipToSignIn", sender: nil)
         
     }
 }

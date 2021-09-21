@@ -14,17 +14,17 @@ class popviewViewController: UIViewController {
     @IBOutlet weak var poptableview: UITableView!
     
     //VARIABLE'S
-    var delegate = MyTasksViewController()
+    var taskDelegate = MyTasksViewController()
     var delegate2 = MessageViewController()
+    var dashBoardDelegate = DashboardController()
+    var messageControllerDelegate = MessageViewController()
     
     var isredirectFrom = ""
     var array = [String]()
+    var popUpFrom:PopupType = .home
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        poptableview.transform = CGAffineTransform(rotationAngle: -(CGFloat)(Double.pi));
-//        array.reverse()
-//        poptableview.showsVerticalScrollIndicator = false
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
@@ -35,6 +35,9 @@ class popviewViewController: UIViewController {
         self.tableviewHeight.constant = self.poptableview.contentSize.height
     }
 }
+
+
+//MARK:- UITABLEVUEW DELEGATE AND DATASOURCE METHOD'S
 extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -45,12 +48,12 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
         
         if array[indexPath.row] == "Cancel" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popCancelbtnTableViewCell") as! popCancelbtnTableViewCell
-           // cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
+            // cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
             cell.lblcancle.text = array[indexPath.row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popOptionTableViewCell") as! popOptionTableViewCell
-           // cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
+            // cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
             
             cell.lbloption.text = array[indexPath.row]
             return cell
@@ -65,41 +68,42 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
         
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if isredirectFrom == "TASK" {
-            switch array[indexPath.row] {
-            case "Cancel":
-                
+        switch popUpFrom {
+        case .home:
+            if indexPath.row == 1 {
                 self.dismiss(animated: true) {
+                    self.dashBoardDelegate.moveToAddTask()
                 }
-            case "Share":
+            } else if indexPath.row == 3 {
                 self.dismiss(animated: true) {
+                    self.dashBoardDelegate.moveToCreateProject()
                 }
-            case "New Project":
-                
-                self.dismiss(animated: true) {
-                    self.delegate.newTask()
-                }
-            case "Add Task":
-                self.dismiss(animated: true) {
-                    self.delegate.newTask()
-                }
-            default:
-                return
             }
-        } else if isredirectFrom == "CHAT" {
-            
-            if array[indexPath.row] == "Add Team"{
-                
+        case .task:
+            if indexPath.row == 0 {
                 self.dismiss(animated: true) {
-                    self.delegate2.gotoNext()
+                    self.taskDelegate.moveToAddTask()
                 }
-            } else if array[indexPath.row] == "Cancel" {
-                self.dismiss(animated: true, completion: nil)
+            } else if indexPath.row == 1 {
+                self.dismiss(animated: true) {
+                    self.taskDelegate.moveToCreateProjectTask()
+                }
             }
-        } else {
-            if array[indexPath.row] == "Cancel" {
-                self.dismiss(animated: true, completion: nil)
+        case .message:
+            if indexPath.row == 0 {
+                self.dismiss(animated: true) {
+                    self.messageControllerDelegate.moveToEditTeam()
+                }
             }
+        }
+        
+        
+        switch array[indexPath.row] {
+        case "Cancel":
+            self.dismiss(animated: true) {
+            }
+        default:
+            return
         }
     }
 }

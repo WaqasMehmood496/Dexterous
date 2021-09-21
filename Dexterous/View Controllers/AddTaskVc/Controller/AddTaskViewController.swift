@@ -15,8 +15,6 @@ class AddTaskViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
     }
     
@@ -36,14 +34,19 @@ class AddTaskViewController: UIViewController {
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func CalanderBtnAction(_ sender: Any) {
+        MoveToNextVC(identifier: "MediaCalenderViewController")
     }
-    */
 
+}
+
+
+
+//MARK:- HELPING METHODS
+extension AddTaskViewController {
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

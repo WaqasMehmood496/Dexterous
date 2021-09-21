@@ -9,6 +9,7 @@ import UIKit
 
 class SideMenuController: UIViewController {
     
+    //IBOUTLETS
     @IBOutlet weak var SideMenuTableView: UITableView!
     @IBOutlet weak var UserImage: UIImageView!
     
@@ -19,9 +20,6 @@ class SideMenuController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        
         
         self.sideMenuArray = [
             SideMenuModel(data: [
@@ -45,7 +43,7 @@ class SideMenuController: UIViewController {
     }
     
     @IBAction func EditProfileBtnAction(_ sender: Any) {
-        //Move to edit profile controller
+        MoveToNextVC(identifier: "ProfileViewController")
     }
     
 }
@@ -59,6 +57,12 @@ extension SideMenuController {
     
     @objc func userImageTapGesture(_ sender:UITapGestureRecognizer) {
         //Show Profile controller
+    }
+    
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -111,6 +115,8 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         } else if indexPath.section == 1 {
             //NOTIFICATIONS
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
+            cell.SelectionBtn.tag = indexPath.row
+            cell.SelectionBtn.addTarget(self, action: #selector(notificationBtnAction(_:)), for: .touchUpInside)
             return cell
             
         } else {
@@ -118,12 +124,37 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
             if indexPath.row >= sideMenuArray[indexPath.section].data.count {
                 //INVITE TABLEVIEW CELL
                 let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
+                cell.AddMarketingBtn.tag = indexPath.row
+                cell.AddMarketingBtn.addTarget(self, action: #selector(addMarketingBtnAction(_:)), for: .touchUpInside)
+                cell.ScheduleBtn.tag = indexPath.row
+                cell.ScheduleBtn.addTarget(self, action: #selector(scheduleAMettingBtnAction(_:)), for: .touchUpInside)
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
                 return cell
             }
         }
+    }
+    
+    @objc func notificationBtnAction(_ sender:UIButton) {
+        switch sender.tag {
+        case 0:
+            MoveToNextVC(identifier: "NotificationViewController")
+        case 1:
+            MoveToNextVC(identifier: "NotificationViewController")
+        case 2:
+            MoveToNextVC(identifier: "NotificationViewController")
+        default:
+            break
+        }
+    }
+    
+    @objc func addMarketingBtnAction(_ sender:UIButton) {
+        
+    }
+    
+    @objc func scheduleAMettingBtnAction(_ sender:UIButton) {
+        MoveToNextVC(identifier: "MyUpcommingMeetingController")
     }
     
 }

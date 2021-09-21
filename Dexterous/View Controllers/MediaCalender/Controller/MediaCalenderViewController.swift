@@ -9,15 +9,14 @@ import UIKit
 import FSCalendar
 
 class MediaCalenderViewController: UIViewController {
-
-    @IBOutlet weak var mediaTablciew: UITableView!
     
+    //IBOUTLET'S
+    @IBOutlet weak var mediaTablciew: UITableView!
     @IBOutlet weak var fsCaledner: FSCalendar!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         fsCaledner.headerHeight = 0.0
         fsCaledner.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
         fsCaledner.appearance.weekdayTextColor = UIColor(named: "Black Text Color")
@@ -26,41 +25,36 @@ class MediaCalenderViewController: UIViewController {
         fsCaledner.appearance.borderRadius = 1
         fsCaledner.appearance.todaySelectionColor = .white
         fsCaledner.appearance.borderSelectionColor = .black
-        //fsCaledner.appearance.
-        // Do any additional setup after loading the view.
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        
-        self.navigationController?.navigationBar.isHidden = true
-        self.tabBarController?.tabBar.isHidden = true
-
+        fsCaledner.appearance.todayColor = UIColor.cyan
     }
     
-
-
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
+    @IBAction func BackBtnAction(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
-extension MediaCalenderViewController:UITableViewDelegate,UITableViewDataSource{
+
+
+extension MediaCalenderViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 4
     }
-    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mediacalender1TableViewCell") as! mediacalender1TableViewCell
         return cell
     }
     
-    
-    
-    
-    
-    
 }
+
 extension FSCalendar {
     var borders: [UIView] {
         guard let bottomBorder = value(forKey: "bottomBorder") as? UIView,
-            let topBorder = value(forKey: "topBorder") as? UIView else { return [] }
+              let topBorder = value(forKey: "topBorder") as? UIView else { return [] }
         return [topBorder, bottomBorder]
     }
 }
