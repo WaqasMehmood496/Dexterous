@@ -36,6 +36,21 @@ class FilesController: UIViewController, LayoutDelegate {
     }
 }
 
+
+
+//MARK:- HELPING METHOD'S
+extension FilesController {
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.present(controller, animated: true, completion: nil)
+        //self.navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+
+
+//MARK:- UICOLLECTION VIEW DELEGATE AND DATASOURCE METHOD'S
 extension FilesController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -45,8 +60,13 @@ extension FilesController: UICollectionViewDelegate, UICollectionViewDataSource 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FileCollectionViewCell", for: indexPath) as! FileCollectionViewCell
         cell.FileImage.image = UIImage(named: imageColleciton[indexPath.row])
+        cell.SelectionBtn.tag = indexPath.row
+        cell.SelectionBtn.addTarget(self, action: #selector(selectionBtnAction(_:)), for: .touchUpInside)
         return cell
     }
     
+    @objc func selectionBtnAction (_ sender: UIButton) {
+        //self.MoveToNextVC(identifier: "AutoVCCViewController")
+    }
     
 }

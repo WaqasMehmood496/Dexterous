@@ -10,5 +10,6 @@ import UIKit
 class FileCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var FileImage: UIImageView!
+    @IBOutlet weak var SelectionBtn: UIButton!
     
 }

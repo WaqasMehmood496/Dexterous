@@ -7,6 +7,7 @@
 
 import UIKit
 import collection_view_layouts
+
 enum LayoutType: Int {
     case tags
     case pinterest
@@ -16,6 +17,7 @@ enum LayoutType: Int {
     case facebook
     case flickr
 }
+
 class DashboardMediaCell: UITableViewCell, LayoutDelegate {
     
     //MARK:- IBOUTLET'S
@@ -33,7 +35,6 @@ class DashboardMediaCell: UITableViewCell, LayoutDelegate {
     @IBOutlet weak var WebBtn: UIButton!
     @IBOutlet weak var WebBatchNumberLabel: UILabel!
     
-    
     private let collectionViewProvider = CollectionViewProvider()
     private var cellSizes = [[CGSize]]()
     var layout: BaseLayout!
@@ -41,6 +42,7 @@ class DashboardMediaCell: UITableViewCell, LayoutDelegate {
     var secondSectionItems = ["activity", "appstore", "calculator"]
     var items = [[String]]()
     var supplementaryItems = ["numbers"]
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.loadData()
@@ -135,10 +137,10 @@ class DashboardMediaCell: UITableViewCell, LayoutDelegate {
     }
     
 }
-class CollectionViewProvider: NSObject, UICollectionViewDataSource {
+class CollectionViewProvider: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     var items = [[String]]()
     var supplementaryItems = [String]()
-    
+    let dashBoardController = DashboardController()
     // MARK: - UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -159,4 +161,7 @@ class CollectionViewProvider: NSObject, UICollectionViewDataSource {
         
         return cell
     }
+    
+    
+    
 }
