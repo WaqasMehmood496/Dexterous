@@ -17,6 +17,8 @@ class UserPlanTableViewCell: UITableViewCell {
     @IBOutlet weak var SareDexterousAppBtn: UIButton!
     @IBOutlet weak var AddMarketingBtn: UIButton!
     @IBOutlet weak var LearnMoreBtn: UIButton!
+    @IBOutlet weak var PriceDescriptionLabel: UILabel!
+    @IBOutlet weak var CardExpireDateLabel: UILabel!
     
     
     override func awakeFromNib() {

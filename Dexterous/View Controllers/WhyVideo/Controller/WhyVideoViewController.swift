@@ -9,6 +9,7 @@ import UIKit
 
 class WhyVideoViewController: UIViewController {
     
+    //IBOUTLET'S
     @IBOutlet weak var whyTableView: UITableView!
     
     override func viewDidLoad() {
@@ -20,12 +21,13 @@ class WhyVideoViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    
+    //IBACTION'S
     @IBAction func backbtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
     
 }
+
 extension WhyVideoViewController:UITableViewDelegate,UITableViewDataSource{
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -48,6 +50,7 @@ extension WhyVideoViewController:UITableViewDelegate,UITableViewDataSource{
         
         if indexPath.section == 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "Whyvideo1TableViewCell") as! Whyvideo1TableViewCell
+            clearCellSelectionColor(cell: cell)
             return cell
         }
         else if indexPath.section == 1 {
@@ -58,6 +61,7 @@ extension WhyVideoViewController:UITableViewDelegate,UITableViewDataSource{
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WhyVideo2TableViewCell", for: indexPath) as! WhyVideo2TableViewCell
                 cell.lblName.text = "32% 'Lorem ispem is dummy text that is readable'-Source"
+                clearCellSelectionColor(cell: cell)
                 return cell
             }
         }
@@ -70,7 +74,7 @@ extension WhyVideoViewController:UITableViewDelegate,UITableViewDataSource{
                 let cell = tableView.dequeueReusableCell(withIdentifier: "WhyVideo3TableViewCell") as! WhyVideo3TableViewCell
                 cell.lblName.text = "You have a website"
                 cell.imageicon.image = #imageLiteral(resourceName: "Vid")
-                
+                clearCellSelectionColor(cell: cell)
                 return cell
             }
             
@@ -78,8 +82,15 @@ extension WhyVideoViewController:UITableViewDelegate,UITableViewDataSource{
         else {
             
             let cell = tableView.dequeueReusableCell(withIdentifier: "WhyVideo4TableViewCell") as! WhyVideo4TableViewCell
+            clearCellSelectionColor(cell: cell)
             return cell
         }
+    }
+    
+    func clearCellSelectionColor(cell:UITableViewCell) {
+        let view = UIView()
+        view.backgroundColor = .clear
+        cell.selectedBackgroundView = view
     }
 }
 extension NSMutableAttributedString {

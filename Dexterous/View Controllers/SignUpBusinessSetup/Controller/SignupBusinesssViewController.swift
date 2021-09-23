@@ -28,7 +28,7 @@ class SignupBusinesssViewController: UIViewController {
     }
     
     @IBAction func webbtn(_ sender: Any) {
-        presentPopup(message: "Would you like to create a Logo?")
+        presentPopup(message: "Would you like to create a Website?")
     }
     
     @IBAction func logobtn(_ sender: Any) {

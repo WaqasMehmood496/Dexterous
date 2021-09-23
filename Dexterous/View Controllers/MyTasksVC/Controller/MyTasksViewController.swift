@@ -15,6 +15,7 @@ class MyTasksViewController: UIViewController {
     
     //VARIABLE'S
     var popUpFrom:PopupType = .home
+    var isHideSection = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,17 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
             label.text = "Project1"
             label.font = UIFont(name: "System", size: 10)
             label.textColor = UIColor.black
+            
+            let sectionButton = UIButton(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25))
+            sectionButton.setTitle(String(" "),
+                                   for: .normal)
+            sectionButton.backgroundColor = .clear
+            sectionButton.tag = section
+            sectionButton.addTarget(self,
+                                    action: #selector(self.hideSection(sender:)),
+                                    for: .touchUpInside)
             headerView.addSubview(label)
+            headerView.addSubview(sectionButton)
             return headerView
             
         } else {
@@ -105,7 +116,7 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 1{
-            return 4
+            return isHideSection ? 0 : 4
         } else {
             return 3
         }
@@ -137,6 +148,13 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
         let view = UIView()
         view.backgroundColor = .clear
         cell.selectedBackgroundView = view
+    }
+    
+    
+    @objc
+    private func hideSection(sender: UIButton) {
+        self.isHideSection = !isHideSection
+        self.addTaskTableview.reloadSections(IndexSet(integer: sender.tag), with: .fade)
     }
     
 }

@@ -12,6 +12,7 @@ class ProjectFeaturesTableViewCell: UITableViewCell {
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var DescriptionLabel: UILabel!
     @IBOutlet weak var CheckMarkBtn: UIButton!
+    @IBOutlet weak var BackView: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

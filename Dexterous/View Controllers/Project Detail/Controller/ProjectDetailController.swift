@@ -17,7 +17,6 @@ class ProjectDetailController: UIViewController {
 
         // Do any additional setup after loading the view.
         setPaddingOnFields(fields: [ProjectTitleTF])
-        ProjectDescriptionTV.textColor = UIColor.lightGray
         ProjectDescriptionTV.delegate = self
     }
     @IBAction func InviteBtnAction(_ sender: UIButton) {
@@ -47,7 +46,7 @@ extension ProjectDetailController {
 
 extension ProjectDetailController: UITextViewDelegate {
     public func textViewDidBeginEditing(_ textView: UITextView) {
-        if textView.textColor == UIColor.lightGray {
+        if textView.textColor == UIColor(named: "Gray") {
             textView.text = nil
             textView.textColor = UIColor(named: "Black Text Color")
         }
@@ -55,7 +54,7 @@ extension ProjectDetailController: UITextViewDelegate {
     public func textViewDidEndEditing(_ textView: UITextView) {
         if textView.text.isEmpty {
             textView.text = "Website development and SEO"
-            textView.textColor = UIColor.lightGray
+            textView.textColor = UIColor(named: "Gray")
         }
     }
 }

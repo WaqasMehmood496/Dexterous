@@ -23,7 +23,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="70"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Image 6" translatesAutoresizingMaskIntoConstraints="NO" id="5Ku-Cl-5hC">
-                            <rect key="frame" x="24" y="16" width="153" height="38"/>
+                            <rect key="frame" x="24" y="4" width="153" height="62"/>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZYK-iJ-zqq">
                             <rect key="frame" x="322" y="22" width="68" height="26"/>
@@ -36,10 +36,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="ZYK-iJ-zqq" firstAttribute="centerY" secondItem="5Ku-Cl-5hC" secondAttribute="centerY" id="0OU-IY-qXI"/>
-                        <constraint firstAttribute="bottom" secondItem="5Ku-Cl-5hC" secondAttribute="bottom" constant="16" id="Jt0-Bb-Oai"/>
+                        <constraint firstAttribute="bottom" secondItem="5Ku-Cl-5hC" secondAttribute="bottom" constant="4" id="Jt0-Bb-Oai"/>
                         <constraint firstAttribute="trailing" secondItem="ZYK-iJ-zqq" secondAttribute="trailing" constant="24" id="k4K-FQ-hEi"/>
                         <constraint firstItem="5Ku-Cl-5hC" firstAttribute="leading" secondItem="49d-Wn-JKm" secondAttribute="leading" constant="24" id="kj8-ab-Rk5"/>
-                        <constraint firstItem="5Ku-Cl-5hC" firstAttribute="top" secondItem="49d-Wn-JKm" secondAttribute="top" constant="16" id="qvt-Q9-Mht"/>
+                        <constraint firstItem="5Ku-Cl-5hC" firstAttribute="top" secondItem="49d-Wn-JKm" secondAttribute="top" constant="4" id="qvt-Q9-Mht"/>
                     </constraints>
                 </view>
             </subviews>

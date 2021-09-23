@@ -44,7 +44,7 @@ extension MediaTypePurchasingController: UITableViewDelegate, UITableViewDataSou
     }
     
     @objc func PaymentBtnAction (_ sender:UIButton) {
-        MoveToNextVC(identifier: "PaymentController")
+        MoveToNextVC(identifier: "CardPaymentController")
     }
     
     @objc func PurchaseWithPlanBtnAction (_ sender:UIButton) {

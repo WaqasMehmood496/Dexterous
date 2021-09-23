@@ -24,7 +24,7 @@ class WorkRequestViewController: UIViewController {
         array.append(WorkReqStruct(name: "UPGARDE MY ACCOUNT", tag: "UPMain", color: UIColor(named: "App Background Theam")))
         array.append(WorkReqStruct(name: "CHANE SOMETHING ON MY WEBSITE", tag: "CH", color: UIColor(named: "Orange")))
         array.append(WorkReqStruct(name: "CREATE A NEW DESIGN", tag: "CR", color: UIColor(named: "Color")))
-        array.append(WorkReqStruct(name: "CREATE A VIDEO", tag: "CV", color: UIColor(named: "Green")))
+        array.append(WorkReqStruct(name: "CREATE A NEW VIDEO", tag: "CV", color: UIColor(named: "Green")))
         array.append(WorkReqStruct(name: "START A NEW CAMPAIGN", tag: "ST", color: UIColor(named: "Pink")))
         array.append(WorkReqStruct(name: "UPGARDE MY ACCOUNT", tag: "UP", color: UIColor(named: "App Background Theam")))
         

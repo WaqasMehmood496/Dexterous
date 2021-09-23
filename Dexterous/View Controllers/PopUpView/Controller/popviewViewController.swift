@@ -100,7 +100,7 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
         
         switch array[indexPath.row] {
         case "Cancel":
-            self.dismiss(animated: true) {
+            self.dismiss(animated: false) {
             }
         default:
             return

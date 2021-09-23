@@ -11,6 +11,7 @@ class DashboardNextStepCell: UITableViewCell {
 
     @IBOutlet weak var GetStartedBtn: UIButton!
     @IBOutlet weak var WhyVideoBtn: UIButton!
+    @IBOutlet weak var NextStepMediaCollection: UICollectionView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

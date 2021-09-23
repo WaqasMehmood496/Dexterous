@@ -62,6 +62,7 @@ struct Constant {
     static let projectName = "projectName"
     static let progressValue = "progressValue"
     static let progressPercentage = "progressPercentage"
+    static let progressColor = "progressColor"
     static let images = "images"
     static let typeImage = "typeImage"
     static let titleOne = "titleOne"
@@ -80,6 +81,8 @@ struct Constant {
     static let projects = "projects"
     static let media = "media"
     static let mediaType = "mediaType"
+    static let title = "title"
+    static let color = "color"
     
     //MARK:OTHRES
     static let tableviewHeaderHeight: CGFloat = 40

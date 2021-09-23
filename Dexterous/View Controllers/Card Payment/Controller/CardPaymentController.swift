@@ -22,4 +22,16 @@ class CardPaymentController: UIViewController {
     @IBAction func BackBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
+    @IBAction func SubmitNowBtnAction(_ sender: UIButton) {
+        MoveToNextVC(identifier: "PaymentController")
+    }
+}
+
+//MARK:- HELPING METHOD'S
+extension CardPaymentController {
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }

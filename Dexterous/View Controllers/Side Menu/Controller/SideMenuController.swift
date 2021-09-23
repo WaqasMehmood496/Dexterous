@@ -42,8 +42,11 @@ class SideMenuController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func EditProfileBtnAction(_ sender: Any) {
+    @IBAction func ShowProfile(_ sender: UIButton) {
         MoveToNextVC(identifier: "ProfileViewController")
+    }
+    @IBAction func EditProfileBtnAction(_ sender: Any) {
+        MoveToNextVC(identifier: "EditProfileController")
     }
     
 }
@@ -75,19 +78,19 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 60))
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 40))
         
-        let label = UILabel(frame: CGRect(x: 24, y: 0, width: tableView.frame.size.width - 48, height: 50))
+        let label = UILabel(frame: CGRect(x: 24, y: 0, width: tableView.frame.size.width - 48, height: 40))
         label.text = self.sideMenuArray[section].groupTitle
         label.textColor = UIColor.black
         label.font = UIFont(name: "Montserrat-Bold", size: 15)
-        view.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
+        view.backgroundColor = UIColor(named: "Light Gray")
         view.addSubview(label)
         return view
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 50
+        return 40
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -109,12 +112,19 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
+                cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
+                cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
+                cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
                 return cell
             }
             
         } else if indexPath.section == 1 {
             //NOTIFICATIONS
             let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
+            cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
+            cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
+            cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
+            
             cell.SelectionBtn.tag = indexPath.row
             cell.SelectionBtn.addTarget(self, action: #selector(notificationBtnAction(_:)), for: .touchUpInside)
             return cell
@@ -131,6 +141,9 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
+                cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
+                cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
+                cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
                 return cell
             }
         }

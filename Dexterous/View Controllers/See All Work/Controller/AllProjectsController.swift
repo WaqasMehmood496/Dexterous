@@ -8,15 +8,18 @@
 import UIKit
 
 class AllProjectsController: UIViewController {
-
+    
+    //IBOUTLET'S
     @IBOutlet weak var ProjectsTableView: UITableView!
+    
+    //VARIABLES
+    var isHideSection = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
-
+    
 }
 
 
@@ -24,29 +27,36 @@ class AllProjectsController: UIViewController {
 extension AllProjectsController:UITableViewDelegate,UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let projectSection = Bundle.main.loadNibNamed("SeeAllHeader", owner: self, options: nil)?.first as! SeeAllSectionHeader
+        projectSection.SectionTitle.text = "Project1"
+        projectSection.HeaderBtn.addTarget(self,
+                                           action: #selector(self.hideSection(sender:)),
+                                           for: .touchUpInside)
+        return projectSection
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 2 {
-            return 3
-        } else {
-            return 1
-        }
+        return isHideSection ? 0 : 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.section == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "FooterHeadingCell", for: indexPath)
-            return cell
-        } else if indexPath.section == 1 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath)
-            return cell
-        } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
-            return cell
-        }
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
+        return cell
     }
     
-    
+    @objc
+    private func hideSection(sender: UIButton) {
+        self.isHideSection = !isHideSection
+        self.ProjectsTableView.reloadSections(IndexSet(integer: sender.tag), with: .fade)
+    }
 }
+
+

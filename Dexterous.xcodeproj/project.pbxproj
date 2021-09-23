@@ -10,6 +10,7 @@
 		7604EB6B26EF833B003BC03B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6A26EF833B003BC03B /* LoginController.swift */; };
 		7604EB7026EF8D58003BC03B /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6F26EF8D58003BC03B /* SignupController.swift */; };
 		7604EB7526EF923F003BC03B /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB7426EF923F003BC03B /* ForgotPasswordController.swift */; };
+		760AF48E26FB791E0010A952 /* UnCompleteMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760AF48D26FB791E0010A952 /* UnCompleteMediaCollectionViewCell.swift */; };
 		760CA18826EF556900257571 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 760CA18726EF556900257571 /* AppDelegate.swift */; };
 		760CA18F26EF556900257571 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 760CA18D26EF556900257571 /* Main.storyboard */; };
 		760CA19126EF557500257571 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 760CA19026EF557500257571 /* Assets.xcassets */; };
@@ -130,7 +131,6 @@
 		7633099B26F4E394009D95EC /* MediaCalenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095326F4E392009D95EC /* MediaCalenderViewController.swift */; };
 		7633099C26F4E394009D95EC /* mediacalender1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095526F4E392009D95EC /* mediacalender1TableViewCell.swift */; };
 		7633099D26F4E394009D95EC /* Automation1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095826F4E392009D95EC /* Automation1TableViewCell.swift */; };
-		7633099E26F4E394009D95EC /* auot2TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095926F4E392009D95EC /* auot2TableViewCell.swift */; };
 		7633099F26F4E394009D95EC /* EditTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095C26F4E392009D95EC /* EditTeamViewController.swift */; };
 		763309A026F4E394009D95EC /* AddTeam1TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095E26F4E392009D95EC /* AddTeam1TableViewCell.swift */; };
 		763309A126F4E394009D95EC /* addTeamCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633095F26F4E392009D95EC /* addTeamCollectionViewCell.swift */; };
@@ -150,6 +150,10 @@
 		763309AF26F4E394009D95EC /* media5TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633097B26F4E394009D95EC /* media5TableViewCell.swift */; };
 		763309B026F4E394009D95EC /* Media3TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7633097C26F4E394009D95EC /* Media3TableViewCell.swift */; };
 		763309C626F4E567009D95EC /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763309C526F4E567009D95EC /* AddTaskViewController.swift */; };
+		7637D55926FB30EC0028B219 /* AutoVCCViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637D55826FB30EC0028B219 /* AutoVCCViewController.swift */; };
+		7637D57C26FB68970028B219 /* DashboardTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637D57B26FB68970028B219 /* DashboardTableView.swift */; };
+		7637D58226FB746D0028B219 /* DashboardNextStepCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637D58126FB746D0028B219 /* DashboardNextStepCollectionView.swift */; };
+		7637D58526FB75F70028B219 /* CompletedMediaCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7637D58426FB75F70028B219 /* CompletedMediaCollectionViewCell.swift */; };
 		76411AB626F48F1900EB4B76 /* CardPaymentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76411AB526F48F1900EB4B76 /* CardPaymentController.swift */; };
 		76411ACE26F4974B00EB4B76 /* FilesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76411ACD26F4974B00EB4B76 /* FilesController.swift */; };
 		76411ADC26F4A19200EB4B76 /* FileCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76411ADB26F4A19200EB4B76 /* FileCollectionViewCell.swift */; };
@@ -167,6 +171,11 @@
 		76C3298926F4BFEC00623E75 /* ProjectCompleteDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3298826F4BFEC00623E75 /* ProjectCompleteDetailController.swift */; };
 		76C3298C26F4C14E00623E75 /* ProjectOverViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3298B26F4C14E00623E75 /* ProjectOverViewTableViewCell.swift */; };
 		76C3298F26F4C2BC00623E75 /* InvitationsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76C3298E26F4C2BC00623E75 /* InvitationsCollectionViewCell.swift */; };
+		76CBAA4A26FC91A500DF2406 /* SeeAllHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 76CBAA4926FC91A500DF2406 /* SeeAllHeader.xib */; };
+		76CBAA5226FC92CD00DF2406 /* SeeAllSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CBAA5126FC92CD00DF2406 /* SeeAllSectionHeader.swift */; };
+		76CBAA5826FCA2F700DF2406 /* EditProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CBAA5726FCA2F700DF2406 /* EditProfileController.swift */; };
+		76EE794D26FCAC78001F9D6B /* ProfileImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE794C26FCAC78001F9D6B /* ProfileImageTableViewCell.swift */; };
+		76EE795026FCAD56001F9D6B /* EditProfileFieldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EE794F26FCAD56001F9D6B /* EditProfileFieldsTableViewCell.swift */; };
 		76F2E89126F3902E00173120 /* MyUpcommingMeetingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2E89026F3902E00173120 /* MyUpcommingMeetingController.swift */; };
 		76F2E89526F390CE00173120 /* MeetingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F2E89426F390CE00173120 /* MeetingTableViewCell.swift */; };
 		BB4C24F1DDEE95665527B303 /* Pods_Dexterous.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40A4FEF8BB2E1786C8D12F55 /* Pods_Dexterous.framework */; };
@@ -178,6 +187,7 @@
 		7604EB6A26EF833B003BC03B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		7604EB6F26EF8D58003BC03B /* SignupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupController.swift; sourceTree = "<group>"; };
 		7604EB7426EF923F003BC03B /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		760AF48D26FB791E0010A952 /* UnCompleteMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnCompleteMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		760CA18426EF556900257571 /* Dexterous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dexterous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		760CA18726EF556900257571 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		760CA18E26EF556900257571 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -300,7 +310,6 @@
 		7633095326F4E392009D95EC /* MediaCalenderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MediaCalenderViewController.swift; sourceTree = "<group>"; };
 		7633095526F4E392009D95EC /* mediacalender1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = mediacalender1TableViewCell.swift; sourceTree = "<group>"; };
 		7633095826F4E392009D95EC /* Automation1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Automation1TableViewCell.swift; sourceTree = "<group>"; };
-		7633095926F4E392009D95EC /* auot2TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = auot2TableViewCell.swift; sourceTree = "<group>"; };
 		7633095C26F4E392009D95EC /* EditTeamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTeamViewController.swift; sourceTree = "<group>"; };
 		7633095E26F4E392009D95EC /* AddTeam1TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTeam1TableViewCell.swift; sourceTree = "<group>"; };
 		7633095F26F4E392009D95EC /* addTeamCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = addTeamCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -320,6 +329,10 @@
 		7633097B26F4E394009D95EC /* media5TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = media5TableViewCell.swift; sourceTree = "<group>"; };
 		7633097C26F4E394009D95EC /* Media3TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Media3TableViewCell.swift; sourceTree = "<group>"; };
 		763309C526F4E567009D95EC /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
+		7637D55826FB30EC0028B219 /* AutoVCCViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoVCCViewController.swift; sourceTree = "<group>"; };
+		7637D57B26FB68970028B219 /* DashboardTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardTableView.swift; sourceTree = "<group>"; };
+		7637D58126FB746D0028B219 /* DashboardNextStepCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardNextStepCollectionView.swift; sourceTree = "<group>"; };
+		7637D58426FB75F70028B219 /* CompletedMediaCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletedMediaCollectionViewCell.swift; sourceTree = "<group>"; };
 		76411AB526F48F1900EB4B76 /* CardPaymentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardPaymentController.swift; sourceTree = "<group>"; };
 		76411ACD26F4974B00EB4B76 /* FilesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilesController.swift; sourceTree = "<group>"; };
 		76411ADB26F4A19200EB4B76 /* FileCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -337,6 +350,11 @@
 		76C3298826F4BFEC00623E75 /* ProjectCompleteDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectCompleteDetailController.swift; sourceTree = "<group>"; };
 		76C3298B26F4C14E00623E75 /* ProjectOverViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectOverViewTableViewCell.swift; sourceTree = "<group>"; };
 		76C3298E26F4C2BC00623E75 /* InvitationsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InvitationsCollectionViewCell.swift; sourceTree = "<group>"; };
+		76CBAA4926FC91A500DF2406 /* SeeAllHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SeeAllHeader.xib; sourceTree = "<group>"; };
+		76CBAA5126FC92CD00DF2406 /* SeeAllSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeeAllSectionHeader.swift; sourceTree = "<group>"; };
+		76CBAA5726FCA2F700DF2406 /* EditProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileController.swift; sourceTree = "<group>"; };
+		76EE794C26FCAC78001F9D6B /* ProfileImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageTableViewCell.swift; sourceTree = "<group>"; };
+		76EE794F26FCAD56001F9D6B /* EditProfileFieldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileFieldsTableViewCell.swift; sourceTree = "<group>"; };
 		76F2E89026F3902E00173120 /* MyUpcommingMeetingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyUpcommingMeetingController.swift; sourceTree = "<group>"; };
 		76F2E89426F390CE00173120 /* MeetingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeetingTableViewCell.swift; sourceTree = "<group>"; };
 		CCA96FB6DFDD37F954D8DAEF /* Pods-Dexterous.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dexterous.debug.xcconfig"; path = "Target Support Files/Pods-Dexterous/Pods-Dexterous.debug.xcconfig"; sourceTree = "<group>"; };
@@ -514,6 +532,7 @@
 		760CA20926EF584200257571 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				76CBAA5426FCA2B900DF2406 /* Edit Profile */,
 				7633094A26F4E391009D95EC /* AddTaskVc */,
 				7633095A26F4E392009D95EC /* AddTeamMembersVC */,
 				7633095626F4E392009D95EC /* AutomationVCC */,
@@ -659,6 +678,7 @@
 		761C193426F3863E0012E170 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				76CBAA4826FC917900DF2406 /* See All Header */,
 				761C193526F386610012E170 /* ProjectTableViewCell.swift */,
 			);
 			path = View;
@@ -718,6 +738,8 @@
 		761D3E2B26F0B88E00B20D02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				7637D58026FB743D0028B219 /* Dashboard Collectionview */,
+				7637D57A26FB68730028B219 /* Dashboard Tableview */,
 				761D3E2D26F0B8A600B20D02 /* DashboardController.swift */,
 			);
 			path = Controller;
@@ -751,6 +773,8 @@
 				7622180B26F13B02000B6ED7 /* DashboardMediaTypeCell.swift */,
 				76483AD026F2065800A7A30F /* DashboardFooterCell.swift */,
 				761D295026F2479E006E2E50 /* DashboardNextStepCell.swift */,
+				7637D58426FB75F70028B219 /* CompletedMediaCollectionViewCell.swift */,
+				760AF48D26FB791E0010A952 /* UnCompleteMediaCollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1121,6 +1145,7 @@
 		7633095626F4E392009D95EC /* AutomationVCC */ = {
 			isa = PBXGroup;
 			children = (
+				7637D55726FB30EC0028B219 /* Controller */,
 				7633095726F4E392009D95EC /* View */,
 			);
 			path = AutomationVCC;
@@ -1130,7 +1155,6 @@
 			isa = PBXGroup;
 			children = (
 				7633095826F4E392009D95EC /* Automation1TableViewCell.swift */,
-				7633095926F4E392009D95EC /* auot2TableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1290,6 +1314,30 @@
 				763309C526F4E567009D95EC /* AddTaskViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		7637D55726FB30EC0028B219 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				7637D55826FB30EC0028B219 /* AutoVCCViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		7637D57A26FB68730028B219 /* Dashboard Tableview */ = {
+			isa = PBXGroup;
+			children = (
+				7637D57B26FB68970028B219 /* DashboardTableView.swift */,
+			);
+			path = "Dashboard Tableview";
+			sourceTree = "<group>";
+		};
+		7637D58026FB743D0028B219 /* Dashboard Collectionview */ = {
+			isa = PBXGroup;
+			children = (
+				7637D58126FB746D0028B219 /* DashboardNextStepCollectionView.swift */,
+			);
+			path = "Dashboard Collectionview";
 			sourceTree = "<group>";
 		};
 		76411AB326F48EEF00EB4B76 /* Card Payment */ = {
@@ -1462,6 +1510,41 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		76CBAA4826FC917900DF2406 /* See All Header */ = {
+			isa = PBXGroup;
+			children = (
+				76CBAA4926FC91A500DF2406 /* SeeAllHeader.xib */,
+				76CBAA5126FC92CD00DF2406 /* SeeAllSectionHeader.swift */,
+			);
+			path = "See All Header";
+			sourceTree = "<group>";
+		};
+		76CBAA5426FCA2B900DF2406 /* Edit Profile */ = {
+			isa = PBXGroup;
+			children = (
+				76CBAA5626FCA2CD00DF2406 /* View */,
+				76CBAA5526FCA2C400DF2406 /* Controller */,
+			);
+			path = "Edit Profile";
+			sourceTree = "<group>";
+		};
+		76CBAA5526FCA2C400DF2406 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				76CBAA5726FCA2F700DF2406 /* EditProfileController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		76CBAA5626FCA2CD00DF2406 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76EE794C26FCAC78001F9D6B /* ProfileImageTableViewCell.swift */,
+				76EE794F26FCAD56001F9D6B /* EditProfileFieldsTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		76F2E88D26F38FEC00173120 /* My Upcomming Meetings */ = {
 			isa = PBXGroup;
 			children = (
@@ -1568,6 +1651,7 @@
 				760CA22D26EF686900257571 /* Montserrat-Bold.ttf in Resources */,
 				760CA22E26EF686900257571 /* Montserrat-MediumItalic.ttf in Resources */,
 				760CA18F26EF556900257571 /* Main.storyboard in Resources */,
+				76CBAA4A26FC91A500DF2406 /* SeeAllHeader.xib in Resources */,
 				760CA23426EF686900257571 /* Montserrat-Black.ttf in Resources */,
 				760CA23826EF686900257571 /* Montserrat-ExtraBoldItalic.ttf in Resources */,
 			);
@@ -1633,6 +1717,7 @@
 				76411ACE26F4974B00EB4B76 /* FilesController.swift in Sources */,
 				7633098326F4E394009D95EC /* WhyVideo4TableViewCell.swift in Sources */,
 				7622180926F1396B000B6ED7 /* DashboardMediaCell.swift in Sources */,
+				7637D55926FB30EC0028B219 /* AutoVCCViewController.swift in Sources */,
 				7633098E26F4E394009D95EC /* Messge3TableViewCell.swift in Sources */,
 				760CA1F526EF575E00257571 /* ViewControllerHelper.swift in Sources */,
 				760CA1F126EF575E00257571 /* PopupHelper.swift in Sources */,
@@ -1651,6 +1736,7 @@
 				762B151426EF9D510046172C /* TypesTableViewCell.swift in Sources */,
 				76C3298326F4B3A100623E75 /* ProjectDetailController.swift in Sources */,
 				7633098526F4E394009D95EC /* Whyvideo1TableViewCell.swift in Sources */,
+				7637D58226FB746D0028B219 /* DashboardNextStepCollectionView.swift in Sources */,
 				763309AF26F4E394009D95EC /* media5TableViewCell.swift in Sources */,
 				760CA1F226EF575E00257571 /* DateTimeHelper.swift in Sources */,
 				763309AD26F4E394009D95EC /* Media2TableViewCell.swift in Sources */,
@@ -1665,7 +1751,6 @@
 				763309A226F4E394009D95EC /* AddTeam2TableViewCell.swift in Sources */,
 				763309A626F4E394009D95EC /* popviewViewController.swift in Sources */,
 				76483AD126F2065800A7A30F /* DashboardFooterCell.swift in Sources */,
-				7633099E26F4E394009D95EC /* auot2TableViewCell.swift in Sources */,
 				760CA20626EF575E00257571 /* AppStoryBoard.swift in Sources */,
 				760CA1EE26EF575E00257571 /* WebServicesHelper.swift in Sources */,
 				7633098926F4E394009D95EC /* ChatvccViewController.swift in Sources */,
@@ -1684,7 +1769,9 @@
 				7633098226F4E394009D95EC /* WhyVideo3TableViewCell.swift in Sources */,
 				76C3297D26F4B00300623E75 /* ProjectFeaturesTableViewCell.swift in Sources */,
 				7633099626F4E394009D95EC /* TeirStartTableViewCell.swift in Sources */,
+				760AF48E26FB791E0010A952 /* UnCompleteMediaCollectionViewCell.swift in Sources */,
 				760CA1E926EF575E00257571 /* Constant.swift in Sources */,
+				76CBAA5826FCA2F700DF2406 /* EditProfileController.swift in Sources */,
 				7633099426F4E394009D95EC /* tierwebdevelopTableViewCell.swift in Sources */,
 				760CA1F926EF575E00257571 /* BadgedBarButtonItem.swift in Sources */,
 				7633099C26F4E394009D95EC /* mediacalender1TableViewCell.swift in Sources */,
@@ -1711,6 +1798,7 @@
 				760CA20026EF575E00257571 /* Extensions.swift in Sources */,
 				76C3298F26F4C2BC00623E75 /* InvitationsCollectionViewCell.swift in Sources */,
 				761D3E3B26F0C14700B20D02 /* ConnectionsTableViewCell.swift in Sources */,
+				7637D57C26FB68970028B219 /* DashboardTableView.swift in Sources */,
 				7633099926F4E394009D95EC /* popSignupViewController.swift in Sources */,
 				765B364326F36F42008B24F6 /* InvoicesTableViewCell.swift in Sources */,
 				7622180626F138C5000B6ED7 /* DashboardProjectsCell.swift in Sources */,
@@ -1722,6 +1810,7 @@
 				760CA20226EF575E00257571 /* UIPopUp+Additions.swift in Sources */,
 				760CA20526EF575E00257571 /* NavigationBarExtension.swift in Sources */,
 				7633098126F4E394009D95EC /* WhyVideoViewController.swift in Sources */,
+				7637D58526FB75F70028B219 /* CompletedMediaCollectionViewCell.swift in Sources */,
 				76C3298926F4BFEC00623E75 /* ProjectCompleteDetailController.swift in Sources */,
 				760CA1E626EF575E00257571 /* WebServiceDataParsingDelegate.swift in Sources */,
 				761D3E3826F0B9F100B20D02 /* SideMenuModel.swift in Sources */,
@@ -1729,6 +1818,7 @@
 				76483AC926F203F700A7A30F /* DashboardFooterHeader.swift in Sources */,
 				7633097D26F4E394009D95EC /* MyTasksViewController.swift in Sources */,
 				760CA1EC26EF575E00257571 /* NVActivityIndicatorPresenter.swift in Sources */,
+				76EE795026FCAD56001F9D6B /* EditProfileFieldsTableViewCell.swift in Sources */,
 				763309A026F4E394009D95EC /* AddTeam1TableViewCell.swift in Sources */,
 				762B151726EF9F8A0046172C /* ServicesCollectionViewCell.swift in Sources */,
 				763309C626F4E567009D95EC /* AddTaskViewController.swift in Sources */,
@@ -1737,6 +1827,7 @@
 				761D3E3E26F0C58000B20D02 /* InviteConnectionsTableViewCell.swift in Sources */,
 				7633099126F4E394009D95EC /* profile2TableViewCell.swift in Sources */,
 				760CA1F726EF575E00257571 /* DataBaseHelper.swift in Sources */,
+				76CBAA5226FC92CD00DF2406 /* SeeAllSectionHeader.swift in Sources */,
 				7633098F26F4E394009D95EC /* SCNewPOSTViewController.swift in Sources */,
 				76C3298C26F4C14E00623E75 /* ProjectOverViewTableViewCell.swift in Sources */,
 				7633098726F4E394009D95EC /* NotiTableViewCell.swift in Sources */,
@@ -1750,6 +1841,7 @@
 				7633099A26F4E394009D95EC /* popedituserViewController.swift in Sources */,
 				760CA20D26EF586400257571 /* LoginModel.swift in Sources */,
 				761D295126F2479E006E2E50 /* DashboardNextStepCell.swift in Sources */,
+				76EE794D26FCAC78001F9D6B /* ProfileImageTableViewCell.swift in Sources */,
 				760CA1FB26EF575E00257571 /* UIView+Additions.swift in Sources */,
 				760CA20326EF575E00257571 /* UISearchBar+Additions.swift in Sources */,
 				765B364026F36EDA008B24F6 /* UserPlanTableViewCell.swift in Sources */,

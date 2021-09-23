@@ -1,16 +1,19 @@
 //
-//  auot2TableViewCell.swift
+//  ProfileImageTableViewCell.swift
 //  Dexterous
 //
-//  Created by Macbook Air on 9/17/21.
+//  Created by Buzzware Tech on 23/09/2021.
 //
 
 import UIKit
 
-class auot2TableViewCell: UITableViewCell {
+class ProfileImageTableViewCell: UITableViewCell {
 
+    //IBAOUTLET'S
+    @IBOutlet weak var UserProfileImage: UIImageView!
+    @IBOutlet weak var UploadImageBtn: UIButton!
+    
     override func awakeFromNib() {
-        
         super.awakeFromNib()
         // Initialization code
     }

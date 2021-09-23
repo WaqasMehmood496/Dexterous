@@ -79,11 +79,13 @@ class ProjectsModel: Codable {
     var projectName: String!
     var progressValue:String!
     var progressPercentage:String!
+    var progressColor:String!
     
-    init(projectName:String? = nil,progressValue: String? = nil,progressPercentage: String? = nil) {
+    init(projectName:String? = nil,progressValue: String? = nil,progressPercentage: String? = nil,progressColor: String? = nil) {
         self.projectName = projectName
         self.progressValue = progressValue
         self.progressPercentage = progressPercentage
+        self.progressColor = progressColor
     }
     
     init?(dic:NSDictionary) {
@@ -91,10 +93,12 @@ class ProjectsModel: Codable {
         let projectName = (dic as AnyObject).value(forKey: Constant.projectName) as? String
         let progressValue = (dic as AnyObject).value(forKey: Constant.progressValue) as! String
         let progressPercentage = (dic as AnyObject).value(forKey: Constant.progressPercentage) as? String
+        let progressColor = (dic as AnyObject).value(forKey: Constant.progressColor) as? String
         
         self.projectName = projectName
         self.progressValue = progressValue
         self.progressPercentage = progressPercentage
+        self.progressColor = progressColor
         
     }
 }
@@ -120,6 +124,8 @@ class MediaModel: Codable {
 class MediaTypeModel: Codable {
     
     var typeImage: String!
+    var title:String!
+    var color:String!
     var titleOne:String!
     var titleOneValue:String!
     var titleTwo:String!
@@ -134,7 +140,7 @@ class MediaTypeModel: Codable {
     var titleSixValue:String!
     
     init(
-        typeImage:String? = nil,titleOne: String? = nil,
+        typeImage:String? = nil,title:String? = nil,color:String? = nil,titleOne: String? = nil,
         titleOneValue:String? = nil,titleTwo:String? = nil,
         titleTwoValue: String? = nil,titleThree:String? = nil,
         titleThreeValue: String? = nil,titleFour:String? = nil,
@@ -143,6 +149,8 @@ class MediaTypeModel: Codable {
         titleSixValue: String? = nil
          ) {
         self.typeImage = typeImage
+        self.title = title
+        self.color = color
         self.titleOne = titleOne
         self.titleOneValue = titleOneValue
         self.titleTwo = titleTwo
@@ -160,6 +168,8 @@ class MediaTypeModel: Codable {
     init?(dic:NSDictionary) {
         
         let typeImage = (dic as AnyObject).value(forKey: Constant.typeImage) as? String
+        let title = (dic as AnyObject).value(forKey: Constant.title) as? String
+        let color = (dic as AnyObject).value(forKey: Constant.color) as? String
         let titleOne = (dic as AnyObject).value(forKey: Constant.titleOne) as! String
         let titleOneValue = (dic as AnyObject).value(forKey: Constant.titleOneValue) as? String
         
@@ -177,6 +187,8 @@ class MediaTypeModel: Codable {
         let titleSixValue = (dic as AnyObject).value(forKey: Constant.titleSixValue) as? String
         
         self.typeImage = typeImage
+        self.title = title
+        self.color = color
         self.titleOne = titleOne
         self.titleOneValue = titleOneValue
         

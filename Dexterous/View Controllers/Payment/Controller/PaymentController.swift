@@ -12,15 +12,17 @@ class PaymentController: UIViewController {
     //IBOUTLETS
     @IBOutlet weak var PaymentTableView: UITableView!
     
+    //VARIABLE'S
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
+    
+    //IBACTION'S
     @IBAction func BackBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    
 }
 
 
@@ -84,6 +86,8 @@ extension PaymentController {
         cell.SareDexterousAppBtn.addTarget(self, action: #selector(ShareDexterousBtnAction(_:)), for: .touchUpInside)
         cell.AddMarketingBtn.addTarget(self, action: #selector(AddMarketingBtnAction(_:)), for: .touchUpInside)
         cell.LearnMoreBtn.addTarget(self, action: #selector(LearnMoreBtnAction(_:)), for: .touchUpInside)
+        boldLabeInitialText(boldText: "$0.00", normalText: " Your all set. No Payment due", label: cell.PriceDescriptionLabel)
+        clearCellSelectionColor(cell: cell)
         return cell
         
     }
@@ -106,6 +110,21 @@ extension PaymentController {
     func previousInvoiceCell(tableView:UITableView,indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousInvoicesCell", for: indexPath)
         return cell
+    }
+    
+    func boldLabeInitialText(boldText:String, normalText:String, label:UILabel) {
+        
+        let attributedString = NSMutableAttributedString(string:normalText)
+        let attrs = [NSAttributedString.Key.font : UIFont.boldSystemFont(ofSize: 12)]
+        let boldString = NSMutableAttributedString(string: boldText, attributes:attrs)
+        boldString.append(attributedString)
+        label.attributedText = boldString
+    }
+    
+    func clearCellSelectionColor(cell:UITableViewCell) {
+        let view = UIView()
+        view.backgroundColor = .clear
+        cell.selectedBackgroundView = view
     }
     
     
@@ -132,4 +151,6 @@ extension PaymentController {
     @objc func LearnMoreBtnAction (_ sender:UIButton) {
         
     }
+    
+    
 }

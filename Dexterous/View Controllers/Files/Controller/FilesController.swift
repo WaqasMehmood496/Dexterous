@@ -43,8 +43,7 @@ extension FilesController {
     func MoveToNextVC(identifier:String)  {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
-        self.present(controller, animated: true, completion: nil)
-        //self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -66,7 +65,7 @@ extension FilesController: UICollectionViewDelegate, UICollectionViewDataSource 
     }
     
     @objc func selectionBtnAction (_ sender: UIButton) {
-        //self.MoveToNextVC(identifier: "AutoVCCViewController")
+        MoveToNextVC(identifier: "AutoVCCViewController")
     }
     
 }
