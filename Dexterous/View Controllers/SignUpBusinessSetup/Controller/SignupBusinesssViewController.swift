@@ -18,8 +18,8 @@ class SignupBusinesssViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setPaddingOnFields(fields: [bwebtf,bnumbertf,bemailtf])
-        addButtonUnderlineOnText(button: btnidontlogo, text: "I DON'T HAVE LOGO")
-        addButtonUnderlineOnText(button: btnidonthaveweb, text: "I DON'T HAVE WEBSITE")
+        addButtonUnderlineOnText(button: btnidontlogo, text: "I DON'T HAVE A LOGO")
+        addButtonUnderlineOnText(button: btnidonthaveweb, text: "I DON'T HAVE A WEBSITE")
     }
     
     override func viewWillAppear(_ animated: Bool) {

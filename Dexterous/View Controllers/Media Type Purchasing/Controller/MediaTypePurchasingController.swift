@@ -8,7 +8,7 @@
 import UIKit
 
 class MediaTypePurchasingController: UIViewController {
-
+    
     @IBOutlet weak var PurchasingTableView: UITableView!
     
     override func viewDidLoad() {

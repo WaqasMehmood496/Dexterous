@@ -6,20 +6,24 @@
 //
 
 import UIKit
+import RSSelectionMenu
 
 class AddTaskViewController: UIViewController {
 
+    
+    //VARIBALE'S
+    let simpleDataArray = ["Website", "Video", "Web"]
+    var selectedDropDownValues = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
     }
     
-    
-    
+    //IBACTION'S
     @IBAction func cancelbtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -37,7 +41,11 @@ class AddTaskViewController: UIViewController {
     @IBAction func CalanderBtnAction(_ sender: Any) {
         MoveToNextVC(identifier: "MediaCalenderViewController")
     }
-
+    
+    @IBAction func AssignToTeamBtnAction(_ sender: UIButton) {
+        showAssignToTeamDropDown(sender: sender)
+    }
+    
 }
 
 
@@ -48,5 +56,22 @@ extension AddTaskViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func showAssignToTeamDropDown(sender:UIButton) {
+        
+        let selectionMenu = RSSelectionMenu(dataSource: simpleDataArray) { (cell, item, indexPath) in
+            cell.textLabel?.text = item
+        }
+        
+        selectionMenu.setSelectedItems(items: selectedDropDownValues) { [weak self] (item, index, isSelected, selectedItems) in
+            print(selectedItems)
+        }
+        
+        selectionMenu.tableView?.showsVerticalScrollIndicator = false
+        selectionMenu.tableView?.separatorStyle = .none
+        selectionMenu.tableView?.borderColor = .clear
+        
+        selectionMenu.show(style: .popover(sourceView: sender, size: CGSize(width: 100, height: 100)), from: self)
     }
 }

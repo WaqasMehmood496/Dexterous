@@ -29,7 +29,7 @@ extension PurchaseWithPlanController: UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "BasicPlanTableViewCell", for: indexPath) as! BasicPlanTableViewCell
-        cell.Benifit.text = "- Pages\n\n- UNLIMITED Revisions"
+        cell.Benifit.text = "- Pages\n\n- UNLIMITED Revisions\n\n- UNLIMITED Designs\n\n- UNLIMITED Writing\n\n- WordPress\n\n- Mobile First Design"
         clearCellSelectionColor(cell: cell)
         return cell
         

@@ -129,6 +129,9 @@ extension DashboardController {
             cell.TaskNameLabel.text = self.dashBoardData.myTask[indexPath.row - 1].taskName
             cell.AssignByLabel.text = self.dashBoardData.myTask[indexPath.row - 1].assignBy
             cell.DueLabel.text = self.dashBoardData.myTask[indexPath.row - 1].due
+            if indexPath.row == self.dashBoardData.myTask.count {
+                cell.DueLabel.textColor = UIColor.red
+            }
             return cell
         }
     }
@@ -178,6 +181,12 @@ extension DashboardController {
         
         //Set Color according cell
         changeMediaTypeColor(cell: cell, image: self.dashBoardData.mediaType[indexPath.row].typeImage, theamColor: self.dashBoardData.mediaType[indexPath.row].color)
+        
+        if self.dashBoardData.mediaType[indexPath.row].title == "Social Media" {
+            cell.MediaStackView.isHidden = false
+        } else {
+            cell.MediaStackView.isHidden = true
+        }
         
         hideShadedView(cell: cell, indexpath: indexPath)
         clearCellSelectionColor(cell: cell)

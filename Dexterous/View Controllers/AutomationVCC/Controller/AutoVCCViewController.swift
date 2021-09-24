@@ -14,6 +14,10 @@ class AutoVCCViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     @IBAction func backbtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -26,7 +30,6 @@ class AutoVCCViewController: UIViewController {
         controller.array = ["Bookmark","Share","Edit","Move","Copy","Delete","Change Log","Cancel"]
         controller.isredirectFrom = "MEDIA"
         self.parent?.tabBarController?.present(controller, animated: true, completion: nil)
-        
         
     }
     

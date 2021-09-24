@@ -37,9 +37,7 @@ class ChatvccViewController: UIViewController {
     }
     
     @IBAction func searchbtn(_ sender: Any) {
-    }
-    
-    
+    }    
 
 }
 extension ChatvccViewController:UITableViewDelegate,UITableViewDataSource{
@@ -51,7 +49,7 @@ extension ChatvccViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChatListTableViewCell") as! ChatListTableViewCell
-        
+        clearCellSelectionColor(cell: cell)
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -59,10 +57,14 @@ extension ChatvccViewController:UITableViewDelegate,UITableViewDataSource{
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "MessageViewController") as! MessageViewController
-     
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
+    func clearCellSelectionColor(cell:UITableViewCell) {
+        let view = UIView()
+        view.backgroundColor = .clear
+        cell.selectedBackgroundView = view
+    }
     
     
     

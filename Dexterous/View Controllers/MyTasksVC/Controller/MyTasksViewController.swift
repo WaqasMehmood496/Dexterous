@@ -81,25 +81,12 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if tableView.tag == 1 {
-            let headerView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: tableView.frame.width, height: 25))
-            headerView.backgroundColor = UIColor.clear
-            let label = UILabel()
-            label.frame = CGRect.init(x: 24, y: 12,width: headerView.frame.width-20, height: headerView.frame.height-12)
-            label.text = "Project1"
-            label.font = UIFont(name: "System", size: 10)
-            label.textColor = UIColor.black
-            
-            let sectionButton = UIButton(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: 25))
-            sectionButton.setTitle(String(" "),
-                                   for: .normal)
-            sectionButton.backgroundColor = .clear
-            sectionButton.tag = section
-            sectionButton.addTarget(self,
-                                    action: #selector(self.hideSection(sender:)),
-                                    for: .touchUpInside)
-            headerView.addSubview(label)
-            headerView.addSubview(sectionButton)
-            return headerView
+            let projectSection = Bundle.main.loadNibNamed("SeeAllHeader", owner: self, options: nil)?.first as! SeeAllSectionHeader
+            projectSection.SectionTitle.text = "Project1"
+            projectSection.HeaderBtn.addTarget(self,
+                                               action: #selector(self.hideSection(sender:)),
+                                               for: .touchUpInside)
+            return projectSection
             
         } else {
             return UIView()
@@ -129,7 +116,7 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
                 cell.addbtn.addTarget(self, action: #selector(newTask), for: .touchUpInside)
                 return cell
             } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "MyTask1TableViewCell") as! MyTask1TableViewCell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardMyTaskCell") as! DashboardMyTaskCell
                 clearCellSelectionColor(cell: cell)
                 return cell
             }

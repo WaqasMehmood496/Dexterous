@@ -49,6 +49,7 @@ extension AllProjectsController:UITableViewDelegate,UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell", for: indexPath) as! ProjectTableViewCell
+        clearCellSelectionColor(cell: cell)
         return cell
     }
     
@@ -56,6 +57,12 @@ extension AllProjectsController:UITableViewDelegate,UITableViewDataSource {
     private func hideSection(sender: UIButton) {
         self.isHideSection = !isHideSection
         self.ProjectsTableView.reloadSections(IndexSet(integer: sender.tag), with: .fade)
+    }
+    
+    func clearCellSelectionColor(cell:UITableViewCell) {
+        let view = UIView()
+        view.backgroundColor = .clear
+        cell.selectedBackgroundView = view
     }
 }
 

@@ -12,9 +12,7 @@ class SideMenuController: UIViewController {
     //IBOUTLETS
     @IBOutlet weak var SideMenuTableView: UITableView!
     @IBOutlet weak var UserImage: UIImageView!
-    
-    //CONSTANTS
-    
+        
     //VARIABLES
     var sideMenuArray:[SideMenuModel] = []
     
@@ -34,10 +32,11 @@ class SideMenuController: UIViewController {
             ], groupTitle: "Notifications"),
             SideMenuModel(data: [
                 SideMenuOptionModel(image: "Group 2865", title: "Privacy Policy", type: ""),
-                SideMenuOptionModel(image: "Group 2864", title: "Terms of Services", type: ""),
+                SideMenuOptionModel(image: "Group 2864", title: "Terms of Service", type: ""),
                 SideMenuOptionModel(image: "Group 2863", title: "Version 1.0", type: "")
             ], groupTitle: "Other")
         ]
+        
         self.SideMenuTableView.reloadData()
         // Do any additional setup after loading the view.
     }

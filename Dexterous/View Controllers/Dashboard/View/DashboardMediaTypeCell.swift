@@ -33,6 +33,10 @@ class DashboardMediaTypeCell: UITableViewCell {
     @IBOutlet weak var BackShadeView: UIView!
     @IBOutlet weak var CrossBtn: UIButton!
     
+    @IBOutlet weak var MediaStackView: UIStackView!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

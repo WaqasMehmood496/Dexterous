@@ -9,14 +9,13 @@ import UIKit
 
 class NotiTableViewCell: UITableViewCell {
 
+    //IBOUTLET'S
     @IBOutlet weak var desclbl: UILabel!
     @IBOutlet weak var timelinelbl: UILabel!
     @IBOutlet weak var titlelbl: UILabel!
     @IBOutlet weak var imageicon: UIImageView!
-    
-    
-    
-    
+    @IBOutlet weak var BottomBar: UIView!
+    @IBOutlet weak var BotttomBarTwo: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()

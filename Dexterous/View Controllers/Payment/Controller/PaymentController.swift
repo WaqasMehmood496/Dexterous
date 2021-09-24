@@ -94,21 +94,25 @@ extension PaymentController {
     
     func invoiceTitleCell(tableView:UITableView,indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InvoicesHeaderCell", for: indexPath)
+        clearCellSelectionColor(cell: cell)
         return cell
         
     }
     
     func currentInvoiceCell(tableView:UITableView,indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrentInvoiceCell", for: indexPath)
+        clearCellSelectionColor(cell: cell)
         return cell
     }
     
     func invoiceCell(tableView:UITableView,indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "InvoicesTableViewCell", for: indexPath) as! InvoicesTableViewCell
+        clearCellSelectionColor(cell: cell)
         return cell    }
     
     func previousInvoiceCell(tableView:UITableView,indexPath:IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PreviousInvoicesCell", for: indexPath)
+        clearCellSelectionColor(cell: cell)
         return cell
     }
     

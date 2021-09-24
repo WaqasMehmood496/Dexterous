@@ -31,6 +31,10 @@ class FilesController: UIViewController, LayoutDelegate {
         FilesCollectionView.reloadData()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = false
+    }
+    
     func cellSize(indexPath: IndexPath) -> CGSize {
         return CGSize()
     }

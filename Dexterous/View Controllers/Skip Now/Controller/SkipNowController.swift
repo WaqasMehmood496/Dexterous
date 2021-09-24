@@ -14,7 +14,7 @@ class SkipNowController: UIViewController {
     
     //CONTANTS
     let typesArray = [
-        "Sole Prop","Sole Prop","Sole Prop","Sole Prop","Sole Prop"
+        "Sole Prop","Start Up","Enterpreneur","Enterprise","Premier"
     ]
     let typeDescriptionArray = [
         "I am sole proprietor or a solely owned small business looking to jumpstart my business plan. I am looking for a markeeting partnership that can grow with my business.",
@@ -29,14 +29,12 @@ class SkipNowController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
     // IBACTION'S
     @IBAction func SignInBtnAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "SkipToSignIn", sender: nil)
-        
     }
 }
 
@@ -59,7 +57,6 @@ extension SkipNowController: UITableViewDelegate, UITableViewDataSource {
         
         return cell
     }
-    
 }
 
 extension SkipNowController: UICollectionViewDelegate, UICollectionViewDataSource {

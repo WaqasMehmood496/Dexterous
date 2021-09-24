@@ -9,9 +9,12 @@ import UIKit
 
 class tiertfTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var TaskNameField: UITextField!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        TaskNameField.setLeftPaddingPoints(8)
+        TaskNameField.setRightPaddingPoints(8)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
