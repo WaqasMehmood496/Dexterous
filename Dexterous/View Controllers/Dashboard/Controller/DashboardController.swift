@@ -49,7 +49,12 @@ class DashboardController: UIViewController {
     ]
     
     let simpleDataArray = ["Website", "Video", "Web"]
-    
+    let userAccountTempArray = [
+        "Elizabeth Olsen 1",
+        "Elizabeth Olsen 2",
+        "Elizabeth Olsen 3",
+        "Elizabeth Olsen 4"
+    ]
     //VARIABLES
     
     var dashBoardData: DashboardModel = DashboardModel()
@@ -83,7 +88,8 @@ class DashboardController: UIViewController {
     }
     
     @IBAction func YourComponyLogoDropdown(_ sender: UIButton) {
-        showYourComponyLogoDropdownMenu(sender: sender)
+        //showYourComponyLogoDropdownMenu(sender: sender)
+        showUserAccountBottomAlert()
     }
     
     @IBAction func ShowNotificationsButtonsAction(_ sender: UIButton) {
@@ -116,6 +122,31 @@ extension DashboardController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
         self.navigationController?.pushViewController(controller, animated: true)
+    }
+    
+    func showUserAccountBottomAlert() {
+        let actionSheet = UIAlertController(title: nil, message: "Select your account", preferredStyle: .actionSheet)
+        
+        for userName in self.userAccountTempArray {
+            let camera = UIAlertAction(title: userName, style: .default) { (action) in
+             
+            }
+            //let cameraImage = UIImage(named: "icon_camera")
+            //ucamera.setValue(cameraImage, forKey: "image")
+            camera.setValue(0, forKey: "titleTextAlignment")
+            camera.setValue(UIColor(named: "Button Black Bacground"), forKey: "titleTextColor")
+            actionSheet.addAction(camera)
+        }
+        
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
+        }
+        cancel.setValue(UIColor(named: "Pink"), forKey: "titleTextColor")
+        actionSheet.addAction(cancel)
+       
+        
+        self.present(actionSheet, animated: true, completion: {
+            print("completion block")
+        })
     }
 }
 

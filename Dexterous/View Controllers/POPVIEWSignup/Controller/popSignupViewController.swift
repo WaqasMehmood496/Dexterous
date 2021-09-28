@@ -22,6 +22,8 @@ class popSignupViewController: UIViewController {
     }
     
     @IBAction func yesbtn(_ sender: Any) {
+        let controller = getViewController(identifier: "PurchaseWithPlanController") as! PurchaseWithPlanController
+        self.present(controller, animated: true, completion: nil)
     }
     @IBAction func notbtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)

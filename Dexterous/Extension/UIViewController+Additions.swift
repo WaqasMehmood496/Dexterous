@@ -76,7 +76,7 @@ extension UIViewController {
         alert.show()
     }
     
-    func takePhoto(btn:UIButton){
+    func takePhoto(btn:UIButton,title:String){
         let photos = PHPhotoLibrary.authorizationStatus()
         if photos == .notDetermined {
             PHPhotoLibrary.requestAuthorization({status in
@@ -87,8 +87,8 @@ extension UIViewController {
                 }
             })
         }
-        checkLibrary(btn: btn)
-        checkPermission(btn: btn)
+        checkLibrary(btn: btn,title: title)
+        checkPermission(btn: btn,title: title)
     }
     
     func getViewController(identifier:String) -> UIViewController {
@@ -116,11 +116,11 @@ extension UIViewController {
     }
 }
 extension UIViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate{
-    func displayUploadImageDialog(btnSelected: UIButton) {
+    func displayUploadImageDialog(btnSelected: UIButton,title:String) {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.allowsEditing = true
-        let alertController = UIAlertController(title: "", message: "Upload profile photo?", preferredStyle: .actionSheet)
+        let alertController = UIAlertController(title: "", message: title, preferredStyle: .actionSheet)
         let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: "Cancel action"), style: .cancel, handler: {(_ action: UIAlertAction) -> Void in
             alertController.dismiss(animated: true) {() -> Void in }
         })
@@ -190,11 +190,11 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
     //            return false
     //        }
     //    }
-    func checkPermission(btn: UIButton) {
+    func checkPermission(btn: UIButton,title:String) {
         let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
         switch authStatus {
         case .authorized:
-            self.displayUploadImageDialog(btnSelected: btn)
+            self.displayUploadImageDialog(btnSelected: btn,title: title)
         case .denied:
             print("Error")
         default:
@@ -206,12 +206,12 @@ extension UIViewController:UIImagePickerControllerDelegate, UINavigationControll
     }
     
     
-    func checkLibrary(btn:UIButton) {
+    func checkLibrary(btn:UIButton,title:String) {
         let photos = PHPhotoLibrary.authorizationStatus()
         if photos == .authorized {
             switch photos {
             case .authorized:
-                self.displayUploadImageDialog(btnSelected: btn)
+                self.displayUploadImageDialog(btnSelected: btn,title: title)
             case .denied:
                 print("Error")
             default:

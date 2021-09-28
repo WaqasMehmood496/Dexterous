@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		045EDB0627034A4B008FD3CD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */; };
 		7604EB6B26EF833B003BC03B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6A26EF833B003BC03B /* LoginController.swift */; };
 		7604EB7026EF8D58003BC03B /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6F26EF8D58003BC03B /* SignupController.swift */; };
 		7604EB7526EF923F003BC03B /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB7426EF923F003BC03B /* ForgotPasswordController.swift */; };
@@ -180,6 +181,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		40A4FEF8BB2E1786C8D12F55 /* Pods_Dexterous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dexterous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D0829B010007C75A1D5BA /* Pods-Dexterous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dexterous.release.xcconfig"; path = "Target Support Files/Pods-Dexterous/Pods-Dexterous.release.xcconfig"; sourceTree = "<group>"; };
 		7604EB6A26EF833B003BC03B /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 				760CA1E226EF575E00257571 /* NavigationBarExtension.swift */,
 				760CA1E326EF575E00257571 /* AppStoryBoard.swift */,
 				760CA1E426EF575E00257571 /* UITextView+Additions.swift */,
+				045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -1814,6 +1817,7 @@
 				763309A026F4E394009D95EC /* AddTeam1TableViewCell.swift in Sources */,
 				762B151726EF9F8A0046172C /* ServicesCollectionViewCell.swift in Sources */,
 				763309C626F4E567009D95EC /* AddTaskViewController.swift in Sources */,
+				045EDB0627034A4B008FD3CD /* UIAlertControllerExtension.swift in Sources */,
 				763309B026F4E394009D95EC /* Media3TableViewCell.swift in Sources */,
 				760CA1EA26EF575E00257571 /* Globals.swift in Sources */,
 				761D3E3E26F0C58000B20D02 /* InviteConnectionsTableViewCell.swift in Sources */,
