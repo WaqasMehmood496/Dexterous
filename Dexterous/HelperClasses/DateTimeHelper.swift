@@ -8,8 +8,8 @@
 
 import UIKit
 
-class DateTimeHelper
-{
+class DateTimeHelper {
+    
     static let sharedInstance = DateTimeHelper() //<- Singleton Instance
     
     private init() { /* Additional instances cannot be created */ }
@@ -332,4 +332,67 @@ class DateTimeHelper
         return timeZoneStr
     }
     
+}
+
+extension Date {
+    func timeAgoSinceDate(_ numericDates:Bool = true) -> String {
+        let calendar = Calendar.current
+        let now = Date()
+        let earliest = (now as NSDate).earlierDate(self)
+        let latest = (earliest == now) ? self : now
+        let components:DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.minute , NSCalendar.Unit.hour , NSCalendar.Unit.day , NSCalendar.Unit.weekOfYear , NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.second], from: earliest, to: latest, options: NSCalendar.Options())
+        if (components.year! >= 2) {
+            return "\(components.year!) years"
+        } else if (components.year! >= 1){
+            if (numericDates){
+                return "1 year"
+            } else {
+                return "Last year"
+            }
+        } else if (components.month! >= 2) {
+            return "\(components.month!) months"
+        } else if (components.month! >= 1){
+            if (numericDates){
+                return "1 month"
+            } else {
+                return "Last month"
+            }
+        } else if (components.weekOfYear! >= 2) {
+            return "\(components.weekOfYear!) weeks"
+        } else if (components.weekOfYear! >= 1){
+            if (numericDates){
+                return "1 week"
+            } else {
+                return "Last week"
+            }
+        } else if (components.day! >= 2) {
+            return "\(components.day!) days"
+        } else if (components.day! >= 1){
+            if (numericDates){
+                return "1 day"
+            } else {
+                return "Yesterday"
+            }
+        } else if (components.hour! >= 2) {
+            return "\(components.hour!) hours"
+        } else if (components.hour! >= 1){
+            if (numericDates){
+                return "1 hour"
+            } else {
+                return "An hour"
+            }
+        } else if (components.minute! >= 2) {
+            return "\(components.minute!) minutes"
+        } else if (components.minute! >= 1){
+            if (numericDates){
+                return "1 minute"
+            } else {
+                return "A minute"
+            }
+        } else if (components.second! >= 3) {
+            return "\(components.second!) seconds"
+        } else {
+            return "Just now"
+        }
+    }
 }

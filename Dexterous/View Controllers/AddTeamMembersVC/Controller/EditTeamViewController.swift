@@ -18,7 +18,6 @@ class EditTeamViewController: UIViewController {
 
     @IBOutlet weak var editTeamTableView: UITableView!
     
-    
     var array = [TeamStruct]()
     
     override func viewDidLoad() {
@@ -34,6 +33,10 @@ class EditTeamViewController: UIViewController {
         
         self.array.append(TeamStruct(name: "button", BtnName: "", color: "App Background Theam", images: [#imageLiteral(resourceName: "Mask Group 374")]))
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
     }
     
     @IBAction func backbtn(_ sender: Any) {

@@ -25,6 +25,10 @@ class popedituserViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     @IBAction func areusurebtn(_ sender: Any) {
         
         self.dismiss(animated: true, completion: nil)

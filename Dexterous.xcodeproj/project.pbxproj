@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04056C6F270490F100DD6432 /* MemberShipController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056C6E270490F100DD6432 /* MemberShipController.swift */; };
+		04056C712704916900DD6432 /* MembershipPriceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04056C702704916900DD6432 /* MembershipPriceModel.swift */; };
+		04171F3D2705F37400058A49 /* MediaTypeBenifitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04171F3C2705F37300058A49 /* MediaTypeBenifitsTableViewCell.swift */; };
+		043084712705CDB000CEDE38 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043084702705CDB000CEDE38 /* ProductModel.swift */; };
+		043084732705D2EF00CEDE38 /* ProductsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043084722705D2EF00CEDE38 /* ProductsEnum.swift */; };
 		045EDB0627034A4B008FD3CD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */; };
 		7604EB6B26EF833B003BC03B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6A26EF833B003BC03B /* LoginController.swift */; };
 		7604EB7026EF8D58003BC03B /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6F26EF8D58003BC03B /* SignupController.swift */; };
@@ -181,6 +186,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04056C6E270490F100DD6432 /* MemberShipController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberShipController.swift; sourceTree = "<group>"; };
+		04056C702704916900DD6432 /* MembershipPriceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipPriceModel.swift; sourceTree = "<group>"; };
+		04171F3C2705F37300058A49 /* MediaTypeBenifitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeBenifitsTableViewCell.swift; sourceTree = "<group>"; };
+		043084702705CDB000CEDE38 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
+		043084722705D2EF00CEDE38 /* ProductsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsEnum.swift; sourceTree = "<group>"; };
 		045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		40A4FEF8BB2E1786C8D12F55 /* Pods_Dexterous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dexterous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D0829B010007C75A1D5BA /* Pods-Dexterous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dexterous.release.xcconfig"; path = "Target Support Files/Pods-Dexterous/Pods-Dexterous.release.xcconfig"; sourceTree = "<group>"; };
@@ -379,6 +389,47 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		04056C6A270490BE00DD6432 /* Membership Price */ = {
+			isa = PBXGroup;
+			children = (
+				04056C6D270490D800DD6432 /* Model */,
+				04056C6C270490D100DD6432 /* View */,
+				04056C6B270490CB00DD6432 /* Controller */,
+			);
+			path = "Membership Price";
+			sourceTree = "<group>";
+		};
+		04056C6B270490CB00DD6432 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04056C6E270490F100DD6432 /* MemberShipController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04056C6C270490D100DD6432 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04056C6D270490D800DD6432 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				04056C702704916900DD6432 /* MembershipPriceModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0430846F2705CD9D00CEDE38 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				043084702705CDB000CEDE38 /* ProductModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2D8F53CCA4468C18D7180331 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -531,6 +582,7 @@
 		760CA20926EF584200257571 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				04056C6A270490BE00DD6432 /* Membership Price */,
 				76CBAA5426FCA2B900DF2406 /* Edit Profile */,
 				7633094A26F4E391009D95EC /* AddTaskVc */,
 				7633095A26F4E392009D95EC /* AddTeamMembersVC */,
@@ -652,6 +704,7 @@
 			isa = PBXGroup;
 			children = (
 				7613F73426F8A51F00834287 /* PopupEnum.swift */,
+				043084722705D2EF00CEDE38 /* ProductsEnum.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -701,6 +754,7 @@
 		761D294526F2459C006E2E50 /* Media Type Purchasing */ = {
 			isa = PBXGroup;
 			children = (
+				0430846F2705CD9D00CEDE38 /* Model */,
 				761D294A26F24661006E2E50 /* View */,
 				761D294626F245C0006E2E50 /* Controller */,
 			);
@@ -719,6 +773,7 @@
 			isa = PBXGroup;
 			children = (
 				761D294B26F2467C006E2E50 /* MediaTypePurchasingCell.swift */,
+				04171F3C2705F37300058A49 /* MediaTypeBenifitsTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1750,6 +1805,7 @@
 				760CA1EE26EF575E00257571 /* WebServicesHelper.swift in Sources */,
 				7633098926F4E394009D95EC /* ChatvccViewController.swift in Sources */,
 				763308FC26F4D2E3009D95EC /* FilesCollectionViewCell.swift in Sources */,
+				043084732705D2EF00CEDE38 /* ProductsEnum.swift in Sources */,
 				763309A126F4E394009D95EC /* addTeamCollectionViewCell.swift in Sources */,
 				7633099526F4E394009D95EC /* tieremptyTableViewCell.swift in Sources */,
 				760CA1ED26EF575E00257571 /* CommonHelper.swift in Sources */,
@@ -1757,6 +1813,7 @@
 				7633099826F4E394009D95EC /* tiertfTableViewCell.swift in Sources */,
 				763309A326F4E394009D95EC /* WhichTeamViewController.swift in Sources */,
 				7633098426F4E394009D95EC /* WhyVideo2TableViewCell.swift in Sources */,
+				043084712705CDB000CEDE38 /* ProductModel.swift in Sources */,
 				763309A526F4E394009D95EC /* popCancelbtnTableViewCell.swift in Sources */,
 				7633098B26F4E394009D95EC /* MessageViewController.swift in Sources */,
 				760CA1FF26EF575E00257571 /* CameraViewController.swift in Sources */,
@@ -1790,6 +1847,7 @@
 				763309AC26F4E394009D95EC /* Media1TableViewCell.swift in Sources */,
 				761D3E4126F0C68F00B20D02 /* OtherTableViewCell.swift in Sources */,
 				76A2256926F3465B00AFAF7E /* PurchaseWithPlanController.swift in Sources */,
+				04056C6F270490F100DD6432 /* MemberShipController.swift in Sources */,
 				760CA20026EF575E00257571 /* Extensions.swift in Sources */,
 				76C3298F26F4C2BC00623E75 /* InvitationsCollectionViewCell.swift in Sources */,
 				761D3E3B26F0C14700B20D02 /* ConnectionsTableViewCell.swift in Sources */,
@@ -1810,6 +1868,7 @@
 				760CA1E626EF575E00257571 /* WebServiceDataParsingDelegate.swift in Sources */,
 				761D3E3826F0B9F100B20D02 /* SideMenuModel.swift in Sources */,
 				7622180C26F13B02000B6ED7 /* DashboardMediaTypeCell.swift in Sources */,
+				04171F3D2705F37400058A49 /* MediaTypeBenifitsTableViewCell.swift in Sources */,
 				76483AC926F203F700A7A30F /* DashboardFooterHeader.swift in Sources */,
 				7633097D26F4E394009D95EC /* MyTasksViewController.swift in Sources */,
 				760CA1EC26EF575E00257571 /* NVActivityIndicatorPresenter.swift in Sources */,
@@ -1843,6 +1902,7 @@
 				765B364026F36EDA008B24F6 /* UserPlanTableViewCell.swift in Sources */,
 				761D294326F23B8B006E2E50 /* MediaTypeDetailViewController.swift in Sources */,
 				7633090226F4D414009D95EC /* AddACommentTableViewCell.swift in Sources */,
+				04056C712704916900DD6432 /* MembershipPriceModel.swift in Sources */,
 				760CA1FD26EF575E00257571 /* NotificationExtension.swift in Sources */,
 				7633099026F4E394009D95EC /* ProfileViewController.swift in Sources */,
 				7633099326F4E394009D95EC /* TiervViewController.swift in Sources */,

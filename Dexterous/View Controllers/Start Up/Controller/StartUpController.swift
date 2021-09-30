@@ -25,6 +25,9 @@ class StartUpController: UIViewController {
     @IBAction func SignUpBtnAction(_ sender: Any) {
         self.performSegue(withIdentifier: "BusinessSignupSegue", sender: nil)
     }
+    @IBAction func SkipNowBtnAction(_ sender: UIButton) {
+        changeRootViewController(identifier: "TabbarController")
+    }
     
     func addSwapGestureOnCartoonImage() {
         let letfswapGesture = UISwipeGestureRecognizer(target: self, action: #selector(cartoonImageSwapGesture(_:)))

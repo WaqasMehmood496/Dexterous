@@ -18,6 +18,10 @@ class CardPaymentController: UIViewController {
         super.viewDidLoad()
         setPaddingOnFields(fields: [CardPaymentTF,CardNumberTF,DateTF,CCITF])
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
 
     @IBAction func BackBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

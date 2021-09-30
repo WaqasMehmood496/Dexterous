@@ -33,6 +33,8 @@ class FilesController: UIViewController, LayoutDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        self.freeTrailPopUp()
+
     }
     
     func cellSize(indexPath: IndexPath) -> CGSize {

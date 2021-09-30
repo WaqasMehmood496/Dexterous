@@ -10,8 +10,6 @@ import UIKit
 class MessageViewController: UIViewController {
     @IBOutlet weak var messgeTableView: UITableView!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,9 +17,10 @@ class MessageViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
          self.tabBarController?.tabBar.isHidden = true
-
         self.navigationController?.navigationBar.isHidden = true
+        self.freeTrailPopUp()
     }
+
     @IBAction func backbtn(_ sender: Any) {
         
         self.navigationController?.popViewController(animated: true)

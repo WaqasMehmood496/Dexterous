@@ -16,6 +16,10 @@ class TiervViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     //IBACTION'S
     @IBAction func tempBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

@@ -8,19 +8,17 @@
 import UIKit
 
 class ChatvccViewController: UIViewController {
-
+    
     @IBOutlet weak var chatTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        
-    self.navigationController?.navigationBar.isHidden = true
-    self.tabBarController?.tabBar.isHidden = false
-
+        self.navigationController?.navigationBar.isHidden = true
+        self.tabBarController?.tabBar.isHidden = false
+        self.freeTrailPopUp()
     }
     
     @IBAction func addbtn(_ sender: Any) {
@@ -37,8 +35,8 @@ class ChatvccViewController: UIViewController {
     }
     
     @IBAction func searchbtn(_ sender: Any) {
-    }    
-
+    }
+    
 }
 extension ChatvccViewController:UITableViewDelegate,UITableViewDataSource{
     

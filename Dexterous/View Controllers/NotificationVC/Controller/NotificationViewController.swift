@@ -30,6 +30,10 @@ class NotificationViewController: UIViewController {
         self.array.append(notiStruct(Name: "Mentions", Time: "08/20/2021 7:20 AM", image: #imageLiteral(resourceName: "Mention"), descp: "We were mention here INSERT MENTIONS HERE, INSERT MENTIONS HERE, INSERT MENTIONS HERE "))
         self.array.append(notiStruct(Name: "Overdue Reminder", Time: "08/20/2021 7:20 AM", image: #imageLiteral(resourceName: "Overdue Reminder"), descp: "Please Provide INSERT REMINDER HERE"))
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
 }
 
 //MARK:- HELPING METHOD'S

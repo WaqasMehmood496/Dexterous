@@ -19,6 +19,11 @@ class ProjectDetailController: UIViewController {
         setPaddingOnFields(fields: [ProjectTitleTF])
         ProjectDescriptionTV.delegate = self
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     @IBAction func InviteBtnAction(_ sender: UIButton) {
         
     }

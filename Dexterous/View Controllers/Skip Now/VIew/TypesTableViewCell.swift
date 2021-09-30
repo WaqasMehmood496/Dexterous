@@ -10,8 +10,11 @@ import UIKit
 class TypesTableViewCell: UITableViewCell {
 
     //IBOUTLET
+    @IBOutlet weak var backView: UIView!
     @IBOutlet weak var TitleLabel: UILabel!
     @IBOutlet weak var DetailLabel: UILabel!
+    @IBOutlet weak var PriceLabel: UILabel!
+    @IBOutlet weak var PricePeriod: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

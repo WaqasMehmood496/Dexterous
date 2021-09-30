@@ -26,6 +26,10 @@ class ProjectCompleteDetailController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     //IBACTION'S
     @IBAction func BackBtnAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)

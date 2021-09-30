@@ -30,6 +30,11 @@ class WorkRequestViewController: UIViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
+    
     @IBAction func BackBtnAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

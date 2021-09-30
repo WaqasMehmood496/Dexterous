@@ -17,8 +17,6 @@ class SignupController: UIViewController {
     @IBOutlet weak var PasswordTF: UITextField!
     @IBOutlet weak var SelectedImageNamelabel: UILabel!
     
-    // CONSTANT
-    
     // VARIABLE
     var window: UIWindow?
     var selectedImage = UIImage()
@@ -67,6 +65,7 @@ extension SignupController: UITextFieldDelegate {
 }
 
 extension SignupController {
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
         if let editedImage = info[.editedImage] as? UIImage {

@@ -25,9 +25,12 @@ class popviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+        self.freeTrailPopUp()
     }
     
     override func viewWillLayoutSubviews() {
@@ -96,7 +99,6 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
                 }
             }
         }
-        
         
         switch array[indexPath.row] {
         case "Cancel":

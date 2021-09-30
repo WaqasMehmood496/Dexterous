@@ -21,6 +21,7 @@ class AddTaskViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = true
+        self.freeTrailPopUp()
     }
     
     //IBACTION'S

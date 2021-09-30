@@ -22,6 +22,11 @@ class StartAProjectController: UIViewController {
         // Do any additional setup after loading the view.
         setPaddingOnFields(fields: [ProjectNameTF])
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     @IBAction func BackBtnAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

@@ -19,6 +19,10 @@ class PaymentController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     //IBACTION'S
     @IBAction func BackBtnAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)

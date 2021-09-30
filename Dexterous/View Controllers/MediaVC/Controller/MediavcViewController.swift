@@ -28,6 +28,10 @@ class MediavcViewController: UIViewController {
         array.append(MediaStruct(name: "RECENT", isImage: false))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
+    }
+    
     @IBAction func addbtn(_ sender: Any) {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)

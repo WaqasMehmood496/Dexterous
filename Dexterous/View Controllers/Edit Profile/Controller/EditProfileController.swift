@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SwiftEntryKit
 
 class EditProfileController: UIViewController {
     
@@ -16,8 +17,11 @@ class EditProfileController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.freeTrailPopUp()
     }
     
     @IBAction func BackBtnAction(_ sender: UIButton) {

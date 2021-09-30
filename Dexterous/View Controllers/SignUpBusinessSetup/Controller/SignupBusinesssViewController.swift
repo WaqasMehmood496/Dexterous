@@ -3,7 +3,6 @@
 //  Dexterous
 //
 //  Created by Macbook Air on 9/17/21.
-//
 
 import UIKit
 import Photos
@@ -16,16 +15,17 @@ class SignupBusinesssViewController: UIViewController {
     @IBOutlet weak var bwebtf: UITextField!
     @IBOutlet weak var bnumbertf: UITextField!
     @IBOutlet weak var bemailtf: UITextField!
-    @IBOutlet weak var SelectedImageNamelabel: UILabel!
+    @IBOutlet weak var UploadedImage: UIImageView!
     
     //VARIABLE'S
-    var selectedImage = UIImage()
+    var isImageSelected = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setPaddingOnFields(fields: [bwebtf,bnumbertf,bemailtf])
         addButtonUnderlineOnText(button: btnidontlogo, text: "I DON'T HAVE A LOGO")
         addButtonUnderlineOnText(button: btnidonthaveweb, text: "I DON'T HAVE A WEBSITE")
+        //hideSelecteedImage()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,11 +34,11 @@ class SignupBusinesssViewController: UIViewController {
     }
     
     @IBAction func webbtn(_ sender: Any) {
-        presentPopup(message: "Would you like to create a Website?")
+        presentPopup(message: "Would you like to create a Website?",isWebsite: true)
     }
     
     @IBAction func logobtn(_ sender: Any) {
-        presentPopup(message: "Would you like to create a Logo?")
+        presentPopup(message: "Would you like to create a Logo?",isWebsite: false)
     }
     
     @IBAction func Nextbtn(_ sender: Any) {
@@ -68,16 +68,25 @@ extension SignupBusinesssViewController {
         ]), for: .normal)
     }
     
-    func presentPopup(message:String) {
-        let controller = getViewController(identifier: "popSignupViewController") as! popSignupViewController
-        controller.lblText = message
-        self.present(controller, animated: true, completion: nil)
+    func presentPopup(message:String,isWebsite:Bool) {
+        if isWebsite {
+            let controller = getViewController(identifier: "popSignupViewController") as! popSignupViewController
+            controller.lblText = message
+            controller.isWebsite = true
+            self.present(controller, animated: true, completion: nil)
+        }
     }
     
     func setupTextfieldDelegate(){
         bwebtf.delegate = self
         bemailtf.delegate = self
         bnumbertf.delegate = self
+    }
+    
+    func hideSelecteedImage() {
+        if isImageSelected == false {
+            self.UploadedImage.isHidden = true
+        }
     }
     
 }
@@ -97,36 +106,38 @@ extension SignupBusinesssViewController: UITextFieldDelegate {
                 textField.text?.append(contentsOf: "-")
                 return true
             } else {
-                let maxLength = 10
+                let maxLength = 11
                 let currentString: NSString = textField.text! as! NSString
                 let newString: NSString =
                 currentString.replacingCharacters(in: range, with: string) as NSString
                 return newString.length <= maxLength
             }
         }
-        return false
+        return true
     }
 }
 
 
 extension SignupBusinesssViewController {
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]
+    ) {
         
         if let editedImage = info[.editedImage] as? UIImage {
-            self.selectedImage = editedImage
+            self.UploadedImage.image = editedImage
         } else if let originalImage = info[.originalImage] as? UIImage {
-            self.selectedImage = originalImage
+            self.UploadedImage.image = originalImage
         }
         
-        
-        if let imageURL = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
-            let result = PHAsset.fetchAssets(withALAssetURLs: [imageURL], options: nil)
-            let asset = result.firstObject
-            if let imageName = asset?.value(forKey: "filename"){
-                self.SelectedImageNamelabel.text = (imageName as! String)
-            }
-        }
-        
+        isImageSelected = true
+        //        if let imageURL = info[UIImagePickerController.InfoKey.referenceURL] as? URL {
+        //            let result = PHAsset.fetchAssets(withALAssetURLs: [imageURL], options: nil)
+        //            let asset = result.firstObject
+        //            if let imageName = asset?.value(forKey: "filename"){
+        //                self.SelectedImageNamelabel.text = (imageName as! String)
+        //            }
+        //        }
         picker.dismiss(animated: true, completion: nil)
     }
 }

@@ -8,8 +8,9 @@
 
 import UIKit
 import PhotosUI
-
+import SwiftEntryKit
 import JGProgressHUD
+
 class UIViewController_Additions: NSObject {
     
 }
@@ -113,6 +114,80 @@ extension UIViewController {
         let controller = storyboard.instantiateViewController(identifier: identifier)
         UIApplication.shared.windows.first?.rootViewController = controller
         UIApplication.shared.windows.first?.makeKeyAndVisible()
+    }
+    
+    //MARK: SHOW TOP STATUS BAR MESSAGE USING SWIFT ENTITY KIT
+    func freeTrailPopUp() {
+        //Check date
+        let attributes = ekattributes()
+        let date = DateTimeHelper.sharedInstance.GetDateFromString(DateStr: "2021-09-27")
+        let daysLeft = date.timeAgoSinceDate(false)
+        print(daysLeft)
+        if daysLeft == "1 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn15days)
+        } else if daysLeft == "2 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn14days)
+        } else if daysLeft == "3 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn13days)
+        } else if daysLeft == "4 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn12days)
+        } else if daysLeft == "5 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn11days)
+        } else if daysLeft == "6 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn10days)
+        } else if daysLeft == "7 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn9days)
+        } else if daysLeft == "8 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn8days)
+        } else if daysLeft == "9 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn7days)
+        } else if daysLeft == "10 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn6days)
+        } else if daysLeft == "11 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn5days)
+        } else if daysLeft == "12 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn4days)
+        } else if daysLeft == "13 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn3days)
+        } else if daysLeft == "14 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsIn2days)
+        } else if daysLeft == "15 days" {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialEndsTomorrow)
+        } else {
+            showStatusBarMessage(attributes: attributes,message: Constant.yourTrialHasExpired)
+        }
+        
+    }
+    
+    func ekattributes () -> EKAttributes {
+        var attributes = EKAttributes()
+        attributes.name = "Top Note"
+        attributes.windowLevel = .custom(level: UIWindow.Level.init(0.0))
+        attributes.position = .top
+        attributes.displayDuration = .infinity
+        let action = {
+            print("Top note is selected")
+            let pricingPage = self.getViewController(identifier: "MediaTypePurchasingController")
+            self.navigationController?.pushViewController(pricingPage, animated: true)
+        }
+        attributes.entryInteraction.customTapActions.append(action)
+        return attributes
+    }
+    
+    private func showStatusBarMessage(attributes: EKAttributes,message:String) {
+        let statusBarHeight = UIApplication.shared.statusBarFrame.maxY + 10
+        let contentView: UIView
+        let labelStyle = EKProperty.LabelStyle(font: UIFont(name: "Montserrat-Medium", size: 14)!, color: .white,displayMode: .inferred)
+        var labelContent = EKProperty.LabelContent(
+            text: message, style: labelStyle
+        )
+        labelContent.style.alignment = .center
+        let noteView = EKNoteMessageView(with: labelContent)
+        noteView.verticalOffset = 0
+        noteView.set(.height, of: statusBarHeight)
+        noteView.backgroundColor = UIColor(named: "Gray")
+        contentView = noteView
+        SwiftEntryKit.display(entry: contentView, using: attributes)
     }
 }
 extension UIViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate{
@@ -344,7 +419,6 @@ extension UIViewController{
             }
         }
         else{
-            
             return documentsDirectory
         }
         

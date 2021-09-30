@@ -9,6 +9,7 @@ import UIKit
 import SideMenu
 import collection_view_layouts
 import RSSelectionMenu
+import SwiftEntryKit
 
 class DashboardController: UIViewController {
     
@@ -16,7 +17,6 @@ class DashboardController: UIViewController {
     @IBOutlet weak var DashboardTableView: UITableView!
     
     //CONSTANTS
-    
     let myTasks = [
         MyTaskModel(taskName: "Write Blog", assignBy: "Jon", due: "8/10"),
         MyTaskModel(taskName: "Design WebPage", assignBy: "Jon", due: "8/10"),
@@ -67,10 +67,12 @@ class DashboardController: UIViewController {
         super.viewDidLoad()
         dashBoardData = DashboardModel(myTask: myTasks, projects: projects, media: media, mediaType: mediaType)
         self.DashboardTableView.reloadData()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
+        self.freeTrailPopUp()
     }
     
     //IBACTIONS
@@ -81,7 +83,7 @@ class DashboardController: UIViewController {
     
     @IBAction func AddIconBtnAction(_ sender: Any) {
         let optionPopupVC = getViewController(identifier: "popviewViewController") as! popviewViewController
-        optionPopupVC.array = ["Chat","Add Task","Upload File","New Project","Add/Remove Prople","Create a Team","Order Marketing","Cancel"]
+        optionPopupVC.array = ["New Chat","New Task","Upload Media","New Project","Order Marketing","Cancel"]
         optionPopupVC.popUpFrom = .home
         optionPopupVC.dashBoardDelegate = self
         self.parent?.tabBarController?.present(optionPopupVC, animated: false, completion: nil)
@@ -101,22 +103,24 @@ class DashboardController: UIViewController {
 //MARK:- HELPING METHODS
 extension DashboardController {
     
-    func showYourComponyLogoDropdownMenu(sender:UIButton) {
-        
-        let selectionMenu = RSSelectionMenu(dataSource: simpleDataArray) { (cell, item, indexPath) in
-            cell.textLabel?.text = item
-        }
-        
-        selectionMenu.setSelectedItems(items: selectedDropDownValues) { [weak self] (item, index, isSelected, selectedItems) in
-            print(selectedItems)
-        }
-        
-        selectionMenu.tableView?.showsVerticalScrollIndicator = false
-        selectionMenu.tableView?.separatorStyle = .none
-        selectionMenu.tableView?.borderColor = .clear
-        
-        selectionMenu.show(style: .popover(sourceView: sender, size: CGSize(width: 100, height: 100)), from: self)
-    }
+    //    func showYourComponyLogoDropdownMenu(sender:UIButton) {
+    //
+    //        let selectionMenu = RSSelectionMenu(dataSource: simpleDataArray) { (cell, item, indexPath) in
+    //            cell.textLabel?.text = item
+    //        }
+    //
+    //        selectionMenu.setSelectedItems(items: selectedDropDownValues) { [weak self] (item, index, isSelected, selectedItems) in
+    //            print(selectedItems)
+    //        }
+    //
+    //        selectionMenu.tableView?.showsVerticalScrollIndicator = false
+    //        selectionMenu.tableView?.separatorStyle = .none
+    //        selectionMenu.tableView?.borderColor = .clear
+    //
+    //        selectionMenu.show(style: .popover(sourceView: sender, size: CGSize(width: 100, height: 100)), from: self)
+    //    }
+    
+    
     
     func MoveToNextVC(identifier:String)  {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
@@ -129,10 +133,8 @@ extension DashboardController {
         
         for userName in self.userAccountTempArray {
             let camera = UIAlertAction(title: userName, style: .default) { (action) in
-             
+                
             }
-            //let cameraImage = UIImage(named: "icon_camera")
-            //ucamera.setValue(cameraImage, forKey: "image")
             camera.setValue(0, forKey: "titleTextAlignment")
             camera.setValue(UIColor(named: "Button Black Bacground"), forKey: "titleTextColor")
             actionSheet.addAction(camera)
@@ -142,14 +144,11 @@ extension DashboardController {
         }
         cancel.setValue(UIColor(named: "Pink"), forKey: "titleTextColor")
         actionSheet.addAction(cancel)
-       
-        
         self.present(actionSheet, animated: true, completion: {
             print("completion block")
         })
     }
 }
-
 
 
 //MARK:- DASHBOARD DELEGATE METHOD'S

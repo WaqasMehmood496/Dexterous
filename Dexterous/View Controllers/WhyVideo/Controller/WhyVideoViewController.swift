@@ -19,6 +19,7 @@ class WhyVideoViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = true
         self.tabBarController?.tabBar.isHidden = true
+        self.freeTrailPopUp()
     }
     
     //IBACTION'S

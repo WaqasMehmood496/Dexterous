@@ -14,6 +14,11 @@ class MediaTypeDetailViewController: UIViewController {
         self.tabBarController?.tabBar.isHidden = true
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillLayoutSubviews() {
+        self.freeTrailPopUp()
+    }
+    
     @IBAction func BackBtnAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }

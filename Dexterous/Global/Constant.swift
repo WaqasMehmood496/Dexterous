@@ -84,8 +84,35 @@ struct Constant {
     static let title = "title"
     static let color = "color"
     
+    //MARK: MEMOBERSHIP PRICE MODEL KEY'S
+    static let price = "price"
+    static let description = "description"
+    
+    //MARK: PRODUCT MODEL
+    static let benifit = "benifit"
+    static let mediaLogo = "mediaLogo"
+    static let mediaColor = "mediaColor"
+    static let produtsTypes = "produtsTypes"
+    
     //MARK:OTHRES
     static let tableviewHeaderHeight: CGFloat = 40
     static let tableviewHeaderXY: CGFloat = 0.0
+    
+    static let yourTrialEndsIn15days = "Your trial ends in 15 days"
+    static let yourTrialEndsIn14days = "Your trial ends in 14 days"
+    static let yourTrialEndsIn13days = "Your trial ends in 13 days"
+    static let yourTrialEndsIn12days = "Your trial ends in 12 days"
+    static let yourTrialEndsIn11days = "Your trial ends in 11 days"
+    static let yourTrialEndsIn10days = "Your trial ends in 10 days"
+    static let yourTrialEndsIn9days = "Your trial ends in 9 days"
+    static let yourTrialEndsIn8days = "Your trial ends in 8 days"
+    static let yourTrialEndsIn7days = "Your trial ends in 7 days"
+    static let yourTrialEndsIn6days = "Your trial ends in 6 days"
+    static let yourTrialEndsIn5days = "Your trial ends in 5 days"
+    static let yourTrialEndsIn4days = "Your trial ends in 4 days"
+    static let yourTrialEndsIn3days = "Your trial ends in 3 days"
+    static let yourTrialEndsIn2days = "Your trial ends in 2 days"
+    static let yourTrialEndsTomorrow = "Your trial ends tomorrow!"
+    static let yourTrialHasExpired = "Your trial has expired"
     
 }
