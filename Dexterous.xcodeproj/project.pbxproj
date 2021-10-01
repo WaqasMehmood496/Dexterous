@@ -12,6 +12,8 @@
 		04171F3D2705F37400058A49 /* MediaTypeBenifitsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04171F3C2705F37300058A49 /* MediaTypeBenifitsTableViewCell.swift */; };
 		043084712705CDB000CEDE38 /* ProductModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043084702705CDB000CEDE38 /* ProductModel.swift */; };
 		043084732705D2EF00CEDE38 /* ProductsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043084722705D2EF00CEDE38 /* ProductsEnum.swift */; };
+		0451FD6A270720DC003BC19C /* ComponyLogosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD69270720DC003BC19C /* ComponyLogosController.swift */; };
+		0451FD6C270721CB003BC19C /* ComponyLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD6B270721CB003BC19C /* ComponyLogoCell.swift */; };
 		045EDB0627034A4B008FD3CD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */; };
 		7604EB6B26EF833B003BC03B /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6A26EF833B003BC03B /* LoginController.swift */; };
 		7604EB7026EF8D58003BC03B /* SignupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7604EB6F26EF8D58003BC03B /* SignupController.swift */; };
@@ -191,6 +193,8 @@
 		04171F3C2705F37300058A49 /* MediaTypeBenifitsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MediaTypeBenifitsTableViewCell.swift; sourceTree = "<group>"; };
 		043084702705CDB000CEDE38 /* ProductModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductModel.swift; sourceTree = "<group>"; };
 		043084722705D2EF00CEDE38 /* ProductsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsEnum.swift; sourceTree = "<group>"; };
+		0451FD69270720DC003BC19C /* ComponyLogosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponyLogosController.swift; sourceTree = "<group>"; };
+		0451FD6B270721CB003BC19C /* ComponyLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponyLogoCell.swift; sourceTree = "<group>"; };
 		045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		40A4FEF8BB2E1786C8D12F55 /* Pods_Dexterous.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dexterous.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		685D0829B010007C75A1D5BA /* Pods-Dexterous.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dexterous.release.xcconfig"; path = "Target Support Files/Pods-Dexterous/Pods-Dexterous.release.xcconfig"; sourceTree = "<group>"; };
@@ -430,6 +434,39 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		0451FD6527072040003BC19C /* Compony Logos Popup */ = {
+			isa = PBXGroup;
+			children = (
+				0451FD6827072062003BC19C /* Model */,
+				0451FD672707205C003BC19C /* View */,
+				0451FD6627072057003BC19C /* Controller */,
+			);
+			path = "Compony Logos Popup";
+			sourceTree = "<group>";
+		};
+		0451FD6627072057003BC19C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0451FD69270720DC003BC19C /* ComponyLogosController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		0451FD672707205C003BC19C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0451FD6B270721CB003BC19C /* ComponyLogoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0451FD6827072062003BC19C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2D8F53CCA4468C18D7180331 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -582,6 +619,7 @@
 		760CA20926EF584200257571 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0451FD6527072040003BC19C /* Compony Logos Popup */,
 				04056C6A270490BE00DD6432 /* Membership Price */,
 				76CBAA5426FCA2B900DF2406 /* Edit Profile */,
 				7633094A26F4E391009D95EC /* AddTaskVc */,
@@ -1807,6 +1845,7 @@
 				763308FC26F4D2E3009D95EC /* FilesCollectionViewCell.swift in Sources */,
 				043084732705D2EF00CEDE38 /* ProductsEnum.swift in Sources */,
 				763309A126F4E394009D95EC /* addTeamCollectionViewCell.swift in Sources */,
+				0451FD6A270720DC003BC19C /* ComponyLogosController.swift in Sources */,
 				7633099526F4E394009D95EC /* tieremptyTableViewCell.swift in Sources */,
 				760CA1ED26EF575E00257571 /* CommonHelper.swift in Sources */,
 				760CA1F426EF575E00257571 /* AsyncUtil.swift in Sources */,
@@ -1851,6 +1890,7 @@
 				760CA20026EF575E00257571 /* Extensions.swift in Sources */,
 				76C3298F26F4C2BC00623E75 /* InvitationsCollectionViewCell.swift in Sources */,
 				761D3E3B26F0C14700B20D02 /* ConnectionsTableViewCell.swift in Sources */,
+				0451FD6C270721CB003BC19C /* ComponyLogoCell.swift in Sources */,
 				7637D57C26FB68970028B219 /* DashboardTableView.swift in Sources */,
 				7633099926F4E394009D95EC /* popSignupViewController.swift in Sources */,
 				765B364326F36F42008B24F6 /* InvoicesTableViewCell.swift in Sources */,

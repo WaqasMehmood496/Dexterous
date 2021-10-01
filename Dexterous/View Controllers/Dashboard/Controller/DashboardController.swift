@@ -6,10 +6,9 @@
 //
 
 import UIKit
-import SideMenu
 import collection_view_layouts
-import RSSelectionMenu
 import SwiftEntryKit
+import LGSideMenuController
 
 class DashboardController: UIViewController {
     
@@ -72,26 +71,21 @@ class DashboardController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-        self.freeTrailPopUp()
+       // self.freeTrailPopUp()
     }
     
     //IBACTIONS
     @IBAction func MenuBtnAction(_ sender: UIButton) {
-        let menu = storyboard!.instantiateViewController(withIdentifier: "RightMenu") as! SideMenuNavigationController
-        present(menu, animated: true, completion: nil)
+        self.sideMenuController?.toggleLeftView(animated: true, completion: nil)
     }
     
     @IBAction func AddIconBtnAction(_ sender: Any) {
-        let optionPopupVC = getViewController(identifier: "popviewViewController") as! popviewViewController
-        optionPopupVC.array = ["New Chat","New Task","Upload Media","New Project","Order Marketing","Cancel"]
-        optionPopupVC.popUpFrom = .home
-        optionPopupVC.dashBoardDelegate = self
-        self.parent?.tabBarController?.present(optionPopupVC, animated: false, completion: nil)
+        moveToOptionPopup()
     }
     
     @IBAction func YourComponyLogoDropdown(_ sender: UIButton) {
-        //showYourComponyLogoDropdownMenu(sender: sender)
-        showUserAccountBottomAlert()
+        let logoController = getViewController(identifier: "ComponyLogosController") as! ComponyLogosController
+        self.parent?.tabBarController?.present(logoController, animated: false, completion: nil)
     }
     
     @IBAction func ShowNotificationsButtonsAction(_ sender: UIButton) {
@@ -102,52 +96,21 @@ class DashboardController: UIViewController {
 
 //MARK:- HELPING METHODS
 extension DashboardController {
-    
-    //    func showYourComponyLogoDropdownMenu(sender:UIButton) {
-    //
-    //        let selectionMenu = RSSelectionMenu(dataSource: simpleDataArray) { (cell, item, indexPath) in
-    //            cell.textLabel?.text = item
-    //        }
-    //
-    //        selectionMenu.setSelectedItems(items: selectedDropDownValues) { [weak self] (item, index, isSelected, selectedItems) in
-    //            print(selectedItems)
-    //        }
-    //
-    //        selectionMenu.tableView?.showsVerticalScrollIndicator = false
-    //        selectionMenu.tableView?.separatorStyle = .none
-    //        selectionMenu.tableView?.borderColor = .clear
-    //
-    //        selectionMenu.show(style: .popover(sourceView: sender, size: CGSize(width: 100, height: 100)), from: self)
-    //    }
-    
-    
-    
+
     func MoveToNextVC(identifier:String)  {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
-        self.navigationController?.pushViewController(controller, animated: true)
+        self.navigationController?.pushViewController(controller, animated: false)
     }
     
-    func showUserAccountBottomAlert() {
-        let actionSheet = UIAlertController(title: nil, message: "Select your account", preferredStyle: .actionSheet)
-        
-        for userName in self.userAccountTempArray {
-            let camera = UIAlertAction(title: userName, style: .default) { (action) in
-                
-            }
-            camera.setValue(0, forKey: "titleTextAlignment")
-            camera.setValue(UIColor(named: "Button Black Bacground"), forKey: "titleTextColor")
-            actionSheet.addAction(camera)
-        }
-        
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
-        }
-        cancel.setValue(UIColor(named: "Pink"), forKey: "titleTextColor")
-        actionSheet.addAction(cancel)
-        self.present(actionSheet, animated: true, completion: {
-            print("completion block")
-        })
+    func moveToOptionPopup() {
+        let optionPopupVC = getViewController(identifier: "popviewViewController") as! popviewViewController
+        optionPopupVC.array = ["New Chat","New Task","Upload Media","New Project","Order Marketing","Cancel"]
+        optionPopupVC.popUpFrom = .home
+        optionPopupVC.dashBoardDelegate = self
+        self.parent?.tabBarController?.present(optionPopupVC, animated: false, completion: nil)
     }
+
 }
 
 

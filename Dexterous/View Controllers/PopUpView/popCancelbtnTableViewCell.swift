@@ -10,6 +10,7 @@ import UIKit
 class popCancelbtnTableViewCell: UITableViewCell {
 
     @IBOutlet weak var lblcancle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

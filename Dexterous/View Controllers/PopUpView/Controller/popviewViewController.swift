@@ -3,7 +3,6 @@
 //  Dexterous
 //
 //  Created by Macbook Air on 9/14/21.
-//
 
 import UIKit
 
@@ -25,17 +24,17 @@ class popviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.tabBarController?.tabBar.isHidden = true
-        self.freeTrailPopUp()
+        self.poptableview.delegate = self
+        self.poptableview.dataSource = self
     }
     
     override func viewWillLayoutSubviews() {
         super.updateViewConstraints()
         self.tableviewHeight.constant = self.poptableview.contentSize.height
+    }
+    
+    @IBAction func DismisTapGesture(_ sender: UITapGestureRecognizer) {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -51,13 +50,10 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
         
         if array[indexPath.row] == "Cancel" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popCancelbtnTableViewCell") as! popCancelbtnTableViewCell
-            // cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
             cell.lblcancle.text = array[indexPath.row]
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popOptionTableViewCell") as! popOptionTableViewCell
-            // cell.transform = CGAffineTransform(rotationAngle: CGFloat(Double.pi));
-            
             cell.lbloption.text = array[indexPath.row]
             return cell
         }
@@ -68,7 +64,7 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        print(indexPath)
         tableView.deselectRow(at: indexPath, animated: true)
         
         switch popUpFrom {
