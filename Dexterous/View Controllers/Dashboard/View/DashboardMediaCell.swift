@@ -20,7 +20,7 @@ enum LayoutType: Int {
 
 class DashboardMediaCell: UITableViewCell, LayoutDelegate {
     
-    //MARK:- IBOUTLET'S
+    //MARK:- IBAddTaskViewControllerOUTLET'S
     @IBOutlet weak var MediaImagesCollection: UICollectionView!
     @IBOutlet weak var FacebookBtn: UIButton!
     @IBOutlet weak var FacebookBatchNumberLabel: UILabel!
@@ -54,6 +54,7 @@ class DashboardMediaCell: UITableViewCell, LayoutDelegate {
         showLayout(withType: .flipboard)
         MediaImagesCollection.dataSource = collectionViewProvider
         collectionViewProvider.items = items
+        //collectionViewProvider.mediaGalleryDelegate = self
         collectionViewProvider.supplementaryItems = supplementaryItems
     }
     
@@ -140,7 +141,6 @@ class DashboardMediaCell: UITableViewCell, LayoutDelegate {
 class CollectionViewProvider: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
     var items = [[String]]()
     var supplementaryItems = [String]()
-    let dashBoardController = DashboardController()
     // MARK: - UICollectionViewDataSource
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -162,6 +162,7 @@ class CollectionViewProvider: NSObject, UICollectionViewDataSource, UICollection
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    }
     
 }

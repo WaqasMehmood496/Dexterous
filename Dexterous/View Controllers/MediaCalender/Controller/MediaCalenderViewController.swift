@@ -12,20 +12,14 @@ class MediaCalenderViewController: UIViewController {
     
     //IBOUTLET'S
     @IBOutlet weak var mediaTablciew: UITableView!
-    @IBOutlet weak var fsCaledner: FSCalendar!
-    
+    @IBOutlet weak var MediaCalander: FSCalendar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        fsCaledner.headerHeight = 0.0
-        fsCaledner.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesUpperCase
-        fsCaledner.appearance.weekdayTextColor = UIColor(named: "Black Text Color")
-        fsCaledner.appearance.caseOptions = FSCalendarCaseOptions.weekdayUsesSingleUpperCase
-        fsCaledner.rowHeight = 100
-        fsCaledner.appearance.borderRadius = 1
-        fsCaledner.appearance.todaySelectionColor = .white
-        fsCaledner.appearance.borderSelectionColor = .black
-        fsCaledner.appearance.todayColor = UIColor.cyan
+        MediaCalander.appearance.weekdayTextColor = UIColor(named: "Black Text Color")
+        MediaCalander.appearance.todaySelectionColor = .white
+        MediaCalander.appearance.borderSelectionColor = .black
+        MediaCalander.appearance.todayColor = UIColor.cyan
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -35,6 +29,18 @@ class MediaCalenderViewController: UIViewController {
     
     @IBAction func BackBtnAction(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    @IBAction func ScheduleNewPost(_ sender: UIButton) {
+        MoveToNextVC(identifier: "SCNewPOSTViewController")
+    }
+}
+
+//MARK: - HELPING METHOD'S
+extension MediaCalenderViewController {
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -47,9 +53,15 @@ extension MediaCalenderViewController: UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "mediacalender1TableViewCell") as! mediacalender1TableViewCell
+        clearCellSelectionColor(cell: cell)
         return cell
     }
     
+    func clearCellSelectionColor(cell:UITableViewCell) {
+        let view = UIView()
+        view.backgroundColor = .clear
+        cell.selectedBackgroundView = view
+    }
 }
 
 extension FSCalendar {

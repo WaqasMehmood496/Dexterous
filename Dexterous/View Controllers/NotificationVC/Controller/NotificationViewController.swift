@@ -34,15 +34,31 @@ class NotificationViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.freeTrailPopUp()
     }
+    
+    @IBAction func BackBtnAciton(_ sender: UIButton) {
+        self.navigationController?.dismiss(animated: true, completion: nil)
+    }
+    @IBAction func NotificationSettingBtnAction(_ sender: UIButton) {
+        MoveToNextVC(identifier: "NotificationSettingController")
+    }
+    
 }
 
 //MARK:- HELPING METHOD'S
 extension NotificationViewController {
+    
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        self.navigationController?.pushViewController(controller, animated: false)
+    }
+    
     func clearCellSelectionColor(cell:UITableViewCell) {
         let view = UIView()
         view.backgroundColor = .clear
         cell.selectedBackgroundView = view
     }
+    
 }
 
 //MARK:- UITABLEVIEW DELEGATE AND DATASOURCE METHOD'S

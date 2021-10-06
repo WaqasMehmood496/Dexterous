@@ -21,7 +21,12 @@ class MediaTypePurchasingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.ProductLogo.image = UIImage(named: product.mediaLogo)
+        if let mediaImage = product.mediaLogo {
+            self.ProductLogo.image = UIImage(named: mediaImage)
+        } else {
+            //self.ProductLogo.image = UIImage(named: "Vid")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -8,10 +8,9 @@
 import Foundation
 import UIKit
 
-//MARK:- DASHBOARD TABLEVIEW SECTIONS METHODS
+//MARK: TABLEVIEW SECTION METHODS
 extension DashboardController: UITableViewDelegate, UITableViewDataSource {
     
-    //MARK: TABLEVIEW SECTION METHODS
     func numberOfSections(in tableView: UITableView) -> Int {
         return 6
     }
@@ -19,7 +18,7 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = Bundle.main.loadNibNamed("DashboardHeader", owner: self, options: nil)?.first as! DashboardHeader
         if section == 0{
-            view.HeaderLabel.text = "My Task"
+            view.HeaderLabel.text = "My Tasks"
             view.HeaderButton.tag = section
             addUnderLineOnButtonText(button: view.HeaderButton, text: "All Tasks")
             view.HeaderButton.addTarget(self, action: #selector(HeaderViewAllBtnAction(_:)), for: .touchUpInside)
@@ -28,7 +27,7 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
             view.HeaderLabel.text = "Projects"
             view.HeaderButton.tag = section
             view.HeaderButton.addTarget(self, action: #selector(HeaderViewAllBtnAction(_:)), for: .touchUpInside)
-            addUnderLineOnButtonText(button: view.HeaderButton, text: "All Files")
+            view.HeaderButton.isHidden = true
         } else if section == 2 {
             view.HeaderLabel.text = "Media"
             view.HeaderButton.tag = section
@@ -58,14 +57,14 @@ extension DashboardController: UITableViewDelegate, UITableViewDataSource {
             return 50
         }
     }
+    
 }
 
 
 
-//MARK:- DASHBOARD TABLEVIEW ROW METHOD'S
+//MARK: TABLEVIEW ROW METHODS
 extension DashboardController {
     
-    //MARK: TABLEVIEW ROW METHODS
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return self.dashBoardData.myTask.count + 1
@@ -105,7 +104,9 @@ extension DashboardController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 3 {
+        if indexPath.section == 1 {
+            MoveToNextVC(identifier: "ProjectCompleteDetailController")
+        } else if indexPath.section == 3 {
             MoveToNextVC(identifier: "MediaTypeController")
         }
     }
@@ -268,7 +269,12 @@ extension DashboardController {
     
     @objc func GetStartedBtnAction (_ sender:UIButton) {
         print("View All Btn Pressed")
-        MoveToNextVC(identifier: "MediaTypePurchasingController")
+        let pricingPage = self.getViewController(identifier: "MediaTypePurchasingController") as! MediaTypePurchasingController
+        pricingPage.product = ProductModel(
+            mediaType: "Video", mediaLogo: "Vid", mediaColor: "Green", produtsTypes: [
+            ProductTypesModel(title: "Get Started", price: "$1500", benifit: ["5 Keywords","1 Blog per month","On-site SEO: included such as SCHEMA Markup link structure, meta More"])
+        ])
+        self.navigationController?.pushViewController(pricingPage, animated: true)
     }
     
     //HEADER OBSERVERS

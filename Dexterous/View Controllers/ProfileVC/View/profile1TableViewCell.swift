@@ -10,9 +10,9 @@ import UIKit
 class profile1TableViewCell: UITableViewCell {
 
     @IBOutlet weak var imageviww: UIImageView!
-    
     @IBOutlet weak var timelinelbl: UILabel!
     @IBOutlet weak var namelbl: UILabel!
+    @IBOutlet weak var UserActiveStatusLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

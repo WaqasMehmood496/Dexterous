@@ -23,6 +23,7 @@ class SignupController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //addKeyboardObserverForScreenMoving()
         setPaddingOnFields(fields: [FirstNameTF,LastNameTF,EmailTF,PasswordTF])
         PasswordTF.delegate = self
     }

@@ -71,7 +71,7 @@ class DashboardController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.tabBarController?.tabBar.isHidden = false
-       // self.freeTrailPopUp()
+        self.freeTrailPopUp()
     }
     
     //IBACTIONS
@@ -96,7 +96,7 @@ class DashboardController: UIViewController {
 
 //MARK:- HELPING METHODS
 extension DashboardController {
-
+    
     func MoveToNextVC(identifier:String)  {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
@@ -110,9 +110,8 @@ extension DashboardController {
         optionPopupVC.dashBoardDelegate = self
         self.parent?.tabBarController?.present(optionPopupVC, animated: false, completion: nil)
     }
-
+    
 }
-
 
 //MARK:- DASHBOARD DELEGATE METHOD'S
 extension DashboardController {
@@ -121,5 +120,11 @@ extension DashboardController {
     }
     func moveToAddTask() {
         self.MoveToNextVC(identifier: "AddTaskViewController")
+    }
+    func moveToMarkeeting() {
+        self.MoveToNextVC(identifier: "SkipNowController")
+    }
+    func moveToNewChat() {
+        self.MoveToNextVC(identifier: "NewChatController")
     }
 }

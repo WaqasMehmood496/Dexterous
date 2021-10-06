@@ -17,7 +17,6 @@ class popviewViewController: UIViewController {
     var delegate2 = MessageViewController()
     var dashBoardDelegate = DashboardController()
     var messageControllerDelegate = MessageViewController()
-    
     var isredirectFrom = ""
     var array = [String]()
     var popUpFrom:PopupType = .home
@@ -51,10 +50,12 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
         if array[indexPath.row] == "Cancel" {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popCancelbtnTableViewCell") as! popCancelbtnTableViewCell
             cell.lblcancle.text = array[indexPath.row]
+            clearCellSelectionColor(cell: cell)
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "popOptionTableViewCell") as! popOptionTableViewCell
             cell.lbloption.text = array[indexPath.row]
+            clearCellSelectionColor(cell: cell)
             return cell
         }
     }
@@ -69,31 +70,11 @@ extension popviewViewController:UITableViewDelegate,UITableViewDataSource{
         
         switch popUpFrom {
         case .home:
-            if indexPath.row == 1 {
-                self.dismiss(animated: true) {
-                    self.dashBoardDelegate.moveToAddTask()
-                }
-            } else if indexPath.row == 3 {
-                self.dismiss(animated: true) {
-                    self.dashBoardDelegate.moveToCreateProject()
-                }
-            }
+            dashboardControllerOptions(indexPath: indexPath)
         case .task:
-            if indexPath.row == 0 {
-                self.dismiss(animated: true) {
-                    self.taskDelegate.moveToAddTask()
-                }
-            } else if indexPath.row == 1 {
-                self.dismiss(animated: true) {
-                    self.taskDelegate.moveToCreateProjectTask()
-                }
-            }
+            taskControllerOptions(indexPath: indexPath)
         case .message:
-            if indexPath.row == 0 {
-                self.dismiss(animated: true) {
-                    self.messageControllerDelegate.moveToEditTeam()
-                }
-            }
+            messageControllerOption(indexPath: indexPath)
         }
         
         switch array[indexPath.row] {

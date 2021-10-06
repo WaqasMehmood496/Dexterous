@@ -12,7 +12,7 @@ class SideMenuController: UIViewController {
     //IBOUTLETS
     @IBOutlet weak var SideMenuTableView: UITableView!
     @IBOutlet weak var UserImage: UIImageView!
-        
+    
     //VARIABLES
     var sideMenuArray:[SideMenuModel] = []
     
@@ -24,12 +24,10 @@ class SideMenuController: UIViewController {
                 SideMenuOptionModel(image: "Group 2857", title: "Jane Brown", type: "Admin"),
                 SideMenuOptionModel(image: "Group 2857", title: "Pick Clarke", type: "Billing"),
                 SideMenuOptionModel(image: "Group 2857", title: "Samantha Stone", type: "Design")
-            ], groupTitle: "Prople"),
+            ], groupTitle: "People"),
             SideMenuModel(data: [
-                SideMenuOptionModel(image: "Group 2860", title: "Push", type: ""),
-                SideMenuOptionModel(image: "Group 2861", title: "Email", type: ""),
-                SideMenuOptionModel(image: "Group 2862", title: "Text", type: "")
-            ], groupTitle: "Notifications"),
+                SideMenuOptionModel(image: "Group 2860", title: "Notifications", type: ""),
+            ], groupTitle: "Settings"),
             SideMenuModel(data: [
                 SideMenuOptionModel(image: "Group 2865", title: "Privacy Policy", type: ""),
                 SideMenuOptionModel(image: "Group 2864", title: "Terms of Service", type: ""),
@@ -44,8 +42,13 @@ class SideMenuController: UIViewController {
     @IBAction func ShowProfile(_ sender: UIButton) {
         MoveToNextVC(identifier: "ProfileViewController")
     }
-    @IBAction func EditProfileBtnAction(_ sender: Any) {
-        MoveToNextVC(identifier: "EditProfileController")
+    @IBAction func EditProfileBtnAction(_ sender: UIButton) {
+        if sender.tag == 0 {
+            MoveToNextVC(identifier: "EditBusinessAccountController")
+        } else {
+            MoveToNextVC(identifier: "EditProfileController")
+        }
+        
     }
     
 }
@@ -62,15 +65,19 @@ extension SideMenuController {
     }
     
     func MoveToNextVC(identifier:String)  {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(identifier: identifier)
-        self.navigationController?.pushViewController(controller, animated: true)
+        let vc = (self.storyboard?.instantiateViewController(withIdentifier: identifier))!
+        self.sideMenuController?.hideLeftView(animated: true, completion: {
+            self.sideMenuController?.rootViewController?.show(vc, sender: self)
+        })
+        
+        
     }
 }
 
 
 extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     
+    //SECTIONS METHOD'S
     func numberOfSections(in tableView: UITableView) -> Int {
         return self.sideMenuArray.count
     }
@@ -85,6 +92,7 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         label.font = UIFont(name: "Montserrat-Bold", size: 15)
         view.backgroundColor = UIColor(named: "Light Gray")
         view.addSubview(label)
+        
         return view
     }
     
@@ -92,7 +100,10 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         return 40
     }
     
+    
+    //ROW METHOD'S
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if section == 0 {
             return sideMenuArray[section].data.count + 1
         } else if section == 1 {
@@ -100,14 +111,17 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return sideMenuArray[section].data.count + 1
         }
+        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.section == 0 {
             // PEOPLE
             if indexPath.row >= sideMenuArray[indexPath.section].data.count {
                 //INVITE TABLEVIEW CELL
                 let cell = tableView.dequeueReusableCell(withIdentifier: "InviteConnectionsTableViewCell", for: indexPath) as! InviteConnectionsTableViewCell
+                cell.InviteBtn.addTarget(self, action: #selector(inviteBtnAction(_:)), for: .touchUpInside)
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
@@ -146,6 +160,10 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
                 return cell
             }
         }
+    }
+    
+    @objc func inviteBtnAction ( _ sender:UIButton) {
+        MoveToNextVC(identifier: "WhichTeamViewController")
     }
     
     @objc func notificationBtnAction(_ sender:UIButton) {

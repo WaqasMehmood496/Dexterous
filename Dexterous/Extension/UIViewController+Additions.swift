@@ -167,7 +167,11 @@ extension UIViewController {
         attributes.displayDuration = .infinity
         let action = {
             print("Top note is selected")
-            let pricingPage = self.getViewController(identifier: "MediaTypePurchasingController")
+            let pricingPage = self.getViewController(identifier: "MediaTypePurchasingController") as! MediaTypePurchasingController
+            pricingPage.product = ProductModel(
+                mediaType: "Video", mediaLogo: "Vid", mediaColor: "Green", produtsTypes: [
+                ProductTypesModel(title: "Get Started", price: "$1500", benifit: ["5 Keywords","1 Blog per month","On-site SEO: included such as SCHEMA Markup link structure, meta More"])
+            ])
             self.navigationController?.pushViewController(pricingPage, animated: true)
         }
         attributes.entryInteraction.customTapActions.append(action)
@@ -189,7 +193,32 @@ extension UIViewController {
         contentView = noteView
         SwiftEntryKit.display(entry: contentView, using: attributes)
     }
+    
+    func addKeyboardObserverForScreenMoving() {
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
 }
+
+
+extension UIViewController {
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+}
+
+
 extension UIViewController:UIImagePickerControllerDelegate, UINavigationControllerDelegate, UNUserNotificationCenterDelegate{
     func displayUploadImageDialog(btnSelected: UIButton,title:String) {
         let picker = UIImagePickerController()

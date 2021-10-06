@@ -10,12 +10,10 @@ import UIKit
 
 
 class profile2TableViewCell: UITableViewCell {
+    //IBOUTLET
     @IBOutlet weak var imageicon: UIImageView!
-    
     @IBOutlet weak var lbltitle_ame: UILabel!
     @IBOutlet weak var lbltitle: UILabel!
-    
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
