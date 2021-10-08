@@ -27,11 +27,13 @@ class SideMenuController: UIViewController {
             ], groupTitle: "People"),
             SideMenuModel(data: [
                 SideMenuOptionModel(image: "Group 2860", title: "Notifications", type: ""),
+                SideMenuOptionModel(image: "Group 2860", title: "Teams", type: "")
             ], groupTitle: "Settings"),
             SideMenuModel(data: [
                 SideMenuOptionModel(image: "Group 2865", title: "Privacy Policy", type: ""),
                 SideMenuOptionModel(image: "Group 2864", title: "Terms of Service", type: ""),
-                SideMenuOptionModel(image: "Group 2863", title: "Version 1.0", type: "")
+                SideMenuOptionModel(image: "Group 2863", title: "Version 1.0", type: ""),
+                SideMenuOptionModel(image: "Group 2863", title: "Billing", type: "")
             ], groupTitle: "Other")
         ]
         
@@ -139,7 +141,13 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
             cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
             
             cell.SelectionBtn.tag = indexPath.row
-            cell.SelectionBtn.addTarget(self, action: #selector(notificationBtnAction(_:)), for: .touchUpInside)
+            
+            if self.sideMenuArray[indexPath.section].data[indexPath.row].title == "Notifications"{
+                cell.SelectionBtn.addTarget(self, action: #selector(notificationBtnAction(_:)), for: .touchUpInside)
+            } else {
+                cell.SelectionBtn.addTarget(self, action: #selector(editTeamsBtnAction(_:)), for: .touchUpInside)
+            }
+            
             return cell
             
         } else {
@@ -157,6 +165,8 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
                 cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
                 cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
                 cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
+                cell.SelectionBtn.tag = indexPath.row
+                cell.SelectionBtn.addTarget(self, action: #selector(BillingBtnAction(_:)), for: .touchUpInside)
                 return cell
             }
         }
@@ -167,24 +177,23 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     }
     
     @objc func notificationBtnAction(_ sender:UIButton) {
-        switch sender.tag {
-        case 0:
-            MoveToNextVC(identifier: "NotificationViewController")
-        case 1:
-            MoveToNextVC(identifier: "NotificationViewController")
-        case 2:
-            MoveToNextVC(identifier: "NotificationViewController")
-        default:
-            break
-        }
+        MoveToNextVC(identifier: "NotificationViewController")
+    }
+    
+    @objc func editTeamsBtnAction(_ sender:UIButton) {
+        MoveToNextVC(identifier: "EditTeamViewController")
     }
     
     @objc func addMarketingBtnAction(_ sender:UIButton) {
-        
+        MoveToNextVC(identifier: "MemberShipController")
     }
     
     @objc func scheduleAMettingBtnAction(_ sender:UIButton) {
         MoveToNextVC(identifier: "MyUpcommingMeetingController")
+    }
+    
+    @objc func BillingBtnAction(_ sender:UIButton) {
+        //MoveToNextVC(identifier: "MediaTypePurchasingController")
     }
     
 }

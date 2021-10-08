@@ -94,6 +94,19 @@ struct Constant {
     static let mediaColor = "mediaColor"
     static let produtsTypes = "produtsTypes"
     
+    //MARK: NOTIFICATION SETTING MODEL
+    static let notificationTitle = "notificationTitle"
+    static let notificationType = "notificationType"
+    
+    //MARK: TIER TASK MODEL
+    static let taskNumber = "taskNumber"
+    static let assigTo = "assigTo"
+    static let duaDate = "duaDate"
+    
+    //MARK: SEARCH USER MODEL
+    static let isChecked  = "isChecked"
+    static let imageName = "imageName"
+    
     //MARK:OTHRES
     static let tableviewHeaderHeight: CGFloat = 40
     static let tableviewHeaderXY: CGFloat = 0.0
@@ -114,5 +127,6 @@ struct Constant {
     static let yourTrialEndsIn2days = "Your trial ends in 2 days"
     static let yourTrialEndsTomorrow = "Your trial ends tomorrow!"
     static let yourTrialHasExpired = "Your trial has expired"
+    
     
 }

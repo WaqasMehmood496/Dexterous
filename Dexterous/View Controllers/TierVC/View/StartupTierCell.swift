@@ -1,13 +1,13 @@
 //
-//  tierwebdevelopTableViewCell.swift
+//  StartupTierCell.swift
 //  Dexterous
 //
-//  Created by Macbook Air on 9/14/21.
+//  Created by Mac on 07/10/2021.
 //
 
 import UIKit
 
-class tierwebdevelopTableViewCell: UITableViewCell {
+class StartupTierCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

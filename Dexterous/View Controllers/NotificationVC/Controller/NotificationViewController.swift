@@ -36,13 +36,16 @@ class NotificationViewController: UIViewController {
     }
     
     @IBAction func BackBtnAciton(_ sender: UIButton) {
-        self.navigationController?.dismiss(animated: true, completion: nil)
+        self.navigationController?.popViewController(animated: true)
     }
+    
     @IBAction func NotificationSettingBtnAction(_ sender: UIButton) {
         MoveToNextVC(identifier: "NotificationSettingController")
     }
     
 }
+
+
 
 //MARK:- HELPING METHOD'S
 extension NotificationViewController {

@@ -19,7 +19,6 @@ class LoginController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //addKeyboardObserverForScreenMoving()
         setPaddingOnFields(fields: [EmailTF,PasswordTF])
     }
     

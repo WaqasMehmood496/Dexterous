@@ -1,14 +1,18 @@
 //
-//  tierWebTableViewCell.swift
+//  SearchUserCell.swift
 //  Dexterous
 //
-//  Created by Macbook Air on 9/14/21.
+//  Created by Mac on 08/10/2021.
 //
 
 import UIKit
 
-class tierWebTableViewCell: UITableViewCell {
+class SearchUserCell: UITableViewCell {
 
+    @IBOutlet weak var UserImage: UIImageView!
+    @IBOutlet weak var SelectionCheckBoxBtn: UIButton!
+    @IBOutlet weak var UserName: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
