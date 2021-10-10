@@ -104,10 +104,17 @@ extension DashboardController {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.section == 1 {
+        if indexPath.section == 0 {
+            // When single task is selected move to task detail screen
+            if indexPath.row != 0{
+                MoveToNextVC(identifier: "AllProjectsController")
+            }
+        } else if indexPath.section == 1 {
             MoveToNextVC(identifier: "ProjectCompleteDetailController")
         } else if indexPath.section == 3 {
-            MoveToNextVC(identifier: "MediaTypeController")
+            if UserDefaults.standard.bool(forKey: Constant.userSkipTheLogin) == false {
+                MoveToNextVC(identifier: "MediaTypeController")
+            }
         }
     }
 }
@@ -243,7 +250,8 @@ extension DashboardController {
     
     func hideShadedView(cell:DashboardMediaTypeCell,indexpath:IndexPath) {
         //Hide Media type shade view
-        if indexpath.row == self.dashBoardData.mediaType.count {
+        //if indexpath.row == self.dashBoardData.mediaType.count {
+        if UserDefaults.standard.bool(forKey: Constant.userSkipTheLogin) {
             cell.BackShadeView.isHidden = false
         } else {
             cell.BackShadeView.isHidden = true
@@ -272,8 +280,9 @@ extension DashboardController {
         let pricingPage = self.getViewController(identifier: "MediaTypePurchasingController") as! MediaTypePurchasingController
         pricingPage.product = ProductModel(
             mediaType: "Video", mediaLogo: "Vid", mediaColor: "Green", produtsTypes: [
-            ProductTypesModel(title: "Get Started", price: "$1500", benifit: ["5 Keywords","1 Blog per month","On-site SEO: included such as SCHEMA Markup link structure, meta More"])
-        ])
+                ProductTypesModel(title: "Get Started", price: "$1500", benifit: ["5 Keywords","1 Blog per month","On-site SEO: included such as SCHEMA Markup link structure, meta More"])
+            ])
+        
         self.navigationController?.pushViewController(pricingPage, animated: true)
     }
     

@@ -26,6 +26,7 @@ class StartUpController: UIViewController {
         self.performSegue(withIdentifier: "BusinessSignupSegue", sender: nil)
     }
     @IBAction func SkipNowBtnAction(_ sender: UIButton) {
+        UserDefaults.standard.set(true, forKey: Constant.userSkipTheLogin)
         changeRootViewController(identifier: "TabbarController")
     }
     

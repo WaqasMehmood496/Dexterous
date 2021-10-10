@@ -55,6 +55,7 @@ class DashboardController: UIViewController {
         "Elizabeth Olsen 4"
     ]
     //VARIABLES
+    var isUserSkipLogin = false
     
     var dashBoardData: DashboardModel = DashboardModel()
     var attrs = [
@@ -66,6 +67,7 @@ class DashboardController: UIViewController {
         super.viewDidLoad()
         dashBoardData = DashboardModel(myTask: myTasks, projects: projects, media: media, mediaType: mediaType)
         self.DashboardTableView.reloadData()
+        isUserSkipLogin = UserDefaults.standard.bool(forKey: Constant.userSkipTheLogin)
         
     }
     
@@ -105,7 +107,7 @@ extension DashboardController {
     
     func moveToOptionPopup() {
         let optionPopupVC = getViewController(identifier: "popviewViewController") as! popviewViewController
-        optionPopupVC.array = ["New Chat","New Task","Upload Media","New Project","Order Marketing","Cancel"]
+        optionPopupVC.array = ["New Task","Upload Media","New Project","New Chat","Contact CRS","Order Marketing","Cancel"]
         optionPopupVC.popUpFrom = .home
         optionPopupVC.dashBoardDelegate = self
         self.parent?.tabBarController?.present(optionPopupVC, animated: false, completion: nil)

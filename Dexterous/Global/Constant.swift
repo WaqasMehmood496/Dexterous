@@ -128,5 +128,6 @@ struct Constant {
     static let yourTrialEndsTomorrow = "Your trial ends tomorrow!"
     static let yourTrialHasExpired = "Your trial has expired"
     
+    static let userSkipTheLogin = "userSkipTheLogin"
     
 }

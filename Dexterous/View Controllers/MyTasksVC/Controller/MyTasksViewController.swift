@@ -14,7 +14,6 @@ class MyTasksViewController: UIViewController {
     @IBOutlet weak var compTableView: UITableView!
     
     //VARIABLE'S
-    var popUpFrom:PopupType = .home
     var isHideSection = false
     
     override func viewDidLoad() {
@@ -34,7 +33,7 @@ class MyTasksViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "popviewViewController") as! popviewViewController
         controller.taskDelegate = self
-        controller.array = ["Add Task","New Project","Share","Cancel"]
+        controller.array = ["Add Task","New Project","Templates","Cancel"]
         controller.isredirectFrom = "TASK"
         controller.popUpFrom = .task
         self.parent?.tabBarController?.present(controller, animated: true, completion: nil)
@@ -64,6 +63,9 @@ extension MyTasksViewController {
     }
     func moveToCreateProjectTask() {
         self.MoveToNextVC(identifier: "StartAProjectController")
+    }
+    func moveToTemplates() {
+        self.MoveToNextVC(identifier: "AllTemplatesController")
     }
 }
 
@@ -115,6 +117,7 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
             if indexPath.row ==  3 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "MyTask2TableViewCell") as! MyTask2TableViewCell
                 cell.addbtn.addTarget(self, action: #selector(newTask), for: .touchUpInside)
+                clearCellSelectionColor(cell: cell)
                 return cell
             } else {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardMyTaskCell") as! DashboardMyTaskCell
@@ -129,7 +132,7 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        MoveToNextVC(identifier: "AllProjectsController")
     }
     
     func clearCellSelectionColor(cell:UITableViewCell) {
@@ -137,7 +140,6 @@ extension MyTasksViewController: UITableViewDelegate,UITableViewDataSource{
         view.backgroundColor = .clear
         cell.selectedBackgroundView = view
     }
-    
     
     @objc
     private func hideSection(sender: UIButton) {

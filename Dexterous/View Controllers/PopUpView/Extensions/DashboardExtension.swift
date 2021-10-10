@@ -13,15 +13,19 @@ extension popviewViewController {
     func dashboardControllerOptions(indexPath:IndexPath) {
         if indexPath.row == 0 {
             self.dismiss(animated: false) {
-                self.dashBoardDelegate.moveToNewChat()
+                self.dashBoardDelegate.moveToAddTask()
             }
         } else if indexPath.row == 1 {
             self.dismiss(animated: false) {
-                self.dashBoardDelegate.moveToAddTask()
+                
+            }
+        }  else if indexPath.row == 2 {
+            self.dismiss(animated: false) {
+                self.dashBoardDelegate.moveToCreateProject()
             }
         } else if indexPath.row == 3 {
             self.dismiss(animated: false) {
-                self.dashBoardDelegate.moveToCreateProject()
+                self.dashBoardDelegate.moveToNewChat()
             }
         } else if indexPath.row == 4 {
             self.dismiss(animated: false) {

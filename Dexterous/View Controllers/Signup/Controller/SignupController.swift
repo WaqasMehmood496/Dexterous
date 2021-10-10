@@ -32,9 +32,6 @@ class SignupController: UIViewController {
         takePhoto(btn: sender, title: "Upload profile photo?")
     }
     @IBAction func SignUpBtnAction(_ sender: UIButton) {
-        if let window = window {
-            //            changeRootViewController(identifier: "TabbarController", window: window)
-        }
     }
     @IBAction func SignInBtnAction(_ sender: UIButton) {
         self.performSegue(withIdentifier: "SignupTologinSegue", sender: nil)

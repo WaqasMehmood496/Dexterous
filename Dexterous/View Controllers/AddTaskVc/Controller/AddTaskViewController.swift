@@ -17,18 +17,20 @@ class AddTaskViewController: UIViewController {
     @IBOutlet weak var DueDateTF: UITextField!
     @IBOutlet weak var DetailTV: UITextView!
     @IBOutlet weak var CheckMarkBtn: UIButton!
+    @IBOutlet weak var ComponyLogo: UIImageView!
     
     //CONSTANT'S
     let simpleDataArray = ["Website", "Video", "Web"]
     //VARIBALE'S
     var selectedDropDownValues = [String]()
     var isNameAssigned = false
-    var isTaskAssign = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         showAssignToTeamDropDown()
         DetailTV.delegate = self
+        addComponyLogoTapGesture()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -43,9 +45,7 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func donebtn(_ sender: Any) {
-        print(isTaskAssign)
-        print(isNameAssigned)
-        if isTaskAssign == true && isNameAssigned == true {
+        if isNameAssigned == true {
             self.navigationController?.popViewController(animated: true)
         } else {
             PopupHelper.showAlertControllerWithError(forErrorMessage: "Please give a task name and assign atleast one person or team to create.", forViewController: self)
@@ -59,18 +59,33 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func CalanderBtnAction(_ sender: Any) {
-        MoveToNextVC(identifier: "MediaCalenderViewController")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchUserController = storyboard.instantiateViewController(withIdentifier: "DateSelectionController") as! DateSelectionController
+
+        self.present(searchUserController, animated: true, completion: nil)
     }
 }
 
 //MARK:- HELPING METHODS
 extension AddTaskViewController {
     
+    func addComponyLogoTapGesture() {
+        let logoTapGesture = UITapGestureRecognizer(target: self, action: #selector(ComponyLogoTapGesture(_:)))
+        self.ComponyLogo.addGestureRecognizer(logoTapGesture)
+        
+    }
+    
+    @objc func ComponyLogoTapGesture(_ sender: UITapGestureRecognizer) {
+        let logoController = getViewController(identifier: "ComponyLogosController") as! ComponyLogosController
+        self.parent?.tabBarController?.present(logoController, animated: false, completion: nil)
+    }
+    
     func MoveToNextVC(identifier:String)  {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(identifier: identifier)
         self.navigationController?.pushViewController(controller, animated: true)
     }
+    
     
     func showAssignToTeamDropDown() {
         
@@ -98,11 +113,6 @@ extension AddTaskViewController {
         AssignedByTF.selectedIndex = 0
         AssignedByTF.text = ""
         AssignedByTF.didSelect { (selectedText, index, id) in
-            //self.selectedMonth = String(index + 1)
-            self.isTaskAssign = true
-            if self.isTaskAssign == true && self.isNameAssigned == true {
-                self.CheckMarkBtn.tintColor = UIColor(named: "Green")
-            }
         }
     }
 }
@@ -138,7 +148,7 @@ extension AddTaskViewController: UITextFieldDelegate {
             isNameAssigned = true
         }
         
-        if self.isTaskAssign == true && self.isNameAssigned == true {
+        if self.isNameAssigned == true {
             self.CheckMarkBtn.tintColor = UIColor(named: "Green")
         }
         IQKeyboardManager.shared.enableAutoToolbar = false

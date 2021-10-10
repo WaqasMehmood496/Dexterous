@@ -31,7 +31,10 @@ class TiervViewController: UIViewController {
     
     //IBACTION'S
     @IBAction func tempBtn(_ sender: Any) {
-        //self.navigationController?.popViewController(animated: true)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let saveTemplateContoller = storyboard.instantiateViewController(withIdentifier: "SaveTemplateController") as! SaveTemplateController
+        saveTemplateContoller.delegate = self
+        self.present(saveTemplateContoller, animated: true, completion: nil)
     }
     
     @IBAction func cancelbtn(_ sender: Any) {
@@ -50,6 +53,28 @@ extension TiervViewController {
         let controller = storyboard.instantiateViewController(identifier: identifier)
         self.navigationController?.pushViewController(controller, animated: false)
     }
+    
+}
+
+//MARK: - DELEGATE METHOD'S
+extension TiervViewController {
+    
+    func tempRecordAdd(recordName:String) {
+        let tempData = TierTaskModel(
+            taskNumber: "First Task", taskName: "Website Design", assigTo: ["Ellipse 1","Ellipse 1","Ellipse 1"], duaDate: "12/01/2021"
+        )
+        self.tierTaskArray.append(tempData)
+        self.tierTableView.reloadData()
+    }
+    
+    func dateSelectionDelegate() {
+        tempRecordAdd(recordName: "")
+    }
+    
+    func saveTemplate(templateName:String) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
 }
 
 
@@ -129,6 +154,7 @@ extension TiervViewController:UITableViewDelegate,UITableViewDataSource{
         } else{
             sender.setImage(UIImage(named: "Icon awesome-check"), for: .normal)
         }
+        
         isAssignLaterSelected = !isAssignLaterSelected
     }
     
@@ -139,7 +165,10 @@ extension TiervViewController:UITableViewDelegate,UITableViewDataSource{
     }
     
     @objc func dueDateCalanderBtnAction (_ sender: UIButton) {
-        //MoveToNextVC(identifier: "")
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let searchUserController = storyboard.instantiateViewController(withIdentifier: "DateSelectionController") as! DateSelectionController
+        searchUserController.delegate = self
+        self.present(searchUserController, animated: true, completion: nil)
     }
     
 }

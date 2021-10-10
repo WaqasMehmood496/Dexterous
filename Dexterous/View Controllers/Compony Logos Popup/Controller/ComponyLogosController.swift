@@ -18,19 +18,38 @@ class ComponyLogosController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
     
     //IBACTION'S
-    @IBAction func DismisTapGuesture(_ sender: UITapGestureRecognizer) {
-        self.dismiss(animated: false, completion: nil)
-    }
     @IBAction func CancelBtnAction(_ sender: UIButton) {
         self.dismiss(animated: true)
     }
     
+    @IBAction func DismisControllerAction(_ sender: UITapGestureRecognizer) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func AddAccount(_ sender: UIButton) {
+        MoveToNextVC(identifier: "StartUpController")
+        
+    }
+    
 }
 
+//MARK: - HELPING METHOD'S
+extension ComponyLogosController {
+    func MoveToNextVC(identifier:String)  {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(identifier: identifier)
+        //self.navigationController?.pushViewController(controller, animated: false)
+        self.dismiss(animated: true) {
+            self.changeRootViewController(identifier: identifier)
+        }
+    }
+}
+
+
+//MARK: - UICOLLECTION VIEW DELEGATES AND DATA SOURCE METHOD'S
 extension ComponyLogosController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -44,7 +63,7 @@ extension ComponyLogosController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.dismiss(animated: true) {
-            //Call delegate Methods
+            //Call the delegate Methods to change the logo on dashboard.
         }
     }
 }

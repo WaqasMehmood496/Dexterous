@@ -27,6 +27,8 @@ class LoginController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     @IBAction func LoginBtnAction(_ sender: UIButton) {
+        // This default value will check user login or not if not show all media in gray color.
+        UserDefaults.standard.set(false, forKey: Constant.userSkipTheLogin)
         changeRootViewController(identifier: "TabbarController")
     }
     @IBAction func ForgotBtnAction(_ sender: UIButton) {

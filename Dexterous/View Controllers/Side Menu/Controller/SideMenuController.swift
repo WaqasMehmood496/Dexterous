@@ -26,6 +26,11 @@ class SideMenuController: UIViewController {
                 SideMenuOptionModel(image: "Group 2857", title: "Samantha Stone", type: "Design")
             ], groupTitle: "People"),
             SideMenuModel(data: [
+                SideMenuOptionModel(image: "Group 2857", title: "Push", type: ""),
+                SideMenuOptionModel(image: "Group 2857", title: "Products", type: ""),
+                SideMenuOptionModel(image: "Group 2857", title: "Templates", type: "")
+            ], groupTitle: "Dexterous"),
+            SideMenuModel(data: [
                 SideMenuOptionModel(image: "Group 2860", title: "Notifications", type: ""),
                 SideMenuOptionModel(image: "Group 2860", title: "Teams", type: "")
             ], groupTitle: "Settings"),
@@ -44,6 +49,7 @@ class SideMenuController: UIViewController {
     @IBAction func ShowProfile(_ sender: UIButton) {
         MoveToNextVC(identifier: "ProfileViewController")
     }
+    
     @IBAction func EditProfileBtnAction(_ sender: UIButton) {
         if sender.tag == 0 {
             MoveToNextVC(identifier: "EditBusinessAccountController")
@@ -57,6 +63,7 @@ class SideMenuController: UIViewController {
 
 //MARK:- HELPING METHOD'S
 extension SideMenuController {
+    
     func setTapGestureOnUserImage() {
         let userImageGesture = UITapGestureRecognizer(target: self, action: #selector(userImageTapGesture(_:)))
         self.UserImage.addGestureRecognizer(userImageGesture)
@@ -70,9 +77,7 @@ extension SideMenuController {
         let vc = (self.storyboard?.instantiateViewController(withIdentifier: identifier))!
         self.sideMenuController?.hideLeftView(animated: true, completion: {
             self.sideMenuController?.rootViewController?.show(vc, sender: self)
-        })
-        
-        
+        }) 
     }
 }
 
@@ -106,94 +111,34 @@ extension SideMenuController: UITableViewDelegate, UITableViewDataSource {
     //ROW METHOD'S
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if section == 0 {
-            return sideMenuArray[section].data.count + 1
-        } else if section == 1 {
+        if section == 1 || section == 2 {
             return sideMenuArray[section].data.count
         } else {
             return sideMenuArray[section].data.count + 1
         }
-        
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.section == 0 {
             // PEOPLE
-            if indexPath.row >= sideMenuArray[indexPath.section].data.count {
-                //INVITE TABLEVIEW CELL
-                let cell = tableView.dequeueReusableCell(withIdentifier: "InviteConnectionsTableViewCell", for: indexPath) as! InviteConnectionsTableViewCell
-                cell.InviteBtn.addTarget(self, action: #selector(inviteBtnAction(_:)), for: .touchUpInside)
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
-                cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
-                cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
-                cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
-                return cell
-            }
+            let peopleCell = peopleSectionCell(indexPath: indexPath,tableView:tableView)
+            return peopleCell
             
         } else if indexPath.section == 1 {
+            //DEXTEROUS
+            let dexterousCell = dexterousSectionCell(indexPath: indexPath, tableView: tableView)
+            return dexterousCell
+            
+        }  else if indexPath.section == 2 {
             //NOTIFICATIONS
-            let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
-            cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
-            cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
-            cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
-            
-            cell.SelectionBtn.tag = indexPath.row
-            
-            if self.sideMenuArray[indexPath.section].data[indexPath.row].title == "Notifications"{
-                cell.SelectionBtn.addTarget(self, action: #selector(notificationBtnAction(_:)), for: .touchUpInside)
-            } else {
-                cell.SelectionBtn.addTarget(self, action: #selector(editTeamsBtnAction(_:)), for: .touchUpInside)
-            }
-            
-            return cell
+            let notificationCell = notificationsSectionCell(indexPath: indexPath, tableView: tableView)
+            return notificationCell
             
         } else {
             // OTHERS
-            if indexPath.row >= sideMenuArray[indexPath.section].data.count {
-                //INVITE TABLEVIEW CELL
-                let cell = tableView.dequeueReusableCell(withIdentifier: "OtherTableViewCell", for: indexPath) as! OtherTableViewCell
-                cell.AddMarketingBtn.tag = indexPath.row
-                cell.AddMarketingBtn.addTarget(self, action: #selector(addMarketingBtnAction(_:)), for: .touchUpInside)
-                cell.ScheduleBtn.tag = indexPath.row
-                cell.ScheduleBtn.addTarget(self, action: #selector(scheduleAMettingBtnAction(_:)), for: .touchUpInside)
-                return cell
-            } else {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ConnectionsTableViewCell", for: indexPath) as! ConnectionsTableViewCell
-                cell.ConnectionImage.image = UIImage(named: self.sideMenuArray[indexPath.section].data[indexPath.row].image)
-                cell.NameLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].title
-                cell.OccupationLabel.text = self.sideMenuArray[indexPath.section].data[indexPath.row].type
-                cell.SelectionBtn.tag = indexPath.row
-                cell.SelectionBtn.addTarget(self, action: #selector(BillingBtnAction(_:)), for: .touchUpInside)
-                return cell
-            }
+            let otherCell = otherSectionCell(indexPath: indexPath, tableView: tableView)
+            return otherCell
         }
     }
-    
-    @objc func inviteBtnAction ( _ sender:UIButton) {
-        MoveToNextVC(identifier: "WhichTeamViewController")
-    }
-    
-    @objc func notificationBtnAction(_ sender:UIButton) {
-        MoveToNextVC(identifier: "NotificationViewController")
-    }
-    
-    @objc func editTeamsBtnAction(_ sender:UIButton) {
-        MoveToNextVC(identifier: "EditTeamViewController")
-    }
-    
-    @objc func addMarketingBtnAction(_ sender:UIButton) {
-        MoveToNextVC(identifier: "MemberShipController")
-    }
-    
-    @objc func scheduleAMettingBtnAction(_ sender:UIButton) {
-        MoveToNextVC(identifier: "MyUpcommingMeetingController")
-    }
-    
-    @objc func BillingBtnAction(_ sender:UIButton) {
-        //MoveToNextVC(identifier: "MediaTypePurchasingController")
-    }
-    
 }

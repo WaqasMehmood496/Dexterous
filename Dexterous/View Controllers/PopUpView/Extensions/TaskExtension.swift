@@ -18,6 +18,10 @@ extension popviewViewController {
             self.dismiss(animated: true) {
                 self.taskDelegate.moveToCreateProjectTask()
             }
+        } else {
+            self.dismiss(animated: true) {
+                self.taskDelegate.moveToTemplates()
+            }
         }
     }
 }

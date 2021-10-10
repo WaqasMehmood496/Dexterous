@@ -27,6 +27,11 @@
 		044B8B52270B3DAF0095FE17 /* EditBusinessAccountController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044B8B51270B3DAF0095FE17 /* EditBusinessAccountController.swift */; };
 		0451FD6A270720DC003BC19C /* ComponyLogosController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD69270720DC003BC19C /* ComponyLogosController.swift */; };
 		0451FD6C270721CB003BC19C /* ComponyLogoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0451FD6B270721CB003BC19C /* ComponyLogoCell.swift */; };
+		045C7D4127103BBC0009DB8A /* SaveTemplateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C7D4027103BBC0009DB8A /* SaveTemplateController.swift */; };
+		045C7D47271046DB0009DB8A /* AllTemplatesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C7D46271046DB0009DB8A /* AllTemplatesController.swift */; };
+		045C7D4927104BC40009DB8A /* TemplatesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C7D4827104BC40009DB8A /* TemplatesCell.swift */; };
+		045C7D4C271054360009DB8A /* NewTempleteView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 045C7D4B271054360009DB8A /* NewTempleteView.xib */; };
+		045C7D4F27105FC90009DB8A /* Side Menu Tableview Methods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045C7D4E27105FC80009DB8A /* Side Menu Tableview Methods.swift */; };
 		045EDB0627034A4B008FD3CD /* UIAlertControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */; };
 		046AC765270DE63000F177CD /* NotificationSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046AC764270DE63000F177CD /* NotificationSettingController.swift */; };
 		046AC767270DE7C800F177CD /* NotificationSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046AC766270DE7C800F177CD /* NotificationSettingsCell.swift */; };
@@ -35,6 +40,7 @@
 		04BD668D27101FAA007AB394 /* SearchUserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD668C27101FAA007AB394 /* SearchUserController.swift */; };
 		04BD668F27102033007AB394 /* SearchUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD668E27102033007AB394 /* SearchUserCell.swift */; };
 		04BD6691271027B9007AB394 /* SearchUserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD6690271027B9007AB394 /* SearchUserModel.swift */; };
+		04BD669727102F2B007AB394 /* DateSelectionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BD669627102F2B007AB394 /* DateSelectionController.swift */; };
 		04C4E1F5270DB9CB0056C491 /* StorageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4E1F4270DB9CB0056C491 /* StorageCell.swift */; };
 		04C4E1F7270DBBDB0056C491 /* RecentFileUploadCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4E1F6270DBBDB0056C491 /* RecentFileUploadCell.swift */; };
 		04C4E1FA270DBE260056C491 /* ActiveUserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C4E1F9270DBE260056C491 /* ActiveUserCell.swift */; };
@@ -227,6 +233,11 @@
 		044B8B51270B3DAF0095FE17 /* EditBusinessAccountController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditBusinessAccountController.swift; sourceTree = "<group>"; };
 		0451FD69270720DC003BC19C /* ComponyLogosController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponyLogosController.swift; sourceTree = "<group>"; };
 		0451FD6B270721CB003BC19C /* ComponyLogoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComponyLogoCell.swift; sourceTree = "<group>"; };
+		045C7D4027103BBC0009DB8A /* SaveTemplateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveTemplateController.swift; sourceTree = "<group>"; };
+		045C7D46271046DB0009DB8A /* AllTemplatesController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllTemplatesController.swift; sourceTree = "<group>"; };
+		045C7D4827104BC40009DB8A /* TemplatesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplatesCell.swift; sourceTree = "<group>"; };
+		045C7D4B271054360009DB8A /* NewTempleteView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewTempleteView.xib; sourceTree = "<group>"; };
+		045C7D4E27105FC80009DB8A /* Side Menu Tableview Methods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Side Menu Tableview Methods.swift"; sourceTree = "<group>"; };
 		045EDB0527034A4B008FD3CD /* UIAlertControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIAlertControllerExtension.swift; sourceTree = "<group>"; };
 		046AC764270DE63000F177CD /* NotificationSettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingController.swift; sourceTree = "<group>"; };
 		046AC766270DE7C800F177CD /* NotificationSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsCell.swift; sourceTree = "<group>"; };
@@ -235,6 +246,7 @@
 		04BD668C27101FAA007AB394 /* SearchUserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserController.swift; sourceTree = "<group>"; };
 		04BD668E27102033007AB394 /* SearchUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserCell.swift; sourceTree = "<group>"; };
 		04BD6690271027B9007AB394 /* SearchUserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchUserModel.swift; sourceTree = "<group>"; };
+		04BD669627102F2B007AB394 /* DateSelectionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSelectionController.swift; sourceTree = "<group>"; };
 		04C4E1F4270DB9CB0056C491 /* StorageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageCell.swift; sourceTree = "<group>"; };
 		04C4E1F6270DBBDB0056C491 /* RecentFileUploadCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentFileUploadCell.swift; sourceTree = "<group>"; };
 		04C4E1F9270DBE260056C491 /* ActiveUserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveUserCell.swift; sourceTree = "<group>"; };
@@ -605,6 +617,79 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		045C7D3C27103B850009DB8A /* Save Template Popup */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D3E27103B9E0009DB8A /* View */,
+				045C7D3D27103B970009DB8A /* Controller */,
+			);
+			path = "Save Template Popup";
+			sourceTree = "<group>";
+		};
+		045C7D3D27103B970009DB8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D4027103BBC0009DB8A /* SaveTemplateController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		045C7D3E27103B9E0009DB8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045C7D42271046AA0009DB8A /* All Templates */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D45271046C60009DB8A /* Model */,
+				045C7D44271046C00009DB8A /* View */,
+				045C7D43271046BB0009DB8A /* Controller */,
+			);
+			path = "All Templates";
+			sourceTree = "<group>";
+		};
+		045C7D43271046BB0009DB8A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D46271046DB0009DB8A /* AllTemplatesController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		045C7D44271046C00009DB8A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D4827104BC40009DB8A /* TemplatesCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		045C7D45271046C60009DB8A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		045C7D4A271054130009DB8A /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D4B271054360009DB8A /* NewTempleteView.xib */,
+			);
+			path = "Sub Views";
+			sourceTree = "<group>";
+		};
+		045C7D4D27105F980009DB8A /* Sub Views */ = {
+			isa = PBXGroup;
+			children = (
+				045C7D4E27105FC80009DB8A /* Side Menu Tableview Methods.swift */,
+			);
+			path = "Sub Views";
+			sourceTree = "<group>";
+		};
 		046AC761270DE5F400F177CD /* Notification Setting */ = {
 			isa = PBXGroup;
 			children = (
@@ -669,6 +754,38 @@
 			isa = PBXGroup;
 			children = (
 				04BD6690271027B9007AB394 /* SearchUserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		04BD669227102EF3007AB394 /* Date Selection */ = {
+			isa = PBXGroup;
+			children = (
+				04BD669527102F13007AB394 /* Model */,
+				04BD669427102F0F007AB394 /* View */,
+				04BD669327102F0A007AB394 /* Controller */,
+			);
+			path = "Date Selection";
+			sourceTree = "<group>";
+		};
+		04BD669327102F0A007AB394 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				04BD669627102F2B007AB394 /* DateSelectionController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		04BD669427102F0F007AB394 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		04BD669527102F13007AB394 /* Model */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -826,6 +943,9 @@
 		760CA20926EF584200257571 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				045C7D42271046AA0009DB8A /* All Templates */,
+				045C7D3C27103B850009DB8A /* Save Template Popup */,
+				04BD669227102EF3007AB394 /* Date Selection */,
 				04BD668827101F68007AB394 /* Search User */,
 				046AC761270DE5F400F177CD /* Notification Setting */,
 				044B8B4E270B3D700095FE17 /* Edit Business Acoount */,
@@ -1062,6 +1182,7 @@
 		761D3E3126F0B95800B20D02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				045C7D4D27105F980009DB8A /* Sub Views */,
 				761D3E3226F0B96F00B20D02 /* SideMenuController.swift */,
 			);
 			path = Controller;
@@ -1376,6 +1497,7 @@
 		7633094426F4E390009D95EC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				045C7D4A271054130009DB8A /* Sub Views */,
 				0434121F270F10FA006F64DD /* StartupTierCell.swift */,
 				04341221270F1169006F64DD /* AllTaskTierCell.swift */,
 				04341223270F1190006F64DD /* NewTierTaskCell.swift */,
@@ -1949,6 +2071,7 @@
 				760CA22626EF686900257571 /* Montserrat-LightItalic.ttf in Resources */,
 				76483AC626F2023A00A7A30F /* DashboardFooter.xib in Resources */,
 				760CA22B26EF686900257571 /* Montserrat-ExtraLight.ttf in Resources */,
+				045C7D4C271054360009DB8A /* NewTempleteView.xib in Resources */,
 				760CA22726EF686900257571 /* Montserrat-Medium.ttf in Resources */,
 				760CA19426EF557500257571 /* LaunchScreen.storyboard in Resources */,
 				760CA19126EF557500257571 /* Assets.xcassets in Resources */,
@@ -2101,6 +2224,7 @@
 				763309A726F4E394009D95EC /* WorkRequestViewController.swift in Sources */,
 				761C193926F386AE0012E170 /* AllProjectsController.swift in Sources */,
 				04140A072708748C0045B32C /* NewChatController.swift in Sources */,
+				04BD669727102F2B007AB394 /* DateSelectionController.swift in Sources */,
 				046AC767270DE7C800F177CD /* NotificationSettingsCell.swift in Sources */,
 				76A2256D26F3469F00AFAF7E /* BasicPlanTableViewCell.swift in Sources */,
 				7633098826F4E394009D95EC /* SignupBusinesssViewController.swift in Sources */,
@@ -2139,6 +2263,7 @@
 				760CA1EC26EF575E00257571 /* NVActivityIndicatorPresenter.swift in Sources */,
 				76EE795026FCAD56001F9D6B /* EditProfileFieldsTableViewCell.swift in Sources */,
 				763309A026F4E394009D95EC /* AddTeam1TableViewCell.swift in Sources */,
+				045C7D47271046DB0009DB8A /* AllTemplatesController.swift in Sources */,
 				762B151726EF9F8A0046172C /* ServicesCollectionViewCell.swift in Sources */,
 				763309C626F4E567009D95EC /* AddTaskViewController.swift in Sources */,
 				045EDB0627034A4B008FD3CD /* UIAlertControllerExtension.swift in Sources */,
@@ -2163,6 +2288,7 @@
 				762B150F26EF9B070046172C /* SkipNowController.swift in Sources */,
 				04BD668D27101FAA007AB394 /* SearchUserController.swift in Sources */,
 				760CA1EB26EF575E00257571 /* urlHelper.swift in Sources */,
+				045C7D4927104BC40009DB8A /* TemplatesCell.swift in Sources */,
 				76C3297926F4AF3700623E75 /* StartAProjectController.swift in Sources */,
 				763309AE26F4E394009D95EC /* Media4TableViewCell.swift in Sources */,
 				7633099A26F4E394009D95EC /* popedituserViewController.swift in Sources */,
@@ -2175,7 +2301,9 @@
 				765B364026F36EDA008B24F6 /* UserPlanTableViewCell.swift in Sources */,
 				04BD668F27102033007AB394 /* SearchUserCell.swift in Sources */,
 				761D294326F23B8B006E2E50 /* MediaTypeDetailViewController.swift in Sources */,
+				045C7D4127103BBC0009DB8A /* SaveTemplateController.swift in Sources */,
 				7633090226F4D414009D95EC /* AddACommentTableViewCell.swift in Sources */,
+				045C7D4F27105FC90009DB8A /* Side Menu Tableview Methods.swift in Sources */,
 				04056C712704916900DD6432 /* MembershipPriceModel.swift in Sources */,
 				04140A09270874B90045B32C /* NewChatCell.swift in Sources */,
 				04BD6691271027B9007AB394 /* SearchUserModel.swift in Sources */,
